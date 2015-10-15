@@ -3,25 +3,49 @@ using System.Collections;
 
 public class BreakerProperties : MonoBehaviour {
 
+	public float threshhold = 0f;
 	public float transmissionBus = 69f;
-	//GameObject frequency = PowerlineProperties;
-	//public PowerlineProperties powerline;
-	//powerline = GameObject.GetComponent<PowerlineProperties>();
+	public float voltage;
+	public float frequency;
+	public float current;
 
 	// Use this for initialization
 	void Start () {
 		//reference the PowerlineProperties via powerline
 		GameObject pl = GameObject.Find ("Powerline");
 		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
+		if (powerline.voltage != 69) {
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//checks voltage, frequency, current
+		//reference the PowerlineProperties via powerline
+		GameObject pl = GameObject.Find ("Powerline");
+		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
 
-		//ensure voltage is within 5% of accepted range (69 kV)
-		if ((powerline.voltage != .95 * 69) || (powerline.voltage != 1.05 * 69)) {
-			//TRIPS ITSELF -> Shuts down breaker
+		//ensure voltage is within 5% of accepted transmissionBus range
+		voltage = powerline.voltage;
+		if ((powerline.voltage >= 1.05 * transmissionBus) ||(powerline.voltage <= .95 * transmissionBus)) {
+			BreakerTrip ();
 		}
+
+		//ensure frequency is within .01% of 60 hertz
+		frequency = powerline.frequency;
+		if ((frequency >= 60.0001) || (frequency <= 59.9999)){
+			BreakerTrip ();
+		}
+
+		//ensure current is within threshold
+		current = powerline.current;
+		if (current > threshhold) {
+			BreakerTrip ();
+		}
+
+	
+	}
+
+	void BreakerTrip(){
+
 	}
 }
