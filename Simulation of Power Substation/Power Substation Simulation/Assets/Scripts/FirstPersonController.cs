@@ -11,7 +11,9 @@ public class FirstPersonController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.lockCursor = true;
+		//Screen.lockCursor = true;
+		//Cursor.lockState = true;
+		Cursor.visible = false;
 	}
 	
 	// Update is called once per frame
