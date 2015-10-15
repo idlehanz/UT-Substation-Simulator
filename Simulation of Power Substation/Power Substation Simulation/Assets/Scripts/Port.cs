@@ -18,7 +18,7 @@ public class Port : MonoBehaviour {
 	private float current = 0;
 
 	void Start() {
-		
+		//No setup
 	}
 
 	void Update() {
@@ -54,7 +54,7 @@ public class Port : MonoBehaviour {
 	
 	public void MakeSource(float v) { voltage = v; current = 0; is_source = true; is_sink = false; }		
 	public void MakeSink(float c) { voltage = 0; current = c; is_source = false; is_sink = true; }
-	public void MakeConductor() { is_source = false; is_sink = false; }
+	public void MakeConductor() { voltage = 0; current = 0; is_source = false; is_sink = false; }
 	public float GetCurrent() { return current; }
 	public float GetVoltage() { return voltage; }
 }
