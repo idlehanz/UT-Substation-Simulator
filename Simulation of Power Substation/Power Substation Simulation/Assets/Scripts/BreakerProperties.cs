@@ -5,17 +5,13 @@ public class BreakerProperties : MonoBehaviour {
 
 	public float threshhold = 0f;
 	public float transmissionBus = 69f;
+	
 	public float voltage;
 	public float frequency;
 	public float current;
 
 	// Use this for initialization
 	void Start () {
-		//reference the PowerlineProperties via powerline
-		GameObject pl = GameObject.Find ("Powerline");
-		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
-		if (powerline.voltage != 69) {
-		}
 	}
 	
 	// Update is called once per frame
@@ -26,7 +22,7 @@ public class BreakerProperties : MonoBehaviour {
 
 		//ensure voltage is within 5% of accepted transmissionBus range
 		voltage = powerline.voltage;
-		if ((powerline.voltage >= 1.05 * transmissionBus) ||(powerline.voltage <= .95 * transmissionBus)) {
+		if ((powerline.voltage >= 1.05 * transmissionBus) || (powerline.voltage <= .95 * transmissionBus)) {
 			BreakerTrip ();
 		}
 
@@ -42,10 +38,16 @@ public class BreakerProperties : MonoBehaviour {
 			BreakerTrip ();
 		}
 
-	
+
+	}
+
+	void OnGUI(){
+		GameObject pl = GameObject.Find ("Powerline");
+		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
+		GUI.Label (new Rect(10,10, 100, 20), powerline.voltage.ToString());
 	}
 
 	void BreakerTrip(){
-
+		//removes connection stops power flow
 	}
 }

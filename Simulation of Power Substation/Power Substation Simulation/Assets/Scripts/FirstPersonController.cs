@@ -26,13 +26,7 @@ public class FirstPersonController : MonoBehaviour {
 		verticleRotation = Mathf.Clamp (verticleRotation, -upDownRange, upDownRange);
 		Camera.main.transform.localRotation = Quaternion.Euler (verticleRotation, 0, 0);
 
-		/*
-		float rotUpDown = Input.GetAxis ("Mouse Y") * mouseSensitivity;//pitch
-		float currentUpDown = Camera.main.transform.rotation.eulerAngles.x;
-		float desiredUpDown = currentUpDown - rotUpDown;
-		desiredUpDown = Mathf.Clamp (desiredUpDown, -upDownRange, upDownRange);
-		Camera.main.transform.localRotation = Quaternion.Euler (desiredUpDown, 0, 0);
-		*/
+
 
 		//Movement
 		float forwardSpeed = Input.GetAxis ("Vertical");
