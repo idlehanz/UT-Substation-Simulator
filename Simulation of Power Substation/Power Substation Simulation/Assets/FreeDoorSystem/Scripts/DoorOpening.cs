@@ -173,7 +173,7 @@ public class DoorOpening : MonoBehaviour {
 		GameObject Player = GameObject.Find("Player");
 		RayCasting raycasting = Player.GetComponent<RayCasting>();
 
-		if (raycasting.InReach == true)
+		if (raycasting.InReach == true && raycasting.hitTag == "Door")
 		{
 			GUI.color = Color.white;
 			GUI.Box(new Rect(20, 20, 200, 25), "Press 'E' to open/close");

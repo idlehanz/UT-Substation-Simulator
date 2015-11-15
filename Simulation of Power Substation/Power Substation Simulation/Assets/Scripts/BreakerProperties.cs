@@ -42,9 +42,22 @@ public class BreakerProperties : MonoBehaviour {
 	}
 
 	void OnGUI(){
+		GameObject Player = GameObject.Find("Player");
+		RayCasting raycasting = Player.GetComponent<RayCasting>();
+		
+		if (raycasting.InReach == true && raycasting.hitTag == "Breaker")
+		{
+			GUI.color = Color.white;
+			GUI.Box(new Rect(20, 20, 200, 40), "Breaker Voltage: " + voltage.ToString() + "\n" + 
+			        "Breaker Frequency: " + frequency.ToString());
+		}
+
+		/*
 		GameObject pl = GameObject.Find ("Powerline");
 		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
-		GUI.Label (new Rect(10,10, 100, 20), powerline.voltage.ToString());
+		GUI.Label (new Rect(10, 10, 1000, 20), "Powerline Voltage: " + powerline.voltage.ToString());
+		GUI.Label (new Rect(10, 20, 1000, 20), "Breaker Voltage:   " + voltage.ToString());
+		*/
 	}
 
 	void BreakerTrip(){

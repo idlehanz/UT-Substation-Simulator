@@ -12,6 +12,7 @@ public class RayCasting : MonoBehaviour
 	//INSPECTOR SETTINGS
 	public float Reach = 5F; // Within this radius the player is able to open/close the door.
 
+	public string hitTag;
 	//PRIVATE SETTINGS
 	[HideInInspector] public bool InReach;
 
@@ -33,11 +34,11 @@ public class RayCasting : MonoBehaviour
 		RaycastHit hit; // Variable reading information about the collider hit.
 
 		// Cast a ray from the center of screen towards where the player is looking.
-		if (Physics.Raycast (ray, out hit, Reach) && hit.collider.tag == "Door")
+		if (Physics.Raycast (ray, out hit, Reach))
 		{
 			InReach = true;
-
-			if (Input.GetKey(KeyCode.E))
+			hitTag = hit.collider.tag;
+			if (Input.GetKey(KeyCode.E) && hit.collider.tag == "Door")
 			{
 				// Give the object that was hit the name 'Door'.
 				GameObject Door = hit.transform.gameObject;
