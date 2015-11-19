@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TransformerProperties : MonoBehaviour {
+public class TransformerLeftProperties : MonoBehaviour {
 	public float step = 3.6315f;
 	
 	public float voltage;
@@ -15,8 +15,8 @@ public class TransformerProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject br = GameObject.Find ("Breaker");
-		BreakerProperties breaker = br.GetComponent<BreakerProperties> ();
+		GameObject br = GameObject.Find ("Breaker Left");
+		BreakerLeftProperties breaker = br.GetComponent<BreakerLeftProperties> ();
 
 		//pass through variables
 		voltage = breaker.voltage;
@@ -33,7 +33,8 @@ public class TransformerProperties : MonoBehaviour {
 		if (raycasting.InReach == true && raycasting.hitTag == "Transformer")
 		{
 			GUI.color = Color.white;
-			GUI.Box(new Rect(20, 20, 200, 25), "Transformer Voltage: " + voltage.ToString());
+			GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + voltage.ToString() + "\n" + 
+			        "Transformer Frequency: " + frequency.ToString() + "\nTransformer Current: " + current.ToString());
 		}
 		
 		/*

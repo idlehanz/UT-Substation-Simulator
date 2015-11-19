@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BreakerProperties : MonoBehaviour {
+public class BreakerLeftProperties : MonoBehaviour {
 
 	public float threshhold = 0f;
 	public float transmissionBus = 69f;
@@ -17,8 +17,8 @@ public class BreakerProperties : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//reference the PowerlineProperties via powerline
-		GameObject pl = GameObject.Find ("Powerline");
-		PowerlineProperties powerline = pl.GetComponent<PowerlineProperties> ();
+		GameObject pl = GameObject.Find ("Powerline Left");
+		PowerlineLeftProperties powerline = pl.GetComponent<PowerlineLeftProperties> ();
 
 		//ensure voltage is within 5% of accepted transmissionBus range
 		voltage = powerline.voltage;
@@ -35,7 +35,7 @@ public class BreakerProperties : MonoBehaviour {
 		//ensure current is within threshold
 		current = powerline.current;
 		if (current > threshhold) {
-			BreakerTrip ();
+			//BreakerTrip ();
 		}
 
 
@@ -48,8 +48,8 @@ public class BreakerProperties : MonoBehaviour {
 		if (raycasting.InReach == true && raycasting.hitTag == "Breaker")
 		{
 			GUI.color = Color.white;
-			GUI.Box(new Rect(20, 20, 200, 40), "Breaker Voltage: " + voltage.ToString() + "\n" + 
-			        "Breaker Frequency: " + frequency.ToString());
+			GUI.Box(new Rect(20, 20, 200, 55), "Breaker Voltage: " + voltage.ToString() + "\n" + 
+			        "Breaker Frequency: " + frequency.ToString() + "\nBreaker Current: " + current.ToString());
 		}
 
 		/*
@@ -62,5 +62,8 @@ public class BreakerProperties : MonoBehaviour {
 
 	void BreakerTrip(){
 		//removes connection stops power flow
+		voltage = 0;
+		frequency = 0;
+		current = 0;
 	}
 }

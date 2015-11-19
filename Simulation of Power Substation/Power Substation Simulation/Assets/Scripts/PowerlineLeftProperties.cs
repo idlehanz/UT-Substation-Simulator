@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PowerlineProperties : MonoBehaviour {
+public class PowerlineLeftProperties : MonoBehaviour {
 
 	public float frequency = 60f;//hertz, HAS TO BE 60!
-	public float current;
+	public float current = 200f;
 	public float lineImpedance = 34.5f;
 	public float voltage = 69f;
 
@@ -14,7 +14,7 @@ public class PowerlineProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		current = voltage / lineImpedance; 
+		//current = voltage / lineImpedance; 
 	}
 
 	void OnGUI(){
@@ -24,8 +24,8 @@ public class PowerlineProperties : MonoBehaviour {
 		if (raycasting.InReach == true && raycasting.hitTag == "Powerline")
 		{
 			GUI.color = Color.white;
-			GUI.Box(new Rect(20, 20, 200, 40), "Powerline Voltage: " + voltage.ToString() + 
-			        "\nPowerline Frequency: " + frequency.ToString());
+			GUI.Box(new Rect(20, 20, 200, 55), "Powerline Voltage: " + voltage.ToString() + 
+			        "\nPowerline Frequency: " + frequency.ToString() + "\nPowerline Current: " + current.ToString());
 		}
 		
 
