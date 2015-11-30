@@ -21,7 +21,7 @@ public class PowerlineRightProperties : MonoBehaviour {
 		GameObject Player = GameObject.Find("Player");
 		RayCasting raycasting = Player.GetComponent<RayCasting>();
 		
-		if (raycasting.InReach == true && raycasting.hitTag == "Powerline")
+		if (raycasting.InReach == true && raycasting.hitTag == "PowerlineRight")
 		{
 			GUI.color = Color.white;
 			GUI.Box(new Rect(20, 20, 200, 55), "Powerline Voltage: " + voltage.ToString() + 

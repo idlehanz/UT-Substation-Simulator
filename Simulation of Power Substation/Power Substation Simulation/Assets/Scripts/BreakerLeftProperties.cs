@@ -45,7 +45,7 @@ public class BreakerLeftProperties : MonoBehaviour {
 		GameObject Player = GameObject.Find("Player");
 		RayCasting raycasting = Player.GetComponent<RayCasting>();
 		
-		if (raycasting.InReach == true && raycasting.hitTag == "Breaker")
+		if (raycasting.InReach == true && raycasting.hitTag == "BreakerLeft")
 		{
 			GUI.color = Color.white;
 			GUI.Box(new Rect(20, 20, 200, 55), "Breaker Voltage: " + voltage.ToString() + "\n" + 

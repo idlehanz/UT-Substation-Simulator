@@ -30,7 +30,7 @@ public class TransformerLeftProperties : MonoBehaviour {
 		GameObject Player = GameObject.Find("Player");
 		RayCasting raycasting = Player.GetComponent<RayCasting>();
 		
-		if (raycasting.InReach == true && raycasting.hitTag == "Transformer")
+		if (raycasting.InReach == true && raycasting.hitTag == "TransformerLeft")
 		{
 			GUI.color = Color.white;
 			GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + voltage.ToString() + "\n" + 
