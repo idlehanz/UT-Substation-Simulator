@@ -1,0 +1,84 @@
+==================================================================================
+Hello, welcome to the documentation for this FREE Door System!
+You'll find a quick step-by-step guide and other important things you need to know
+when using this asset.
+==================================================================================
+
+
+==================================================================================
+INDEX
+1. Setup
+  1.1. Things you'll need that are NOT included in this asset
+  1.2. Things that ARE included in this asset
+  1.3. Step-by-step setup guide
+  1.4. Other important stuff
+
+2. Copyright and Contact
+  2.1. Copyright (IMPORTANT)
+  2.2. Contact
+==================================================================================
+
+
+==================================================================================
+1. Setup
+==================================================================================
+  1.1. Things you'll need that are NOT included in this asset
+    --> A character that is able to move/look around in the game world
+    --> Some 3D objects that you want to use as doors
+==================================================================================
+  1.2. Things that ARE included in this asset
+    --> An example scene
+    --> A 'RayCasting' script to detect doors
+    --> A 'DoorOpening' script to open/close the doors
+==================================================================================
+  1.3. Step-by-step setup guide
+    1) Import the asset
+    2) Create and assign the tag 'Door' to all of the objects you want to use as doors
+      --> You can create a new tag by clicking on the door, going to the tag menu and
+          clicking 'Add tag ...' on he drop-down menu
+      --> if you want to use another tag to identify doors, you can set this
+          in the 'RayCasting' script on line 31
+    3) Click and drag the 'RayCasting' script onto your character
+    4) Click and drag the 'DoorOpeningScript' onto ALL of your doors
+    5) Experiment with the settings
+      --> if you need extra explanation about the variables, you can find details
+          about them in the script itself where they are assigned
+==================================================================================
+VERY IMPORTANT:
+Make sure your door has a collider component, otherwise the system won't be able
+to detect the presence of a door.
+
+Make sure that the 'length' of the door is determined by the scale.x variable,
+this means that scale.x should always have a greater value than scale.z. You
+can rotate the door all you want to get it in the desired position. In future
+updates I will make it so that you won't have to worry about this.
+==================================================================================
+  1.4. Other important stuff
+    --> Sometimes you'll see commented-out sections in the scripts, these sections
+        can be two things:
+          1) Code used for debugging
+          2) Extra information about the code, functions or variables
+    --> There is one case where the script returns an error
+        (when 'OpenAngle' exceeds 180 degrees). This is a problem still being
+        worked on and will be probably solved in the next update.
+==================================================================================
+
+==================================================================================
+2. Copyright and Contact
+==================================================================================
+  2.1. Copyright (IMPORTANT)
+    --> 'RayCasting', 'DoorOpening', the materials and the 3D objects were
+        all created by myself, you are free to use them however you like. If you
+        use this script in a game of yours, it would be nice though if you notify
+        me so I can take a look :)
+    --> 'MouseLook' and 'PlayerMovement' are scripts from the website:
+        'http://wiki.unity3d.com/index.php/Scripts'. These are not created by me.
+        They are just used in the script to give you an idea of how you can use
+        this door opening system. The contents of this website are available
+        under 'Creative Commons Attribution Share Alike'.
+==================================================================================
+  2.2. Contact
+    --> If you have questions, suggestions, want to give your opinion or need
+        support, feel free to e-mail me at 'alexanderameye@gmail.com'
+==================================================================================
+GOOD LUCK!
