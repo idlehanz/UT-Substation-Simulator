@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 
 
+
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour {
 
@@ -13,8 +14,11 @@ public class PlayerMovement : MonoBehaviour {
     public bool lockMouseCursor = false;//if we want to lock the mouse we can change it in the editor, but for now it's set to false by default.
     public Transform LookTransform;
 
+    public string noClipKey = "n";//this is the key we will bind the no clip to,
 
 
+    public bool noClip = false;
+    protected bool clipChanged = false;
 
 
     //the following variables are used for the old method of movement,
@@ -33,6 +37,17 @@ public class PlayerMovement : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
         rigidBody.freezeRotation = true;//freeze rotation so we don't go rolling off
 
+        //set the clipping settings
+        if (noClip)
+        {
+            rigidBody.isKinematic = true;
+            rigidBody.detectCollisions = false;
+        }
+        else
+        {
+            rigidBody.isKinematic = false;
+            rigidBody.detectCollisions = true;
+        }
 
         //set the cursor lock state
         if (lockMouseCursor)
@@ -53,14 +68,45 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
+
         updateMovement();//update our movement
-		
+       
+        updateNoClipStatus();//update our no clip status,
 	}
+
+    /*function to update the no clip status for the player*/
+    protected void updateNoClipStatus()
+    {
+        //check if the key we bound the no clip to was pressed
+        if (Input.GetKeyDown(noClipKey))
+        {
+            //make sure we only change the state once per press
+            if (clipChanged == false)
+            {
+                //swap the clip values.
+                noClip = !noClip;
+                clipChanged = true;
+                rigidBody.isKinematic = !rigidBody.isKinematic;
+                rigidBody.detectCollisions = !rigidBody.detectCollisions;
+            }
+        }
+        else
+            clipChanged = false;
+    }
 
     //this function will define the movement for the player.
     //for this simulation we will keep the player on a flat plane so the movement is fairly simple,
     //it uses a constant movement speed so the controls feel tigher and we don't feel like we're walking on ice.
     void updateMovement()
+    {
+      
+        //tell the rigid body to move to our new position.
+        rigidBody.MovePosition(transform.position + calculateVelocity());
+    }
+
+    
+    //function to get the velocity for a given update.
+    protected Vector3 calculateVelocity()
     {
         //we will use the default key bindings from unity,
         //w and s are locked to the tag Horizontal, and a and d to verticle,
@@ -71,10 +117,9 @@ public class PlayerMovement : MonoBehaviour {
         //get our horizontal and vertical velocity
         Vector3 horizontalVelocity = Vector3.Cross(transform.up, LookTransform.forward).normalized * horizontalComponent * Time.deltaTime * Velocity;
         Vector3 verticalVelocity = Vector3.Cross(transform.up, -LookTransform.right).normalized * verticleComponent * Time.deltaTime * Velocity;
-
-        //tell the rigid body to move to our new position.
-        rigidBody.MovePosition(transform.position + horizontalVelocity + verticalVelocity);
+        return horizontalVelocity + verticalVelocity;//return the velocity
     }
+
 
     //this function is the original movement method as defined by the previous teams.
     //kept for prosperity just in case we need to restore it easily.
