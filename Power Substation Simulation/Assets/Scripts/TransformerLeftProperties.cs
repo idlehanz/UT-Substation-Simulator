@@ -15,7 +15,7 @@ public class TransformerLeftProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject br = GameObject.Find ("Breaker Left");
+		GameObject br = GameObject.Find ("Breaker L");
 		BreakerLeftProperties breaker = br.GetComponent<BreakerLeftProperties> ();
 
 		//pass through variables
