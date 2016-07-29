@@ -10,7 +10,8 @@ public class WireScript: MonoBehaviour
     public float jcoeff = 0.014F;
     public float jIntc = 67.05F;
 
-    
+
+
 
     void Start()
     {
