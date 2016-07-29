@@ -8,14 +8,20 @@ public class TransformerLeftProperties : MonoBehaviour {
 	public float frequency;
 	public float current;
 
-	// Use this for initialization
-	void Start () {
+
+
+
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        
 		GameObject br = GameObject.Find ("Breaker L");
+        
 		BreakerLeftProperties breaker = br.GetComponent<BreakerLeftProperties> ();
 
 		//pass through variables
