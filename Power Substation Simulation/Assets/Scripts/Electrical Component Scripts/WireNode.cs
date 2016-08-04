@@ -2,8 +2,11 @@
  */
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class WireNode : MonoBehaviour {
+class WireNode : MonoBehaviour {
+
+    public List<WireNode> nodes;
     //we will treat the wirenodes as a single linked list,
     //each node will be responsable for rendering the wire to the node in front of it,
     //in order to do that we need a reference to the next node, this reference will be set in the editor.

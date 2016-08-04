@@ -10,6 +10,7 @@ public class OutputLeftProperties : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log("starting output script");
 	}
 	
 	// Update is called once per frame

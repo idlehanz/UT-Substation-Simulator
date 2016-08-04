@@ -19,6 +19,8 @@ public class RayCasting : MonoBehaviour
 	//DEBUGGING
 	public Color DebugRayColor = Color.red;
 
+    public GameObject hitObject;
+
 	//START FUNCTION
 	void Start()
 	{
@@ -38,6 +40,7 @@ public class RayCasting : MonoBehaviour
 		{
 			InReach = true;
 			hitTag = hit.collider.tag;
+            hitObject = hit.transform.gameObject;
 			if (Input.GetKey(KeyCode.E) && hit.collider.tag == "Door")
 			{
 				// Give the object that was hit the name 'Door'.
@@ -53,6 +56,10 @@ public class RayCasting : MonoBehaviour
 					StartCoroutine (hit.collider.GetComponent<DoorOpening>().Open());
 				}
 			}
+
+
+            
+
 		}
 
 		else InReach = false;
