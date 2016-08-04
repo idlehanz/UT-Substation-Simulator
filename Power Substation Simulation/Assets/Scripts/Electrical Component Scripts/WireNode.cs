@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 class WireNode : MonoBehaviour {
 
+    //a list to hold the nodes that this node will render to.
     public List<WireNode> nodes;
-    //we will treat the wirenodes as a single linked list,
-    //each node will be responsable for rendering the wire to the node in front of it,
-    //in order to do that we need a reference to the next node, this reference will be set in the editor.
-    public WireNode nextNode;
+    
+
+
     public Material wireMaterial;
 
     //some values for the wire we will render, they will have default values but we can change them in the editor,
@@ -19,6 +19,8 @@ class WireNode : MonoBehaviour {
 
     //later, if we want to add sagging we will recalculate, but for now we just have 2 points, the start and end point.
     protected int numVertexes = 2;
+
+    
 
     
     protected LineRenderer lineRenderer;
@@ -33,32 +35,39 @@ class WireNode : MonoBehaviour {
         //should we render the white blocks?
         if (!renderMesh)            
             Destroy(gameObject.GetComponent<MeshRenderer>());
-        //do we have a next node? if so create a line renderer
-        if (nextNode != null)
-        {            
-            lineRenderer = gameObject.AddComponent<LineRenderer>();
-            lineRenderer.useWorldSpace = true;
-            lineRenderer.material = wireMaterial;
-            lineRenderer.SetColors(wireColor, wireColor);
-            lineRenderer.SetWidth(wireWidth, wireWidth);
-            lineRenderer.SetVertexCount(2);
+        
 
-
-            
-            //now render the wire.
-            //NOTE: right now I'm only setting 2 verticies for the line, the start and end position,
-            //it makes for a very rigid looking wire, 
-            Vector3[] points = new Vector3[numVertexes];
-            points[0] = transform.position;
-            points[numVertexes - 1] = nextNode.transform.position;
-            for (int i = 1; i < numVertexes - 1; i++)
+        numVertexes = 0;//keep track of how many verts we are adding
+        List<Vector3> points = new List<Vector3>();//a list to hold the points
+        foreach (WireNode n in nodes)//loop through the list.
+        {
+            //make sure this element isn't null to avoid errors
+            if (n != null)
             {
-                //do math for other verticies.
+                //add the start point, this wire nodes position
+                points.Add(transform.position);
+                numVertexes++;
+                for (int i = 0; i < 1; i++)
+                {
+                    //do math for other verticies
+                }
+                //add the final position.
+                points.Add(n.transform.position);
+                numVertexes++;
             }
-            lineRenderer.SetPositions(points);
-
-
         }
+
+
+
+        //create a line render object
+        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.useWorldSpace = true;
+        lineRenderer.material = wireMaterial;
+        lineRenderer.SetColors(wireColor, wireColor);
+        lineRenderer.SetWidth(wireWidth, wireWidth);
+        lineRenderer.SetVertexCount(numVertexes);
+        lineRenderer.SetPositions(points.ToArray());
+       
 	}
 	
 	// Update is called once per frame
