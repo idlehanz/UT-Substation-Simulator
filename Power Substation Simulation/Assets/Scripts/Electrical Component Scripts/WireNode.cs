@@ -67,7 +67,6 @@ class WireNode : MonoBehaviour
         //numVerticies =(int)( (distanceBetweenNodes / vertexDistance) * vertexDensity);
         numVerticies = (int)(distanceBetweenNodes / vertexDistance);
         Vector3 positionStep = (nextNode.transform.position - transform.position) / numVerticies;
-        Debug.Log("Distance: " + distanceBetweenNodes + "\nnum Verticies: " + numVerticies);
         /*First, create the gameObjects for the joints in the wire,
          we can't assign the spring joints yet because we need to reference the
          nodes before and after each node, and since each node will have 2
@@ -95,6 +94,10 @@ class WireNode : MonoBehaviour
             float y = jointPosition.y - (Mathf.Sin(Mathf.PI * (i - 1) / numVerticies) * slack);
             jointPosition.y = y;
             joints[i].transform.position = jointPosition;
+
+
+            //last, parent this joint object with the wireNode object,
+            joints[i].transform.parent = transform;
 
         }
         joints.Add(nextNode.gameObject);
