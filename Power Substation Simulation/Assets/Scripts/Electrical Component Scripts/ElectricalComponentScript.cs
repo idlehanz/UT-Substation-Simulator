@@ -30,10 +30,10 @@ abstract class ElectricalComponentScript : MonoBehaviour
 
     public ElectricalComponentScript inputComponent;
 
+    protected ParticleSystem electricalExplosionParticles;
+
     void Start()
     {
-       
-
         //next find the player and store it's rayCast as a reference,
         //this way we don't have to continually look for it when we need it.
         player = GameObject.Find("Player");
@@ -49,7 +49,13 @@ abstract class ElectricalComponentScript : MonoBehaviour
         output.voltage = input.voltage;
         output.frequency = input.frequency;
         output.current = input.current;
+        electricalExplosionParticles = GetComponentInChildren<ParticleSystem>();
     }
+    
+
+
+
+
 
     void Update()
     {
@@ -88,6 +94,8 @@ abstract class ElectricalComponentScript : MonoBehaviour
     //this function will be overriden by subclasses,
     //this way each object can draw a box containing it's information when the player is in range.
     public abstract void playerRayCastCollisionResponse();
+
+    
     
     //this function will return the output for this component, 
     //to be used by the next component that uses this component as input.

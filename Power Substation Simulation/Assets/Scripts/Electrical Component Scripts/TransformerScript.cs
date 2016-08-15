@@ -11,14 +11,58 @@ using UnityEngine;
 class TransformerScript : ElectricalComponentScript
 {
     public float step = 3.6315f;
+    public bool damaged = false;
+
 
     //update the output.
     public override void updateOutput()
     {
-        output.current = input.current ;
-        output.voltage = input.voltage / step;
-        output.frequency = input.frequency;
+        if (damaged == false)
+        {
+            output.current = input.current;
+            output.voltage = input.voltage / step;
+            output.frequency = input.frequency;
+        }
+        else
+        {
+            output.current = 0;
+            output.voltage = 0;
+            output.frequency = 0;
+        }
     }
+
+    public void triggerElectricalDamage()
+    {
+        damaged = true;
+
+    }
+
+
+    void OnTriggerEnter(Collider  other)
+    {
+        Debug.Log("collided with " + other.gameObject.tag);
+        if (other.gameObject.tag == "squirrel")
+        {
+            if (damaged == false)
+            {
+                if (electricalExplosionParticles != null)
+                {
+                    electricalExplosionParticles.Play();
+                }
+                Debug.Log("transformer damaged");
+            }
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+
+    }
+
+
 
     /*if the players ray cast hits us. this function will be called*/
     public override void playerRayCastCollisionResponse()
