@@ -32,6 +32,12 @@ public class PlayerMovement : MonoBehaviour {
     public float GroundHeight = 1.1f;
     private bool jump;
 
+
+
+    public float noClipVelocity = 30;
+
+
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
@@ -115,8 +121,18 @@ public class PlayerMovement : MonoBehaviour {
         float verticleComponent = Input.GetAxisRaw("Vertical");//how about strafing?
 
         //get our horizontal and vertical velocity
-        Vector3 horizontalVelocity = Vector3.Cross(transform.up, LookTransform.forward).normalized * horizontalComponent * Time.deltaTime * Velocity;
-        Vector3 verticalVelocity = Vector3.Cross(transform.up, -LookTransform.right).normalized * verticleComponent * Time.deltaTime * Velocity;
+        Vector3 horizontalVelocity = Vector3.Cross(transform.up, LookTransform.forward).normalized * horizontalComponent * Time.deltaTime;
+        Vector3 verticalVelocity = Vector3.Cross(transform.up, -LookTransform.right).normalized * verticleComponent * Time.deltaTime;
+        if (noClip)
+        {
+            horizontalVelocity *= noClipVelocity;
+            verticalVelocity *= noClipVelocity;
+        }
+        else
+        {
+            horizontalVelocity *= Velocity;
+            verticalVelocity *= Velocity;
+        }
         return horizontalVelocity + verticalVelocity;//return the velocity
     }
 
