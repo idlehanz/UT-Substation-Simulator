@@ -22,8 +22,12 @@ public class SquirrelDeathScript : MonoBehaviour {
         //check if we should kill the squirrel.
         if (other.gameObject.tag == "Transformer")
         {
-            Debug.Log("killing squirrel");
-            Destroy(gameObject);
+            if (!other.gameObject.GetComponent<TransformerScript>().isDestroyed())
+            {
+
+                Debug.Log("killing squirrel");
+                Destroy(gameObject);
+            }
         }
 
         //spawn dead squirrel. TODO

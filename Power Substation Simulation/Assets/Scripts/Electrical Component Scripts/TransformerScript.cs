@@ -45,6 +45,7 @@ class TransformerScript : ElectricalComponentScript
         {
             if (damaged == false)
             {
+                damaged = true;
                 if (electricalExplosionParticles != null)
                 {
                     electricalExplosionParticles.Play();
@@ -62,6 +63,11 @@ class TransformerScript : ElectricalComponentScript
 
     }
 
+
+    public bool isDestroyed()
+    {
+        return damaged;
+    }
 
 
     /*if the players ray cast hits us. this function will be called*/
