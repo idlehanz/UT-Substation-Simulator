@@ -33,6 +33,7 @@ class EventTriggerScript : MonoBehaviour {
 
     //a reference to our squirrel prefab game object
     public GameObject squirrelGameObject;
+    public GameObject squirrelPath;
     // Use this for initialization
 	void Start () {
         events = new List<Event>();
@@ -54,6 +55,11 @@ class EventTriggerScript : MonoBehaviour {
     //this function is to trigger the squirrel incident.
     void squirrelIncident()
     {
-        Instantiate(squirrelGameObject);
+
+        GameObject newSquirrel = Instantiate(squirrelGameObject);
+        //turn off the random movement, turn on the follow path.
+        newSquirrel.GetComponent<SquirrelMovement>().enabled = false;
+        newSquirrel.GetComponent<SquirrelFollowSetPath>().setNewPathContrainer(squirrelPath);
+        
     }
 }
