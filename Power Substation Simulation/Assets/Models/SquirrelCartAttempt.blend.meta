@@ -112,6 +112,11 @@ ModelImporter:
     4300000: Sphere_004
     7400000: Default Take
     7400002: rigAction_002
+    7400004: climb
+    7400006: Idle
+    7400008: Jump
+    7400010: rigAction
+    7400012: Grab
     9500000: //RootNode
     13700000: Sphere_004
   materials:
