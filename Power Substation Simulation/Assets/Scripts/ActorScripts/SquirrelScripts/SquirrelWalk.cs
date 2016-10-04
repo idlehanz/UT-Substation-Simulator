@@ -10,18 +10,21 @@ public class SquirrelWalk : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        setRagdollState(ragdollState);
 
         animator = GetComponent<Animator>();
         animator.SetBool("Walking", false);
         animator.SetBool("Climbing", false);
-        animator.SetBool("Dead", true);
+        animator.SetBool("Dead", false);
         animator.SetBool("Grabbing", false);
+        setRagdollState(ragdollState);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown("y"))
+        {
+            setRagdollState(!ragdollState);
+        }
 	}
 
 
@@ -30,14 +33,24 @@ public class SquirrelWalk : MonoBehaviour {
 
     void setRagdollState(bool newValue)
     {
+        Debug.Log("Setting ragdoll to: " + newValue);
         ragdollState = newValue;
+        animator.enabled = !newValue;
         //Get an array of components that are of type Rigidbody
         Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
-
         //For each of the components in the array, treat the component as a Rigidbody and set its isKinematic property
         foreach (Rigidbody rb in bodies)
         {
-            rb.isKinematic = !newValue;
+            if (rb.tag == "squirrel")
+            {
+                rb.isKinematic = !newValue;
+                rb.detectCollisions = newValue;
+            }
+            else
+            {
+                
+                rb.detectCollisions = !newValue;
+            }
         }
     }
 }
