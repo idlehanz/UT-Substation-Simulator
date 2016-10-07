@@ -7,12 +7,19 @@ public class SquirrelWalk : MonoBehaviour {
 	public float distance = 40f;
     Animator animator;
     public bool ragdollState = false;
+    public bool handsLocked = false;
+
+    Rigidbody[] bodies;
+
+    public GameObject leftHand;
+    public GameObject rightHand;
+    
 
     // Use this for initialization
     void Start () {
-
+        bodies = GetComponentsInChildren<Rigidbody>();
         animator = GetComponent<Animator>();
-        animator.SetBool("Walking", false);
+        animator.SetBool("Walking", true);
         animator.SetBool("Climbing", false);
         animator.SetBool("Dead", false);
         animator.SetBool("Grabbing", false);
@@ -24,20 +31,31 @@ public class SquirrelWalk : MonoBehaviour {
 		if (Input.GetKeyDown("y"))
         {
             setRagdollState(!ragdollState);
+            setHandLocked(!handsLocked);
+            
         }
 	}
 
 
+    void setHandLocked(bool newHandLockedValue)
+    {
+        handsLocked = newHandLockedValue;
+        Rigidbody leftHandBody = leftHand.GetComponent<Rigidbody>();
+        leftHandBody.isKinematic = newHandLockedValue;
 
+        Rigidbody rightHandBody = rightHand.GetComponent<Rigidbody>();
+        rightHandBody.isKinematic = newHandLockedValue;
 
+    }
+    
 
     void setRagdollState(bool newValue)
     {
         Debug.Log("Setting ragdoll to: " + newValue);
         ragdollState = newValue;
         animator.enabled = !newValue;
-        //Get an array of components that are of type Rigidbody
-        Rigidbody[] bodies = GetComponentsInChildren<Rigidbody>();
+
+
         //For each of the components in the array, treat the component as a Rigidbody and set its isKinematic property
         foreach (Rigidbody rb in bodies)
         {
@@ -48,7 +66,7 @@ public class SquirrelWalk : MonoBehaviour {
             }
             else
             {
-                
+                rb.isKinematic = newValue;
                 rb.detectCollisions = !newValue;
             }
         }
