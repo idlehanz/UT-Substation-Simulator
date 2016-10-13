@@ -5,8 +5,10 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SquirrelIncidentEvent
-{ 
+[Serializable]
+public class SquirrelIncidentEvent: System.Object
+{
+    public float e;
     public static void trigger()
     {
         Debug.Log("test");

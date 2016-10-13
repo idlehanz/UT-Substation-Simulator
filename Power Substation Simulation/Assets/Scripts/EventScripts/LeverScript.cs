@@ -5,12 +5,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 
+public interface interactable
+{
+    void interact();
+    void displayMessageBox();
+}
+
 
 public class LeverScript : MonoBehaviour
 {
     public UnityEvent onTriggerEvent;
     public Transform armTransform;
     float x = 0;
+
+    public SquirrelIncidentEvent e;
 
     void Start()
     {
