@@ -28,7 +28,7 @@ public class LeverScript : MonoBehaviour
     void Update()
     {
         x = .5f;
-        armTransform.Rotate(new Vector3(0, x, 0));
+        armTransform.Rotate(new Vector3(x, 0, 0));
 
     }
 
