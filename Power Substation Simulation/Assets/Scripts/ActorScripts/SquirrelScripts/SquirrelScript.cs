@@ -117,6 +117,13 @@ public class SquirrelScript:MonoBehaviour
 
         Vector3 newPosition = transform.position + velocity;
         rigidBody.position = newPosition;
+
+        float turnSpeed = 30;
+        velocity.y = 0;
+        Quaternion dirQ = Quaternion.LookRotation(velocity);
+        Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, velocity.magnitude * turnSpeed * Time.deltaTime);
+        rigidBody.MoveRotation(slerp);
+        
        // rigidBody.MovePosition(newPosition);
 
 
@@ -248,6 +255,13 @@ public class SquirrelScript:MonoBehaviour
         }
     }
 
+
+    public void setNewPath(GameObject newPathContainer)
+    {
+        pathContainer = newPathContainer;
+        extractPathVectors();
+        currentPathNode = 0;
+    }
 
 }
 

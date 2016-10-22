@@ -57,9 +57,10 @@ class EventTriggerScript : MonoBehaviour {
     {
 
         GameObject newSquirrel = Instantiate(squirrelGameObject);
+        newSquirrel.GetComponent<SquirrelScript>().setNewPath(squirrelPath);
         //turn off the random movement, turn on the follow path.
-        newSquirrel.GetComponent<SquirrelMovement>().enabled = false;
-        newSquirrel.GetComponent<SquirrelFollowSetPath>().setNewPathContrainer(squirrelPath);
+       // newSquirrel.GetComponent<SquirrelMovement>().enabled = false;
+        //newSquirrel.GetComponent<SquirrelFollowSetPath>().setNewPathContrainer(squirrelPath);
         
     }
 }
