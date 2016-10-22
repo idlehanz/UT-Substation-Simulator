@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -20,12 +21,17 @@ public class SimPause : MonoBehaviour{
 	public int ScreenResNum=4;
 	//preparation for the resolution switch case
 
-
+	public InputField ChangeFOV;
+	public InputField ChangeFPS;
+	public int FPS=60;
+	public int FOV;
 
 
 	public void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
+			Debug.Log (FPS);
+
 			//ensure that the other menus are turned off
 			canvasresolution.gameObject.SetActive (false);
 
@@ -40,6 +46,7 @@ public class SimPause : MonoBehaviour{
 				//the power to stop time
 				GetComponent<MouseLook>().enabled = false;
 				//failure of a command
+				GetComponent<MouseLook>().enabled= false;
 
 			}
 			else{
@@ -73,7 +80,7 @@ public class SimPause : MonoBehaviour{
 
 	public void quitSim(){
 		Debug.Log ("Quit");
-		//do not implement yet!
+		Application.Quit ();
 	}
 	public void backButton(){
 
@@ -180,26 +187,60 @@ public class SimPause : MonoBehaviour{
 		
 		}
 	}
-		void SetVsyncCount() {
+		//SetVsyncCount not enabled
+		public void SetVsyncCount() {
 			int Vcount=0;
 			GameObject inputFieldVsyncFind = GameObject.Find("ChangeVsync");
-			InputField inputFieldVsyncBring = inputFieldVsyncFind.GetComponent<InputField>();
-			Debug.Log(inputFieldVsyncBring.text);
-			
-			
-			
+			InputField ChangeVsync = inputFieldVsyncFind.GetComponent<InputField>();
+		Vcount = Convert.ToInt32 (ChangeVsync.text);
+			Debug.Log("Vcount" + ChangeVsync.text);
+				if (Vcount<0){
+					QualitySettings.vSyncCount = 0;
+				}
+				if (Vcount > 3) {
+					QualitySettings.vSyncCount = 3;
+				}
+
 			QualitySettings.vSyncCount = Vcount;
 		}
 
 
-		void SetFPS () {
-			int FPS=200;
-			GameObject inputFieldFPSFind = GameObject.Find("ChangeFPS");
-			InputField inputFieldFPSBring = inputFieldFPSFind.GetComponent<InputField>();
-			Debug.Log(inputFieldFPSBring.text);
-			Application.targetFrameRate = FPS;
-		}
+		//SetFPS not entirely enabled either. 
+		public void SetFPS () {
+			Debug.Log(FPS);
 
+			GameObject inputFieldFPSFind = GameObject.Find("ChangeFPS");
+			ChangeFPS = inputFieldFPSFind.GetComponent<InputField>();
+			FPS = Convert.ToInt32(ChangeFPS.text);			
+			Debug.Log ("FPS = " + FPS);
+			
+				if (FPS > 200) {
+					Application.targetFrameRate = 200;  
+				}
+				if (FPS < 1) {
+					Application.targetFrameRate = 1;  
+				}
+			Application.targetFrameRate = FPS;  
+
+
+
+		}
+		
+	public void SetFOV(){
+		GameObject inputfieldFOVFind = GameObject.Find ("ChangeFOV");
+		ChangeFOV = inputfieldFOVFind.GetComponent<InputField> ();
+		FOV = Convert.ToInt32 (ChangeFOV.text);
+		Debug.Log ("FOV = " + FOV);
+
+			if (FOV > 360) {
+				GetComponent<Camera> ().fieldOfView = 360;
+			}
+
+			if (FOV < 1) {
+				GetComponent<Camera> ().fieldOfView = 1;
+			}
+		GetComponent<Camera> ().fieldOfView = FOV;
+	}
 
 
 //800x600, 1024x768, 1152x864, 1600x1200, 1280x720, 1360x768, 
