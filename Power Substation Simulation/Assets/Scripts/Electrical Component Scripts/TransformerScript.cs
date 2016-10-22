@@ -12,6 +12,7 @@ class TransformerScript : ElectricalComponentScript
 {
     public float step = 3.6315f;
     public bool damaged = false;
+    AudioSource explosion;
 
 
     //update the output.
@@ -33,6 +34,11 @@ class TransformerScript : ElectricalComponentScript
 
     public void triggerElectricalDamage()
     {
+        if (explosion == null)
+        {
+            explosion = GetComponent<AudioSource>();
+            explosion.Play();
+        }
         damaged = true;
 
     }
@@ -46,6 +52,11 @@ class TransformerScript : ElectricalComponentScript
             if (damaged == false)
             {
                 damaged = true;
+                if (explosion == null)
+                {
+                    explosion = GetComponent<AudioSource>();
+                    explosion.Play();
+                }
                 if (electricalExplosionParticles != null)
                 {
                     electricalExplosionParticles.Play();
