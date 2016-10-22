@@ -81,13 +81,7 @@ class SquirrelScript:MonoBehaviour
             {
                 if (distance >= .8f)
                     continue;
-                /* Vector3 planeOrigin;
- Vector3 planeNormal;
- Vector3 point;
- 
- Vector3 v = point - planeOrigin;
- Vector3 d = Vector3.Project(v, planeNormal.normalized);
- Vector3 projectedPoint = point - d;*/
+                
                 velocity.y += .5f;
                 Vector3 vQ = transform.position + velocity;
                 Vector3 vPQ =vQ- c.contacts[0].point;
@@ -168,7 +162,11 @@ class SquirrelScript:MonoBehaviour
                 rb.detectCollisions = !newValue;
             }
         }
-    }
+
+
+        rigidBody.isKinematic = newValue;
+        rigidBody.detectCollisions = !newValue;
+}
 
 
 }
