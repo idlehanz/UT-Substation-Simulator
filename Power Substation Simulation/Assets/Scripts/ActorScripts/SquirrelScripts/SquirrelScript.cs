@@ -26,12 +26,17 @@ public class SquirrelScript:MonoBehaviour
     public GameObject rightHand;
 
 
+    public GameObject pathContainer = null;
+    protected List<Vector3> path;
+    protected int currentPathNode = 0;
+
 
     //SortedDictionary<Collider, Collision> collisionDictionary = new SortedDictionary<Collider, Collision>();
     Dictionary<Collider, Collision> collisionDictionary = new Dictionary<Collider, Collision>();
 
     public void Start()
     {
+        extractPathVectors();
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
         bodies = GetComponentsInChildren<Rigidbody>();
         
@@ -52,14 +57,21 @@ public class SquirrelScript:MonoBehaviour
 
     public void Update()
     {
-        Vector3 direction = transform.position+new Vector3(0,0,speed);
-        Vector3 velocity = new Vector3(0,0,speed)*Time.deltaTime;
+       // Vector3 direction = transform.position+new Vector3(0,0,speed);
+        //Vector3 velocity = new Vector3(0,0,speed)*Time.deltaTime;
 
-
+        Vector3 direction = path[currentPathNode] - transform.position;
+        Vector3 velocity = direction.normalized * speed * Time.deltaTime;
+        velocity.y = 0;
         if (ragdollState == false)
              move(velocity);
 
+        if (Vector3.Distance(transform.position, path[currentPathNode]) < 1.5f)
+        {
+            if (currentPathNode < path.Count - 1)
+                currentPathNode++;
 
+        }
 
         //collision.contacts[0];
 
@@ -220,6 +232,20 @@ public class SquirrelScript:MonoBehaviour
         Rigidbody rightHandBody = rightHand.GetComponent<Rigidbody>();
         rightHandBody.isKinematic = newHandLockedValue;
 
+    }
+
+
+    void extractPathVectors()
+    {
+        path = new List<Vector3>();
+        if (pathContainer != null)
+        {
+            foreach (Transform child in pathContainer.transform)
+            {
+                //child is your child transform
+                path.Add(child.transform.position);
+            }
+        }
     }
 
 
