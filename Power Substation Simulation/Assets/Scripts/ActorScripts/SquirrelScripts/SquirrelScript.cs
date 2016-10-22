@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-class SquirrelScript:MonoBehaviour
+public class SquirrelScript:MonoBehaviour
 {
     public Animator animator;
 
@@ -51,8 +51,8 @@ class SquirrelScript:MonoBehaviour
         Vector3 velocity = new Vector3(0,0,speed)*Time.deltaTime;
 
 
-
-        move(velocity);
+        if (ragdollState == false)
+             move(velocity);
 
 
 
@@ -112,9 +112,15 @@ class SquirrelScript:MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        
         ContactPoint cp = collision.contacts[0];
-        Debug.Log("Adding collision key");
         collisionDictionary.Add(collision.collider, collision);
+        foreach (Rigidbody rb in bodies)
+        {
+            
+        }
+
+
 
     }
     void OnCollisionStay(Collision collision)
@@ -132,7 +138,6 @@ class SquirrelScript:MonoBehaviour
         if (collisionDictionary.ContainsKey(collision.collider))
         {
             collisionDictionary.Remove(collision.collider);
-            Debug.Log("removing key");
         }
         else
             Debug.Log("trying to remove non-existant key");
@@ -141,7 +146,28 @@ class SquirrelScript:MonoBehaviour
     }
 
 
-    void setRagdollState(bool newValue)
+
+    void OnTriggerEnter(Collider other)
+    {
+        setRagdollState(true);
+        foreach (Rigidbody rb in bodies)
+        {
+
+        }
+
+
+    }
+    void OnTriggerStay(Collider other)
+    {
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+
+    }
+
+
+    public void setRagdollState(bool newValue)
     {
         Debug.Log("Setting ragdoll to: " + newValue);
         ragdollState = newValue;
@@ -151,22 +177,15 @@ class SquirrelScript:MonoBehaviour
         //For each of the components in the array, treat the component as a Rigidbody and set its isKinematic property
         foreach (Rigidbody rb in bodies)
         {
-            if (rb.tag == "squirrel")
-            {
-                rb.isKinematic = !newValue;
-                rb.detectCollisions = newValue;
-            }
-            else
-            {
-                rb.isKinematic = newValue;
-                rb.detectCollisions = !newValue;
-            }
+            rb.isKinematic = !newValue;
+            rb.detectCollisions = newValue;
+
         }
 
 
         rigidBody.isKinematic = newValue;
         rigidBody.detectCollisions = !newValue;
-}
+    }
 
 
 }
