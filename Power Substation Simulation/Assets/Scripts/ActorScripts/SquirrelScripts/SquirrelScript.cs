@@ -22,6 +22,8 @@ public class SquirrelScript:MonoBehaviour
 
     List<Plane> collisionPlanes = new List<Plane>();
 
+    public GameObject leftHand;
+    public GameObject rightHand;
 
 
 
@@ -32,6 +34,9 @@ public class SquirrelScript:MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
         bodies = GetComponentsInChildren<Rigidbody>();
+        
+
+
         animator = GetComponent<Animator>();
         animator.SetBool("Walking", true);
         animator.SetBool("Climbing", false);
@@ -115,7 +120,7 @@ public class SquirrelScript:MonoBehaviour
         
         ContactPoint cp = collision.contacts[0];
         collisionDictionary.Add(collision.collider, collision);
-        foreach (Rigidbody rb in bodies)
+        if (collision.gameObject.tag == "Transformer")
         {
             
         }
@@ -138,6 +143,22 @@ public class SquirrelScript:MonoBehaviour
         if (collisionDictionary.ContainsKey(collision.collider))
         {
             collisionDictionary.Remove(collision.collider);
+            /*
+            ContactPoint cp = collision.contacts[0];
+
+            if (collision.gameObject.tag == "Transformer")
+            {
+                foreach (Rigidbody rb in bodies)
+                {
+                    if (cp.thisCollider.attachedRigidbody == rb)
+                    {
+                        rigidBodyCollisionDictionary[rb] = false;
+                    }
+                }
+            }*/
+
+
+
         }
         else
             Debug.Log("trying to remove non-existant key");
@@ -150,6 +171,7 @@ public class SquirrelScript:MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         setRagdollState(true);
+        setHandLocked(true);
         foreach (Rigidbody rb in bodies)
         {
 
@@ -177,14 +199,27 @@ public class SquirrelScript:MonoBehaviour
         //For each of the components in the array, treat the component as a Rigidbody and set its isKinematic property
         foreach (Rigidbody rb in bodies)
         {
+
             rb.isKinematic = !newValue;
             rb.detectCollisions = newValue;
+            
+            
 
         }
 
 
         rigidBody.isKinematic = newValue;
         rigidBody.detectCollisions = !newValue;
+    }
+
+    void setHandLocked(bool newHandLockedValue)
+    {
+        Rigidbody leftHandBody = leftHand.GetComponent<Rigidbody>();
+        leftHandBody.isKinematic = newHandLockedValue;
+
+        Rigidbody rightHandBody = rightHand.GetComponent<Rigidbody>();
+        rightHandBody.isKinematic = newHandLockedValue;
+
     }
 
 

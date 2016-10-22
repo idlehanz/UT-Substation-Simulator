@@ -23,12 +23,9 @@ public class SquirrelHandScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided");
-        if (other.tag == "Transformer")
-        {
-            squirrelScript.setRagdollState(true);
-            rigidBody.isKinematic = true;
-        }
+        Debug.Log("hand detected collision");
+        //rigidBody.isKinematic = true;
+        //rigidBody.detectCollisions = false;
 
 
     }
