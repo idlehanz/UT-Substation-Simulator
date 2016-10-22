@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 
 public class SimPause : MonoBehaviour{
@@ -65,7 +65,7 @@ public class SimPause : MonoBehaviour{
 	public void reloadSim(){
 		Debug.Log ("Reload");
 
-		Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		//reload the level. this command is out of date and doesn't quite load right
 		//any suggestions would be amazing
 	}
@@ -116,70 +116,91 @@ public class SimPause : MonoBehaviour{
 
 		if (Screen.fullScreen == true) {
 			x = true;
-		}
-		else
-		{
-			x=false;
+		} else {
+			x = false;
 		}
 		//check to see if the screen is full sized or windowed.
 
 
 		
-		switch(ResDropTemp.value){
+		switch (ResDropTemp.value) {
 		//switch case is not currently attached to anything
 		case 0:
 			Screen.SetResolution (800, 600, x);
 			//full screen
-			break;
 			Debug.Log ("800,600");
+			break;
 		case 1:
-		 	Screen.SetResolution (1024,768,x);
+			Screen.SetResolution (1024, 768, x);
+			Debug.Log ("1026x768");
 			break;
 		case 2:
-			Screen.SetResolution (1152,864,x);
+			Screen.SetResolution (1152, 864, x);
 			break;
 		case 3:
-			Screen.SetResolution (1600,1200,x);
+			Screen.SetResolution (1600, 1200, x);
 			break;
 		case 4:
-			Screen.SetResolution (1280,720,x);
+			Screen.SetResolution (1280, 720, x);
 			break;
 		case 5:
-			Screen.SetResolution (1360,768,x);
+			Screen.SetResolution (1360, 768, x);
 			break;
 		case 6:
-			Screen.SetResolution (1366,768,x);
+			Screen.SetResolution (1366, 768, x);
 			break;
 		case 7:
-			Screen.SetResolution (1536,864,x);
+			Screen.SetResolution (1536, 864, x);
 			break;
 		case 8:
-			Screen.SetResolution (1600,900,x);
+			Screen.SetResolution (1600, 900, x);
 			break;
 		case 9:
-			Screen.SetResolution (1920,1080,x);
+			Screen.SetResolution (1920, 1080, x);
 			break;
 		case 10:
-			Screen.SetResolution (2560,1440,x);
+			Screen.SetResolution (2560, 1440, x);
 			break;
 		case 11:
-			Screen.SetResolution (1280,800,x);
+			Screen.SetResolution (1280, 800, x);
 			break;
 		case 12:
-			Screen.SetResolution (1440,900,x);
+			Screen.SetResolution (1440, 900, x);
 			break;
 		case 13:
-			Screen.SetResolution (1680,1050,x);
+			Screen.SetResolution (1680, 1050, x);
 			break;
 		case 14:
-			Screen.SetResolution (1920,1200,x);
+			Screen.SetResolution (1920, 1200, x);
 			break;
 		case 15:
-			Screen.SetResolution (2560,1600,x);
+			Screen.SetResolution (2560, 1600, x);
 			break;
 		
 		
 		}
+	}
+		void SetVsyncCount() {
+			int Vcount=0;
+			GameObject inputFieldVsyncFind = GameObject.Find("ChangeVsync");
+			InputField inputFieldVsyncBring = inputFieldVsyncFind.GetComponent<InputField>();
+			Debug.Log(inputFieldVsyncBring.text);
+			
+			
+			
+			QualitySettings.vSyncCount = Vcount;
+		}
+
+
+		void SetFPS () {
+			int FPS=200;
+			GameObject inputFieldFPSFind = GameObject.Find("ChangeFPS");
+			InputField inputFieldFPSBring = inputFieldFPSFind.GetComponent<InputField>();
+			Debug.Log(inputFieldFPSBring.text);
+			Application.targetFrameRate = FPS;
+		}
+
+
 
 //800x600, 1024x768, 1152x864, 1600x1200, 1280x720, 1360x768, 
 //1366x768, 1536x864, 1600x900, 1920x1080, 2560x1440, 1280x800, 
@@ -188,6 +209,6 @@ public class SimPause : MonoBehaviour{
 
 
 
-	}
+	
 	
 }
