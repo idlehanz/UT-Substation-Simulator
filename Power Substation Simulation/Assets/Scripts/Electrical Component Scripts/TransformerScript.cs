@@ -18,6 +18,7 @@ class TransformerScript : ElectricalComponentScript
     //update the output.
     public override void updateOutput()
     {
+        setLightActive(!damaged);
         if (damaged == false)
         {
             output.current = input.current;
@@ -29,6 +30,17 @@ class TransformerScript : ElectricalComponentScript
             output.current = 0;
             output.voltage = 0;
             output.frequency = 0;
+        }
+    }
+
+    public void setLightActive(bool newActive)
+    {
+        GameObject[] allLights = GameObject.FindGameObjectsWithTag("Light");
+        foreach (GameObject i in allLights)
+        {
+
+            i.SetActive(newActive);
+
         }
     }
 
