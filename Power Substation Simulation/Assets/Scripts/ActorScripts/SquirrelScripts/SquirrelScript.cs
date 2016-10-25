@@ -12,6 +12,7 @@ public class SquirrelScript:MonoBehaviour
 
     Rigidbody[] bodies;
     public float speed = 1.0f;
+    public float climbingSpeed = 2.0f;
 
 
     protected Rigidbody rigidBody;
@@ -98,8 +99,8 @@ public class SquirrelScript:MonoBehaviour
             {
                 if (distance >= .8f)
                     continue;
-                
-                velocity.y += .5f;
+                velocity = Vector3.zero;
+                velocity.y += climbingSpeed*Time.deltaTime;
                 Vector3 vQ = transform.position + velocity;
                 Vector3 vPQ =vQ- c.contacts[0].point;
                 float dot = Vector3.Dot(vPQ, collisionPlane.normal.normalized);
