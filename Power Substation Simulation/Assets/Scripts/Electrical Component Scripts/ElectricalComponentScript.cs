@@ -50,10 +50,12 @@ abstract class ElectricalComponentScript : MonoBehaviour
         output.frequency = input.frequency;
         output.current = input.current;
         electricalExplosionParticles = GetComponentInChildren<ParticleSystem>();
+        uniqueStart();
     }
-    
 
 
+    public abstract void uniqueStart();
+    public abstract void uniqueUpdate();
 
 
 
@@ -61,6 +63,7 @@ abstract class ElectricalComponentScript : MonoBehaviour
     {
         getInput();
         updateOutput();
+        uniqueUpdate();
     }
 
     //used to draw the gui objects, 

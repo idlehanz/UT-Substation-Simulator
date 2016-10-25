@@ -16,6 +16,17 @@ class BreakerScript : ElectricalComponentScript
     public float threshhold = 0f;
     public float transmissionBus = 69f;
     protected bool breakerTripped = false;
+
+    public override void uniqueStart()
+    {
+
+    }
+    public override void uniqueUpdate()
+    {
+
+    }
+
+
     public override void updateOutput()
     {
         if (!breakerTripped)

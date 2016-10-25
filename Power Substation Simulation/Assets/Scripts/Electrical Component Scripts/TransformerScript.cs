@@ -15,10 +15,18 @@ class TransformerScript : ElectricalComponentScript
     AudioSource explosion;
 
 
+    public override void uniqueStart()
+    {
+
+    }
+    public override void uniqueUpdate()
+    {
+
+    }
+
     //update the output.
     public override void updateOutput()
     {
-        setLightActive(!damaged);
         if (damaged == false)
         {
             output.current = input.current;
@@ -33,16 +41,7 @@ class TransformerScript : ElectricalComponentScript
         }
     }
 
-    public void setLightActive(bool newActive)
-    {
-        GameObject[] allLights = GameObject.FindGameObjectsWithTag("Light");
-        foreach (GameObject i in allLights)
-        {
-
-            i.SetActive(newActive);
-
-        }
-    }
+    
 
     public void triggerElectricalDamage()
     {

@@ -16,6 +16,16 @@ class ElectricalInputModuleScript : ElectricalComponentScript
     public float current = 60f;
     public float voltage = 69f;
     public float frequency = 60;
+
+
+    public override void uniqueStart()
+    {
+
+    }
+    public override void uniqueUpdate()
+    {
+
+    }
     //update the ouput, 
     public override void updateOutput()
     {
