@@ -5,12 +5,59 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-[Serializable]
-public class SquirrelIncidentEvent: System.Object
+public class SquirrelIncidentEvent : SimulationEvent
 {
-    public float e;
-    public static void trigger()
+    //a reference to our squirrel prefab game object
+    public GameObject squirrelPrefab;
+    public GameObject squirrelPath;
+    protected GameObject squirrel;
+
+
+    public void Start()
     {
-        Debug.Log("test");
+        if (squirrelPrefab == null)
+            Debug.Log("ERROR: squirrel prefab not found for squirrel incident event");
+        if (squirrelPath == null)
+            Debug.Log("ERROR: squirrel path not found for squirrel incident event");
+    }
+    public void Update()
+    {
+        if (eventTriggered ==true)
+        {
+            if (squirrel==null)
+            {
+                eventTriggered = false;
+            }
+        }
+    }
+
+    
+
+    public void OnGUI()
+    {
+
+    }
+
+
+
+    public override void beginEvent()
+    {
+        if (eventTriggered == false&&squirrelPrefab !=null && squirrelPath!=null)
+        {
+            eventTriggered = true;
+            squirrel = Instantiate(squirrelPrefab);
+            squirrel.GetComponent<SquirrelScript>().setNewPath(squirrelPath);
+        }
+
+    }
+    public override void endEvent()
+    {
+        
+    }
+    public override void displayMessage()
+    {
+        GUI.color = Color.white;
+        GUI.Box(new Rect(20, 20, 200, 55), "Press e to trigger squirrel event.");
+
     }
 }

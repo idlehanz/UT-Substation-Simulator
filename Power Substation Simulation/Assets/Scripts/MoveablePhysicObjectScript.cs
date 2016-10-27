@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoxInteractionScript : MonoBehaviour,Interactable {
+public class MoveablePhysicObjectScript : MonoBehaviour,Interactable {
 
     GameObject heldBy = null;
     bool held = false;

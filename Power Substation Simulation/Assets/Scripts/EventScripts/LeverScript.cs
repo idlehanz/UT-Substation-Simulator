@@ -4,40 +4,76 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System;
 
-public interface interactable
+
+
+
+public class LeverScript : MonoBehaviour, Interactable
 {
-    void interact();
-    void displayMessageBox();
-}
 
+    public SimulationEvent leverEvent;
 
-public class LeverScript : MonoBehaviour
-{
-    public UnityEvent onTriggerEvent;
+    
     public Transform armTransform;
-    float x = 0;
+    protected float x = 0;
 
-    public SquirrelIncidentEvent e;
+    protected bool leverUp = true;
+    
 
     void Start()
     {
-        onTriggerEvent.Invoke();
-
+        if (leverEvent == null)
+        {
+            leverEvent = GetComponent<SimulationEvent>();
+        }
     }
     void Update()
     {
-        x = .5f;
-        armTransform.Rotate(new Vector3(x, 0, 0));
+        //up 332.9
+        //down 
+        Debug.Log(armTransform.rotation.eulerAngles.x);
+        if (!leverEvent.isEventTriggered())
+        {
+            if (armTransform.rotation.eulerAngles.x <25)
+            {
+                x = 1f;
+                armTransform.Rotate(new Vector3(x, 0, 0));
+
+            }
+        }
+        else
+        {
+            if (armTransform.rotation.eulerAngles.x >30)
+            {
+                x = -1f;
+                armTransform.Rotate(new Vector3(x, 0, 0));
+
+            }
+        }
 
     }
 
-    public void armUpEvent()
+    
+
+    public void interact(GameObject interactor)
     {
-        Debug.Log("Arm up");
+        if (leverEvent.isEventTriggered()==false)
+        {
+            leverEvent.beginEvent();
+            leverUp = false;
+        }
     }
-    public void armDownEvent()
+
+    public void displayInteractionMessage(GameObject interactor)
     {
-        Debug.Log("Arm Down");
+        if (leverEvent != null)
+            leverEvent.displayMessage();
+        else
+        {
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "Press e to........nothing.....");
+
+        }
     }
 }
