@@ -6,25 +6,36 @@ public class BoxInteractionScript : MonoBehaviour,Interactable {
     GameObject heldBy = null;
     bool held = false;
     public float vel = 5.0f;
+    Rigidbody rigidBody;
 	// Use this for initialization
 	void Start () {
-	
-	}
+	    rigidBody = GetComponent<Rigidbody>(); ;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	    if (held ==true)
         {
+            rigidBody.useGravity = false;
+            rigidBody.isKinematic = true;
+            
 
             float horizontalComponent = Input.GetAxisRaw("Horizontal");//should we move forward?
             float verticleComponent = Input.GetAxisRaw("Vertical");//how about strafing?
 
             Vector3 horizontalVelocity = Vector3.Cross(transform.up, heldBy.transform.forward).normalized  *vel;
-            Vector3 verticalVelocity = Vector3.Cross(new Vector3(0.0f,1.0f,0.0f), -heldBy.transform.right).normalized  * vel;
-            Vector3 velocity =  verticalVelocity;
+            Vector3 verticalVelocity = Vector3.Cross(transform.up, -heldBy.transform.right).normalized  * vel;
+            Vector3 velocity = verticalVelocity;// + horizontalVelocity;
 
-            transform.position = heldBy.transform.position+ velocity;
+            //rigidBody.MovePosition(heldBy.transform.position+ velocity);
+            transform.position = heldBy.transform.position + velocity;
             transform.rotation = heldBy.transform.rotation;
+            
+        }
+        else
+        {
+            rigidBody.useGravity = true;
+            rigidBody.isKinematic = false;
         }
 	}
 
