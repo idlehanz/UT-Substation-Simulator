@@ -121,8 +121,8 @@ public class PlayerMovement : MonoBehaviour {
         float verticleComponent = Input.GetAxisRaw("Vertical");//how about strafing?
 
         //get our horizontal and vertical velocity
-        Vector3 horizontalVelocity = Vector3.Cross(transform.up, LookTransform.forward).normalized * horizontalComponent * Time.deltaTime;
-        Vector3 verticalVelocity = Vector3.Cross(transform.up, -LookTransform.right).normalized * verticleComponent * Time.deltaTime;
+        Vector3 horizontalVelocity = Vector3.Cross(transform.up, transform.forward).normalized * horizontalComponent * Time.deltaTime;
+        Vector3 verticalVelocity = Vector3.Cross(transform.up, -transform.right).normalized * verticleComponent * Time.deltaTime;
         if (noClip)
         {
             horizontalVelocity *= noClipVelocity;

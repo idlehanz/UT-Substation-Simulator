@@ -79,7 +79,16 @@ class BreakerScript : ElectricalComponentScript
         breakerTripped = false;
     }
 
-    public override void playerRayCastCollisionResponse()
+    
+
+
+    public override void onInteract(GameObject interactor)
+    {
+        Debug.Log("interacting with breaker");
+        if (breakerTripped)
+            resetBreaker();
+    }
+    public override void onDisplayInteractionMessage(GameObject interactor)
     {
         GUI.color = Color.white;
         GUI.Box(new Rect(20, 20, 200, 55), "Powerline Voltage: " + output.voltage.ToString() +

@@ -57,7 +57,6 @@ class TransformerScript : ElectricalComponentScript
 
     void OnTriggerEnter(Collider  other)
     {
-        Debug.Log("collided with " + other.gameObject.tag);
         if (other.gameObject.tag == "squirrel")
         {
             if (damaged == false)
@@ -91,14 +90,22 @@ class TransformerScript : ElectricalComponentScript
         return damaged;
     }
 
+    
 
-    /*if the players ray cast hits us. this function will be called*/
-    public override void playerRayCastCollisionResponse()
+
+    public override void onInteract(GameObject interactor)
+    {
+        Debug.Log("interacting with transformer");
+        damaged = false;
+
+    }
+    public override void onDisplayInteractionMessage(GameObject interactor)
     {
         //draw a box containing relevant information about the transformer.
         GUI.color = Color.white;
         GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + output.voltage.ToString() + "\n" +
                 "Transformer Frequency: " + output.frequency.ToString() + "\nTransformer Current: " + output.current.ToString());
+
 
 
     }

@@ -17,15 +17,13 @@ struct electricalFlow
     public float current;
 }
 
-abstract class ElectricalComponentScript : MonoBehaviour
+abstract class ElectricalComponentScript : MonoBehaviour, Interactable
 {
     public static int id = 0;
     protected string newTag;
 
     protected electricalFlow output;
     protected electricalFlow input;
-    protected GameObject player;
-    protected RayCasting playerRaycast;
 
 
     public ElectricalComponentScript inputComponent;
@@ -34,13 +32,7 @@ abstract class ElectricalComponentScript : MonoBehaviour
 
     void Start()
     {
-        //next find the player and store it's rayCast as a reference,
-        //this way we don't have to continually look for it when we need it.
-        player = GameObject.Find("Player");
-        if (player != null)
-        {
-            playerRaycast = player.GetComponent<RayCasting>();
-        }
+        
 
         //set some default values for the voltage. 
         input.voltage = 69;
@@ -71,15 +63,21 @@ abstract class ElectricalComponentScript : MonoBehaviour
     //is in range.
     void OnGUI()
     {
-        //did the player hit an object, and is this object this component?
-        if (playerRaycast != null &&
-            playerRaycast.InReach == true &&
-            playerRaycast.hitObject == gameObject)
-        {
-            //call the ray cast response function.
-            playerRayCastCollisionResponse();
-        }
+        
     }
+
+    public abstract void onInteract(GameObject interactor);
+    public abstract void onDisplayInteractionMessage(GameObject interactor);
+
+
+    public void interact(GameObject interactor) { onInteract(interactor); }
+    public void displayInteractionMessage(GameObject interactor) {
+        onDisplayInteractionMessage(interactor);
+    }
+
+
+
+
 
     //an easy function to zero the output
     public void zeroOuput()
@@ -94,9 +92,7 @@ abstract class ElectricalComponentScript : MonoBehaviour
     public abstract void updateOutput();
 
 
-    //this function will be overriden by subclasses,
-    //this way each object can draw a box containing it's information when the player is in range.
-    public abstract void playerRayCastCollisionResponse();
+    
 
     
     

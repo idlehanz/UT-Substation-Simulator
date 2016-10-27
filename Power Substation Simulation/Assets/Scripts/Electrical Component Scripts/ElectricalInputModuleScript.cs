@@ -35,7 +35,12 @@ class ElectricalInputModuleScript : ElectricalComponentScript
     }
 
 
-    public override void playerRayCastCollisionResponse()
+
+    public override void onInteract(GameObject interactor)
+    {
+        Debug.Log("interacting with electrical input module");
+    }
+    public override void onDisplayInteractionMessage(GameObject interactor)
     {
         GUI.color = Color.white;
         GUI.Box(new Rect(20, 20, 200, 55), "input Voltage: " + output.voltage.ToString() +

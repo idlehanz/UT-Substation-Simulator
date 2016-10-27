@@ -28,9 +28,14 @@ class FloodLightScript: ElectricalComponentScript
     }
 
 
-    //this function will be overriden by subclasses,
-    //this way each object can draw a box containing it's information when the player is in range.
-    public override void playerRayCastCollisionResponse()
+    
+
+
+    public override void onInteract(GameObject interactor)
+    {
+        Debug.Log("interacting with flood light");
+    }
+    public override void onDisplayInteractionMessage(GameObject interactor)
     {
         GUI.color = Color.white;
         GUI.Box(new Rect(20, 20, 200, 55), "Powerline Voltage: " + output.voltage.ToString() +

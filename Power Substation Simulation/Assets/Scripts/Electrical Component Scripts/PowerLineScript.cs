@@ -29,8 +29,12 @@ class PowerLineScript: ElectricalComponentScript
         output.frequency = input.frequency;
     }
 
-
-    public override void playerRayCastCollisionResponse()
+    
+    public override void onInteract(GameObject interactor)
+    {
+        Debug.Log("interacting with powerLines");
+    }
+    public override void onDisplayInteractionMessage(GameObject interactor)
     {
         Debug.Log("in power line script");
         GUI.color = Color.white;
