@@ -14,17 +14,21 @@ public class SimPause : MonoBehaviour{
 	//information on the player. Still no way to stop the mouse movement during pause yet
 	public Transform canvasresolution;
 	//this has the screen resolution menu information
+	public Transform canvasaudio;
+	//Audio menu information
 	public Dropdown ResDropDown;
-
+	//resolution drop down switch case
 	public Resolution[] resolutions;
-
+	//declare a variable for resolutions
 	public int ScreenResNum=4;
 	//preparation for the resolution switch case
 
 	public InputField ChangeFOV;
 	public InputField ChangeFPS;
+
 	public int FPS=60;
 	public int FOV;
+	bool flipY = false;
 
 
 	public void Update(){
@@ -34,7 +38,7 @@ public class SimPause : MonoBehaviour{
 
 			//ensure that the other menus are turned off
 			canvasresolution.gameObject.SetActive (false);
-
+			canvasaudio.gameObject.SetActive (false);
 			//if the pause menu isn't activated
 			if(canvas.gameObject.activeInHierarchy==false)
 			{
@@ -46,7 +50,6 @@ public class SimPause : MonoBehaviour{
 				//the power to stop time
 				GetComponent<MouseLook>().enabled = false;
 				//failure of a command
-				GetComponent<MouseLook>().enabled= false;
 
 			}
 			else{
@@ -56,6 +59,7 @@ public class SimPause : MonoBehaviour{
 				//unpause everything
 			}
 		canvasresolution.gameObject.SetActive (false);
+			canvasaudio.gameObject.SetActive (false);
 		//still having some issues turning off the canvas resolution with escape
 		}
 	}
@@ -85,6 +89,7 @@ public class SimPause : MonoBehaviour{
 	public void backButton(){
 
 		canvasresolution.gameObject.SetActive (false);
+		canvasaudio.gameObject.SetActive (false);
 		canvas.gameObject.SetActive (true);
 		//used 
 	}
@@ -93,16 +98,25 @@ public class SimPause : MonoBehaviour{
 
 
 	public void videoSettingsMenu (){
-		// still working on the settings to get the screen resolutions to work
 		Debug.Log ("Video Settings");
 
 		canvas.gameObject.SetActive (false);
+		canvasaudio.gameObject.SetActive (false);
 		Time.timeScale = 0;
 		canvasresolution.gameObject.SetActive (true);
-		//when the settings menu is activated, shut off the first menu and activate the second
+		//when the settings menu is activated, shut off the main menu and activate video
 
 	}
 
+	public void audioSettingsMenu ()
+	{
+		Debug.Log ("Audio Settings");
+		canvas.gameObject.SetActive (false);
+		canvasresolution.gameObject.SetActive (false);
+		Time.timeScale = 0;
+		canvasaudio.gameObject.SetActive (true);
+		//when the audio menu is activated, shut off main, activate audio
+	}
 
 
 	public void ResChangeDrop() {
@@ -241,6 +255,13 @@ public class SimPause : MonoBehaviour{
 			}
 		GetComponent<Camera> ().fieldOfView = FOV;
 	}
+
+	public void SetMouseInvert(){
+		var inputY = Input.GetAxis("Vertical") * (flipY ? -1 : 1);
+		Debug.Log ("Invert mouse = " + flipY);
+	}
+
+
 
 
 //800x600, 1024x768, 1152x864, 1600x1200, 1280x720, 1360x768, 
