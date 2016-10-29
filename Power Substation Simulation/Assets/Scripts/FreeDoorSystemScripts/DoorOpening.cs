@@ -6,8 +6,9 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
+using System;
 
-public class DoorOpening : MonoBehaviour
+public class DoorOpening : MonoBehaviour, Interactable
 {
 
     //INSPECTOR SETTINGS
@@ -168,17 +169,17 @@ public class DoorOpening : MonoBehaviour
         }
     }
 
-    //GUI FUNCTION
-    void OnGUI()
-    {
-        //Access InReach variable from raycasting script.
-        GameObject Player = GameObject.Find("Player");
-        RayCasting raycasting = Player.GetComponent<RayCasting>();
+    
 
-        if (raycasting.InReach == true && raycasting.hitTag == "Door")
-        {
-            GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 25), "Press 'E' to open/close");
-        }
+    public void interact(GameObject interactor)
+    {
+        // Open/close the door by running the 'Open' function in the 'DoorOpening' script.
+        StartCoroutine(Open());
+    }
+
+    public void displayInteractionMessage(GameObject interactor)
+    {
+        GUI.color = Color.white;
+        GUI.Box(new Rect(20, 20, 200, 25), "Press 'E' to open/close");
     }
 }
