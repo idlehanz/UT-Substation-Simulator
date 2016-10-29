@@ -40,71 +40,76 @@ public class DoorOpening : MonoBehaviour, Interactable
     private int State;
 
     // Create a hinge.
-    GameObject hinge;
+    public GameObject hinge;
 
     //START FUNCTION
     void Start()
     {
+
         // Create a hinge.
-        hinge = new GameObject();
-        hinge.name = "hinge";
-
-        // Calculate Cosine and Sine of initial angle.
-        float CosDeg = Mathf.Cos((transform.eulerAngles.y * Mathf.PI) / 180);
-        float SinDeg = Mathf.Sin((transform.eulerAngles.y * Mathf.PI) / 180);
-
-        // Set side of hinge left.
-        if (HingeSide == SideOfHinge.Left)
+        if (hinge == null)
         {
-            float PosDoorX = transform.position.x;
-            float PosDoorY = transform.position.y;
-            float PosDoorZ = transform.position.z;
+            hinge = new GameObject();
+            hinge.name = "hinge";
 
-            float ScaleDoorX = transform.localScale.x;
+            // Calculate Cosine and Sine of initial angle.
+            float CosDeg = Mathf.Cos((transform.eulerAngles.y * Mathf.PI) / 180);
+            float SinDeg = Mathf.Sin((transform.eulerAngles.y * Mathf.PI) / 180);
 
-            //Make copy of hinge's position.
-            Vector3 HingePosCopy = hinge.transform.position;
+            // Set side of hinge left.
+            if (HingeSide == SideOfHinge.Left)
+            {
+                float PosDoorX = transform.position.x;
+                float PosDoorY = transform.position.y;
+                float PosDoorZ = transform.position.z;
 
-            // Math.
-            HingePosCopy.x = (PosDoorX - (ScaleDoorX / 2 * CosDeg));
-            HingePosCopy.z = (PosDoorZ + (ScaleDoorX / 2 * SinDeg));
-            HingePosCopy.y = PosDoorY;
+                float ScaleDoorX = transform.localScale.x;
 
-            // Set the hinge to be exactly in the left-under corner of the door.
-            hinge.transform.position = HingePosCopy;
+                //Make copy of hinge's position.
+                Vector3 HingePosCopy = hinge.transform.position;
+
+                // Math.
+                HingePosCopy.x = (PosDoorX - (ScaleDoorX / 2 * CosDeg));
+                HingePosCopy.z = (PosDoorZ + (ScaleDoorX / 2 * SinDeg));
+                HingePosCopy.y = PosDoorY;
+
+                // Set the hinge to be exactly in the left-under corner of the door.
+                hinge.transform.position = HingePosCopy;
+            }
+
+            // Set side of hinge right.
+            if (HingeSide == SideOfHinge.Right)
+            {
+                float PosDoorX = transform.position.x;
+                float PosDoorY = transform.position.y;
+                float PosDoorZ = transform.position.z;
+
+                float ScaleDoorX = transform.localScale.x;
+
+                //Make copy of hinge's position.
+                Vector3 HingePosCopy = hinge.transform.position;
+
+                // Math.
+                HingePosCopy.x = (PosDoorX + (ScaleDoorX / 2 * CosDeg));
+                HingePosCopy.z = (PosDoorZ - (ScaleDoorX / 2 * SinDeg));
+                HingePosCopy.y = PosDoorY;
+
+                // Set the hinge to be exactly in the right-under corner of the door.
+                hinge.transform.position = HingePosCopy;
+            }
         }
-
-        // Set side of hinge right.
-        if (HingeSide == SideOfHinge.Right)
-        {
-            float PosDoorX = transform.position.x;
-            float PosDoorY = transform.position.y;
-            float PosDoorZ = transform.position.z;
-
-            float ScaleDoorX = transform.localScale.x;
-
-            //Make copy of hinge's position.
-            Vector3 HingePosCopy = hinge.transform.position;
-
-            // Math.
-            HingePosCopy.x = (PosDoorX + (ScaleDoorX / 2 * CosDeg));
-            HingePosCopy.z = (PosDoorZ - (ScaleDoorX / 2 * SinDeg));
-            HingePosCopy.y = PosDoorY;
-
-            // Set the hinge to be exactly in the right-under corner of the door.
-            hinge.transform.position = HingePosCopy;
-        }
+        hinge.transform.parent = null;
 
         // Make the hinge the parent of the door.
-       // hinge.transform.parent = transform;
         transform.parent = hinge.transform;
 
         //USER ERROR CODES
         if (Angle == 180 || Angle < 0)
         {
-            UnityEditor.EditorUtility.DisplayDialog("Error 001", "Angle value can't exceed 180 degrees or be negative", "Ok", "");
+            UnityEditor.EditorUtility.DisplayDialog("Error 001", "Angle value can't exceed 180 degrees or be negative", "Ok", "no");
             UnityEditor.EditorApplication.isPlaying = false;
         }
+
 
         // Make sure the door opens correctly when using different swingsides.
         if (SwingSide == DoorSwingSide.Left)
@@ -152,7 +157,7 @@ public class DoorOpening : MonoBehaviour, Interactable
             {
                 Running = true;
 
-                hinge.transform.rotation = Quaternion.Lerp(hinge.transform.rotation, finalRotation, Time.deltaTime * Speed);
+                hinge.transform.localRotation = Quaternion.Lerp(hinge.transform.rotation, finalRotation, Time.deltaTime * Speed);
                 yield return new WaitForEndOfFrame();
             }
 
