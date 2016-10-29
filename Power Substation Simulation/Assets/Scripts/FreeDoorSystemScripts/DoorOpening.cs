@@ -96,7 +96,7 @@ public class DoorOpening : MonoBehaviour, Interactable
         }
 
         // Make the hinge the parent of the door.
-        transform.parent = hinge.transform;
+        hinge.transform.parent = transform;
 
         //USER ERROR CODES
         if (Angle == 180 || Angle < 0)
