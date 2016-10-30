@@ -1,0 +1,63 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Circuit Breaker humming with a heavy load_data" version="1.3.0" audacityversion="2.1.2" sel0="18.6083884588" sel1="18.6083884588" vpos="0" h="15.9659123726" zoom="306.1522502394" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="COMMENTS" value="converted by convert2mp3.net"/>
+	</tags>
+	<wavetrack name="Circuit Breaker humming with a heavy load" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="834170">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000f5a.au" len="128489" min="-0.027221" max="0.028834" rms="0.008666"/>
+				</waveblock>
+				<waveblock start="128489">
+					<simpleblockfile filename="e00007a8.au" len="163348" min="-0.030482" max="0.029278" rms="0.007369"/>
+				</waveblock>
+				<waveblock start="291837">
+					<simpleblockfile filename="e0000305.au" len="209446" min="-0.02832" max="0.028654" rms="0.007297"/>
+				</waveblock>
+				<waveblock start="501283">
+					<simpleblockfile filename="e0000d8d.au" len="167667" min="-0.031617" max="0.034985" rms="0.008604"/>
+				</waveblock>
+				<waveblock start="668950">
+					<simpleblockfile filename="e00007c9.au" len="165220" min="-0.034985" max="0.03091" rms="0.008291"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="15.018671253942" val="1.062345981598"/>
+				<controlpoint t="15.168900617718" val="1.080279121293"/>
+				<controlpoint t="15.168923293455" val="1.160570208560"/>
+				<controlpoint t="16.838004795787" val="1.397754977625"/>
+				<controlpoint t="16.838027471524" val="1.500000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Circuit Breaker humming with a heavy load" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="834170">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000d33.au" len="128489" min="-0.027221" max="0.028834" rms="0.008666"/>
+				</waveblock>
+				<waveblock start="128489">
+					<simpleblockfile filename="e00009a8.au" len="163348" min="-0.030482" max="0.029278" rms="0.007369"/>
+				</waveblock>
+				<waveblock start="291837">
+					<simpleblockfile filename="e00008fa.au" len="209446" min="-0.02832" max="0.028654" rms="0.007297"/>
+				</waveblock>
+				<waveblock start="501283">
+					<simpleblockfile filename="e00007be.au" len="167667" min="-0.031617" max="0.034985" rms="0.008604"/>
+				</waveblock>
+				<waveblock start="668950">
+					<simpleblockfile filename="e00007a6.au" len="165220" min="-0.034985" max="0.03091" rms="0.008291"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="15.018671253942" val="1.062345981598"/>
+				<controlpoint t="15.168900617718" val="1.080279121293"/>
+				<controlpoint t="15.168923293455" val="1.160570208560"/>
+				<controlpoint t="16.838004795787" val="1.397754977625"/>
+				<controlpoint t="16.838027471524" val="1.500000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>
