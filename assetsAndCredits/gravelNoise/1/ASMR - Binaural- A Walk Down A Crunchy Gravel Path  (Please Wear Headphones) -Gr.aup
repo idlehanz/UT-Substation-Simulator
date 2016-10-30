@@ -1,10 +1,10 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
-<project xmlns="http://audacity.sourceforge.net/xml/" projname="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="0.8892843633" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="0.6676870748" vpos="2384" h="0.0000000000" zoom="28.4570996256" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
 	<tags>
 		<tag name="COMMENTS" value="converted by convert2mp3.net"/>
 	</tags>
-	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
 		<waveclip offset="0.00000000">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="38829312">
 				<waveblock start="0">
@@ -458,7 +458,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
 		<waveclip offset="0.00000000">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="38829312">
 				<waveblock start="0">
@@ -907,6 +907,186 @@
 				</waveblock>
 				<waveblock start="38797312">
 					<simpleblockfile filename="e00012d9.au" len="32000" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001bfb.au" len="52690" min="-0.322778" max="0.283898" rms="0.021127"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001ed5.au" len="52690" min="-0.227824" max="0.253654" rms="0.012867"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60438">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001690.au" len="60438" min="-0.127482" max="0.123727" rms="0.034653"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60438">
+				<waveblock start="0">
+					<simpleblockfile filename="e000186e.au" len="60438" min="-0.128288" max="0.123911" rms="0.022369"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="41842">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001982.au" len="41842" min="-0.195504" max="0.326078" rms="0.037755"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="41842">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001c8f.au" len="41842" min="-0.164815" max="0.148731" rms="0.022017"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e000132a.au" len="52690" min="-0.146746" max="0.146868" rms="0.042313"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001e13.au" len="52690" min="-0.159668" max="0.171119" rms="0.023194"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60438">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001b04.au" len="60438" min="-0.265305" max="0.197323" rms="0.029013"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60438">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001013.au" len="60438" min="-0.1649" max="0.072753" rms="0.013475"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001487.au" len="52690" min="-0.382696" max="0.173606" rms="0.025519"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52690">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001e9b.au" len="52690" min="-0.509862" max="0.369863" rms="0.015834"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="55789">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001a2b.au" len="55789" min="-0.235846" max="0.39014" rms="0.045981"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="55789">
+				<waveblock start="0">
+					<simpleblockfile filename="e000192c.au" len="55789" min="-0.355942" max="0.503924" rms="0.022548"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="51140">
+				<waveblock start="0">
+					<simpleblockfile filename="e00010a9.au" len="51140" min="-0.184157" max="0.161242" rms="0.028246"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="51140">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001d2e.au" len="51140" min="-0.298928" max="0.213713" rms="0.015955"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="29445">
+				<waveblock start="0">
+					<simpleblockfile filename="e0001c1f.au" len="29445" min="-0.460056" max="0.516724" rms="0.026555"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="ASMR - Binaural- A Walk Down A Crunchy Gravel Path  (Please Wear Headphones) -Gr" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="29445">
+				<waveblock start="0">
+					<simpleblockfile filename="e000130b.au" len="29445" min="-1.176458" max="1.00858" rms="0.033797"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
