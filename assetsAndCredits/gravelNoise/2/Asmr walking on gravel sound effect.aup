@@ -1,10 +1,10 @@
 <?xml version="1.0" standalone="no" ?>
 <!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
-<project xmlns="http://audacity.sourceforge.net/xml/" projname="Asmr walking on gravel sound effect_data" version="1.3.0" audacityversion="2.1.2" sel0="244.7307821826" sel1="244.7307821826" vpos="0" h="0.0000000000" zoom="1.3811094664" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="Asmr walking on gravel sound effect_data" version="1.3.0" audacityversion="2.1.2" sel0="0.0000000000" sel1="1.3349659864" vpos="4496" h="64.1467980311" zoom="44.1955029248" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
 	<tags>
 		<tag name="COMMENTS" value="converted by convert2mp3.net"/>
 	</tags>
-	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
 		<waveclip offset="0.00000000">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="25001856">
 				<waveblock start="0">
@@ -299,7 +299,7 @@
 			<envelope numpoints="0"/>
 		</waveclip>
 	</wavetrack>
-	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
 		<waveclip offset="0.00000000">
 			<sequence maxsamples="262144" sampleformat="262159" numsamples="25001856">
 				<waveblock start="0">
@@ -589,6 +589,326 @@
 				</waveblock>
 				<waveblock start="24903680">
 					<simpleblockfile filename="e00001a8.au" len="98176" min="0.0" max="0.0" rms="0.0"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="47896">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000e8d.au" len="47896" min="-0.226415" max="0.231763" rms="0.011394"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="47896">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000084.au" len="47896" min="-0.191153" max="0.231992" rms="0.01413"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60868">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002de.au" len="60868" min="-0.763497" max="0.662296" rms="0.021971"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="60868">
+				<waveblock start="0">
+					<simpleblockfile filename="e00001b0.au" len="60868" min="-0.316247" max="0.269457" rms="0.013009"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="40912">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000438.au" len="40912" min="-0.095567" max="0.143819" rms="0.007927"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="40912">
+				<waveblock start="0">
+					<simpleblockfile filename="e00007bf.au" len="40912" min="-0.269501" max="0.389031" rms="0.022831"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="33926">
+				<waveblock start="0">
+					<simpleblockfile filename="e00007d8.au" len="33926" min="-0.310823" max="0.736497" rms="0.018301"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="33926">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006f9.au" len="33926" min="-0.621551" max="0.47384" rms="0.01389"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="39913">
+				<waveblock start="0">
+					<simpleblockfile filename="e000052c.au" len="39913" min="-0.217957" max="0.171347" rms="0.017824"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="39913">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000e47.au" len="39913" min="-0.205567" max="0.19308" rms="0.007993"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="39914">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000c26.au" len="39914" min="-0.452616" max="0.52238" rms="0.033451"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="39914">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000298.au" len="39914" min="-0.644001" max="0.706055" rms="0.022625"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="35922">
+				<waveblock start="0">
+					<simpleblockfile filename="e000088d.au" len="35922" min="-0.670793" max="0.375011" rms="0.025562"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="35922">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000346.au" len="35922" min="-0.389635" max="0.23206" rms="0.015708"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="32929">
+				<waveblock start="0">
+					<simpleblockfile filename="e00007ff.au" len="32929" min="-0.823863" max="0.895236" rms="0.049321"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="32929">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a0b.au" len="32929" min="-0.67518" max="0.640293" rms="0.016392"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="58872">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000175.au" len="58872" min="-0.539178" max="0.333046" rms="0.025752"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="58872">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002ba.au" len="58872" min="-0.415737" max="0.38605" rms="0.032594"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="68851">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000247.au" len="68851" min="-0.568369" max="0.496104" rms="0.016416"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="68851">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000bb2.au" len="68851" min="-0.336451" max="0.300517" rms="0.017844"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="62864">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000136.au" len="62864" min="-0.306955" max="0.231371" rms="0.021819"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="62864">
+				<waveblock start="0">
+					<simpleblockfile filename="e00005d9.au" len="62864" min="-0.502649" max="0.473028" rms="0.037938"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="43905">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000fc3.au" len="43905" min="-0.167833" max="0.189996" rms="0.01238"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="43905">
+				<waveblock start="0">
+					<simpleblockfile filename="e00008b7.au" len="43905" min="-0.363453" max="0.610468" rms="0.014496"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52885">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000dd2.au" len="52885" min="-0.940773" max="0.393674" rms="0.030057"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52885">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000a68.au" len="52885" min="-0.344211" max="0.433057" rms="0.0268"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="49892">
+				<waveblock start="0">
+					<simpleblockfile filename="e00003d3.au" len="49892" min="-0.322792" max="0.430404" rms="0.018051"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="49892">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000592.au" len="49892" min="-0.30731" max="0.4566" rms="0.018585"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52885">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000acd.au" len="52885" min="-0.423235" max="0.446425" rms="0.016479"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="52885">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000088.au" len="52885" min="-0.556066" max="0.470208" rms="0.02125"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="58872">
+				<waveblock start="0">
+					<simpleblockfile filename="e00006f3.au" len="58872" min="-0.706939" max="0.907274" rms="0.023951"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Asmr walking on gravel sound effect" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="58872">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000d56.au" len="58872" min="-0.274498" max="0.37498" rms="0.016905"/>
 				</waveblock>
 			</sequence>
 			<envelope numpoints="0"/>
