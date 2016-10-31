@@ -32,7 +32,6 @@ public class LeverScript : MonoBehaviour, Interactable
     {
         //up 332.9
         //down 
-        Debug.Log(armTransform.rotation.eulerAngles.x);
         if (!leverEvent.isEventTriggered())
         {
             if (armTransform.rotation.eulerAngles.x <25)

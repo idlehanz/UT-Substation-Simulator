@@ -53,6 +53,7 @@ public class MoveablePhysicObjectScript : MonoBehaviour,Interactable {
     }
     public void displayInteractionMessage(GameObject interactor)
     {
-
+        GUI.color = Color.white;
+        GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up");
     }
 }
