@@ -11,22 +11,31 @@ class PlayerInteractionScript : MonoBehaviour
 
     public float maxInteractionDistance = 5.0f;
     protected Interactable closestInteractable = null;
+    protected PlayerInventoryScript inventory = null;
 
     void Start()
     {
-
+        inventory = GetComponent<PlayerInventoryScript>();
     }
 
     //UPDATE FUNCTION
     void Update()
     {
         getClosestInteractable();
+        
+
+        
         if (closestInteractable != null)
         {
             if (Input.GetKeyDown("e"))
             {
                 closestInteractable.interact(transform.gameObject);
             }
+            if (Input.GetMouseButtonDown(0))
+            {
+                inventory.interactItem(closestInteractable);
+            }
+
         }
     }
 

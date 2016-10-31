@@ -3,26 +3,27 @@ using System.Collections;
 
 public class PlayerInventoryScript : MonoBehaviour {
 
-    public ToolScript currentTool;
+    public ToolScript currentTool=null;
 
 
 
 	// Use this for initialization
 	void Start () {
-	    if (currentTool!=null)
-        {
-            ToolScript toolScript = currentTool.GetComponent<ToolScript>();
-            if (toolScript!=null)
-            {
-                toolScript.interact(gameObject);
-            }
-        }
+	    
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
+
+    public void interactItem(Interactable item)
+    {
+        if (currentTool!=null)
+        {
+            currentTool.interactWith(item);
+        }
+    }
 
 
 

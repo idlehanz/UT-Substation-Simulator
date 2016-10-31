@@ -36,6 +36,12 @@ public class ToolScript : MonoBehaviour, Interactable {
         
     }
 
+    public void interactWith(Interactable interactee)
+    {
+        interactee.interact(transform.gameObject);
+
+    }
+
     public void dropTool()
     {
         parentObject = null;
@@ -80,10 +86,11 @@ public class ToolScript : MonoBehaviour, Interactable {
     {
         if (parentObject == null)
         {
-            PlayerInteractionScript inventory = interactor.GetComponent<PlayerInteractionScript>(); ;
+            PlayerInventoryScript inventory = interactor.GetComponent<PlayerInventoryScript>(); ;
             if (inventory != null)
             {
                 pickUpTool(interactor);
+                inventory.pickUpTool(this);
             }
             else
             {

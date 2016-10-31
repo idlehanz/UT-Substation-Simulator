@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
-interface Interactable
+public interface Interactable
 {
     void interact(GameObject interactor);
     void displayInteractionMessage(GameObject interactor);

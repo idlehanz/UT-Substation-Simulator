@@ -57,15 +57,20 @@ public class LeverScript : MonoBehaviour, Interactable
 
     public void interact(GameObject interactor)
     {
-        if (leverEvent.isEventTriggered()==false)
+        if (interactor.tag == "Player")
         {
-            leverEvent.beginEvent();
-            leverUp = false;
+            if (leverEvent.isEventTriggered() == false)
+            {
+                leverEvent.beginEvent();
+                leverUp = false;
+            }
         }
+        
     }
 
     public void displayInteractionMessage(GameObject interactor)
     {
+
         if (leverEvent != null)
             leverEvent.displayMessage();
         else
@@ -74,5 +79,6 @@ public class LeverScript : MonoBehaviour, Interactable
             GUI.Box(new Rect(20, 20, 200, 55), "Press e to........nothing.....");
 
         }
+
     }
 }
