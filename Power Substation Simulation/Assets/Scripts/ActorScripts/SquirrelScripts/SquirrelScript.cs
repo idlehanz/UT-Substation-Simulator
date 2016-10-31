@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class SquirrelScript:MonoBehaviour
+public class SquirrelScript:MonoBehaviour, Interactable
 {
     public Animator animator;
 
@@ -30,6 +30,11 @@ public class SquirrelScript:MonoBehaviour
     public GameObject pathContainer = null;
     protected List<Vector3> path;
     protected int currentPathNode = 0;
+
+
+
+    protected bool pinned = false;
+    public bool alive = true;
 
 
     //SortedDictionary<Collider, Collision> collisionDictionary = new SortedDictionary<Collider, Collision>();
@@ -99,7 +104,7 @@ public class SquirrelScript:MonoBehaviour
             {
                 if (distance >= .8f)
                     continue;
-                velocity = Vector3.zero;
+                //velocity = Vector3.zero;
                 velocity.y += climbingSpeed*Time.deltaTime;
                 Vector3 vQ = transform.position + velocity;
                 Vector3 vPQ =vQ- c.contacts[0].point;
@@ -163,19 +168,7 @@ public class SquirrelScript:MonoBehaviour
         if (collisionDictionary.ContainsKey(collision.collider))
         {
             collisionDictionary.Remove(collision.collider);
-            /*
-            ContactPoint cp = collision.contacts[0];
-
-            if (collision.gameObject.tag == "Transformer")
-            {
-                foreach (Rigidbody rb in bodies)
-                {
-                    if (cp.thisCollider.attachedRigidbody == rb)
-                    {
-                        rigidBodyCollisionDictionary[rb] = false;
-                    }
-                }
-            }*/
+           
 
 
 
@@ -190,12 +183,14 @@ public class SquirrelScript:MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        setRagdollState(true);
-        setHandLocked(true);
-        foreach (Rigidbody rb in bodies)
+        if (alive)
         {
-
+            alive = false;
+            setRagdollState(true);
+            setHandLocked(true);
+            pinned = true;
         }
+       
 
 
     }
@@ -216,6 +211,10 @@ public class SquirrelScript:MonoBehaviour
         animator.enabled = !newValue;
 
 
+        CapsuleCollider cc = GetComponent<CapsuleCollider>();
+        cc.isTrigger = newValue;
+
+
         //For each of the components in the array, treat the component as a Rigidbody and set its isKinematic property
         foreach (Rigidbody rb in bodies)
         {
@@ -229,7 +228,8 @@ public class SquirrelScript:MonoBehaviour
 
 
         rigidBody.isKinematic = newValue;
-        rigidBody.detectCollisions = !newValue;
+        
+        rigidBody.detectCollisions = true;
     }
 
     void setHandLocked(bool newHandLockedValue)
@@ -264,5 +264,22 @@ public class SquirrelScript:MonoBehaviour
         currentPathNode = 0;
     }
 
+    public void interact(GameObject interactor)
+    {
+        if (pinned==true && interactor.tag == "Scraper")
+        {
+            setHandLocked(false);
+            pinned = false;
+        }
+    }
+
+    public void displayInteractionMessage(GameObject interactor)
+    {
+        if (pinned == true)
+        {
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "get the scrapper, press e to remove");
+        }
+    }
 }
 
