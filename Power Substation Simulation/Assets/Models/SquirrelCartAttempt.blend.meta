@@ -117,6 +117,7 @@ ModelImporter:
     7400008: Jump
     7400010: rigAction
     7400012: Grab
+    7400014: walk
     9500000: //RootNode
     13700000: Sphere_004
   materials:
