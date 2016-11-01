@@ -78,7 +78,7 @@ public class ToolScript : MonoBehaviour, Interactable {
         if (parentObject == null)
         {
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up");
+            GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up "+toolName);
         }
     }
 
