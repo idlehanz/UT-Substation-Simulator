@@ -5,7 +5,9 @@ using System;
 public class ToolScript : MonoBehaviour, Interactable {
     
     public string toolName="tool";
-    public Vector3 hudPosition = Vector3.zero;
+    public float horizontalDistance = .5f;
+    public float verticalDistance = 1;
+
     public Vector3 hudRotation;
     public GameObject parentObject;
     protected Rigidbody rigidBody;
@@ -61,8 +63,20 @@ public class ToolScript : MonoBehaviour, Interactable {
         rigidBody.useGravity = false;
         rigidBody.isKinematic = true;
         parentObject = interactor;
-        //transform.position = Vector3.zero;
-        transform.position = cameraTransform.position + hudPosition;
+
+        
+
+        Vector3 horizontalVelocity = Vector3.Cross(cameraTransform.up, cameraTransform.transform.forward).normalized * horizontalDistance;
+        Vector3 verticalVelocity = Vector3.Cross(cameraTransform.up, -cameraTransform.transform.right).normalized * verticalDistance;
+        Vector3 velocity = verticalVelocity+ horizontalVelocity;
+
+        Vector3 hudPosition = cameraTransform.position+velocity;
+        transform.position = hudPosition;
+
+
+
+
+
         transform.Rotate(cameraTransform.rotation.eulerAngles + hudRotation);
         transform.parent = cameraTransform;
 
@@ -78,7 +92,7 @@ public class ToolScript : MonoBehaviour, Interactable {
         if (parentObject == null)
         {
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up");
+            GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up "+toolName);
         }
     }
 
