@@ -10,10 +10,18 @@ public class MouseLook : MonoBehaviour
 	public Vector2 clampInDegrees = new Vector2(360, 180);
 	public Vector2 targetDirection;
 	public Vector2 targetCharacterDirection;
+	public int inverted; // if 1 if not inverted and -1 if inverted give it an initial value of 1 set in start loop
 	
 	// Assign this if there's a parent object controlling motion, such as a Character Controller.
 	// Yaw rotation will affect this object instead of the camera if set.
 	public GameObject characterBody;
+
+	public void InvertMouse(){
+		inverted = -1;
+	}
+	public void UninvertMouse(){
+		inverted = 1; 
+	}
 	
 	void Start()
 	{
@@ -23,6 +31,7 @@ public class MouseLook : MonoBehaviour
 		// Set target direction for the character body to its inital state.
 		if (characterBody) targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
 
+		inverted = 1;
 	}
 	
 	void Update()
@@ -33,7 +42,7 @@ public class MouseLook : MonoBehaviour
 		var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
 		
 		// Get raw mouse input for a cleaner reading on more sensitive mice.
-		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
+		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), inverted * Input.GetAxisRaw("Mouse Y"));
 		
 		// Scale input against the sensitivity setting and multiply that against the smoothing value.
 		mouseDelta = Vector2.Scale(mouseDelta, new Vector2(sensitivity.x * Smoothing.x, sensitivity.y * Smoothing.y));

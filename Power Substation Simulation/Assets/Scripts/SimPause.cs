@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class SimPause : MonoBehaviour{
 
-	
 	public Transform canvas;
 	//this contains the menu information
 	public Transform Player;
@@ -28,7 +27,7 @@ public class SimPause : MonoBehaviour{
 
 	public int FPS=60;
 	public int FOV;
-	bool flipY = false;
+	public InputField ChangeInvert;
 
 
 	public void Update(){
@@ -257,8 +256,32 @@ public class SimPause : MonoBehaviour{
 	}
 
 	public void SetMouseInvert(){
-		var inputY = Input.GetAxis("Vertical") * (flipY ? -1 : 1);
+		GameObject player = GameObject.Find ("Camera");
+		MouseLook InvertFieldOBJ = player.GetComponent ("Mouse Look") as MouseLook;
+		//MouseLook InvertFieldOBJ = gameObject.GetComponent(typeof(MouseLook)) as MouseLook;
+		InvertFieldOBJ.InvertMouse ();
+		//MouseLook go = InvertFieldOBJ.GetComponent<MouseLook> ();
+
+
+		//bool InvertBool = InvertFieldOBJ.GetComponent<Toggle> ().isOn;
+		//Debug.Log ("Invert mouse = " + InvertBool);
+
+		/*
+		if (InvertBool == true) 
+		{
+			go.InvertMouse ();
+		} 
+
+		else 
+		{
+			//go.UninvertMouse ();
+		}
+*/
+
+		/*
+		var inputY = Input.GetAxis("Vertical") * (iflipY ? -1 : 1);
 		Debug.Log ("Invert mouse = " + flipY);
+		*/
 	}
 
 
