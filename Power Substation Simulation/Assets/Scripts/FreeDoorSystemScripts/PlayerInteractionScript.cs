@@ -13,9 +13,15 @@ class PlayerInteractionScript : MonoBehaviour
     protected Interactable closestInteractable = null;
     protected PlayerInventoryScript inventory = null;
 
+    protected InputManager inputManager = new InputManager();
+
     void Start()
     {
         inventory = GetComponent<PlayerInventoryScript>();
+
+        
+
+
     }
 
     //UPDATE FUNCTION
@@ -23,11 +29,11 @@ class PlayerInteractionScript : MonoBehaviour
     {
         getClosestInteractable();
         
-
+        
         
         if (closestInteractable != null)
         {
-            if (Input.GetKeyDown("e"))
+            if (inputManager.isKeyEntryActive("Player Interact"))
             {
                 closestInteractable.interact(transform.gameObject);
             }

@@ -36,10 +36,11 @@ public class PlayerMovement : MonoBehaviour {
 
     public float noClipVelocity = 30;
 
-
+    protected InputManager inputManager;
 
     void Start()
     {
+        inputManager = new InputManager();
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
         rigidBody.freezeRotation = true;//freeze rotation so we don't go rolling off
 
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	void Update() {
         
-		jump = jump || Input.GetButtonDown("Jump");
+        jump = jump || Input.GetButtonDown("Jump");
 	}
 	
 	void FixedUpdate() {
@@ -83,8 +84,9 @@ public class PlayerMovement : MonoBehaviour {
     /*function to update the no clip status for the player*/
     protected void updateNoClipStatus()
     {
+        
         //check if the key we bound the no clip to was pressed
-        if (Input.GetKeyDown(noClipKey))
+        if (inputManager.isKeyEntryActive("Player Noclip"))
         {
             //make sure we only change the state once per press
             if (clipChanged == false)
@@ -117,8 +119,26 @@ public class PlayerMovement : MonoBehaviour {
         //we will use the default key bindings from unity,
         //w and s are locked to the tag Horizontal, and a and d to verticle,
         //teh get Axis raw method returns either a 1, 0, or -1 depending on if a button with that tag is pressed or not
-        float horizontalComponent = Input.GetAxisRaw("Horizontal");//should we move forward?
-        float verticleComponent = Input.GetAxisRaw("Vertical");//how about strafing?
+        float horizontalComponent = 0;//should we move forward?
+        float verticleComponent = 0;//how about strafing?
+        
+        if (inputManager.isKeyEntryActive("Player Forward"))
+        {
+            verticleComponent = 1;
+        }
+        else if (inputManager.isKeyEntryActive("Player Backward"))
+        {
+            verticleComponent = -1;
+        }
+
+        if (inputManager.isKeyEntryActive("Player Left"))
+        {
+            horizontalComponent = -1;
+        }
+        else if (inputManager.isKeyEntryActive("Player Right"))
+        {
+            horizontalComponent  = 1;
+        }
 
         //get our horizontal and vertical velocity
         Vector3 horizontalVelocity = Vector3.Cross(transform.up, transform.forward).normalized * horizontalComponent * Time.deltaTime;
