@@ -221,7 +221,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         
        if (other.tag == "Transformer")
         {
-            Debug.Log("found transformer");
+
             transformerGameObject = other.gameObject;
             animator.SetBool("Walking", false);
             animator.SetBool("Climbing", false);
@@ -320,11 +320,19 @@ public class SquirrelScript:MonoBehaviour, Interactable
     }
 
 
-
+    public bool isTransformeredDestroyed()
+    {
+        TransformerScript transformerScript = transformerGameObject.GetComponent<TransformerScript>();
+        return transformerScript.isDestroyed();
+    }
 
     public bool isPinned()
     {
         return pinned;
+    }
+    public bool isAlive()
+    {
+        return alive;
     }
 }
 

@@ -54,6 +54,7 @@ public class LeverScript : MonoBehaviour, Interactable
     }
 
     
+    
 
     public void interact(GameObject interactor)
     {

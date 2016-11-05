@@ -77,7 +77,6 @@ class TransformerScript : ElectricalComponentScript
 
     public override void onInteract(GameObject interactor)
     {
-        Debug.Log("interacting with transformer");
         if (interactor.tag == "squirrel")
         {
             triggerElectricalDamage();
