@@ -31,10 +31,11 @@ public class SquirrelScript:MonoBehaviour, Interactable
     protected List<Vector3> path;
     protected int currentPathNode = 0;
 
-
-
+    
     protected bool pinned = false;
     public bool alive = true;
+
+    protected GameObject transformerGameObject=null;
 
 
     //SortedDictionary<Collider, Collision> collisionDictionary = new SortedDictionary<Collider, Collision>();
@@ -70,17 +71,39 @@ public class SquirrelScript:MonoBehaviour, Interactable
         Vector3 direction = path[currentPathNode] - transform.position;
         Vector3 velocity = direction.normalized * speed * Time.deltaTime;
         velocity.y = 0;
-        if (ragdollState == false)
-             move(velocity);
-
-        if (Vector3.Distance(transform.position, path[currentPathNode]) < 1.5f)
+        if (transformerGameObject == null)
         {
-            if (currentPathNode < path.Count - 1)
-                currentPathNode++;
+            
+            move(velocity);
 
+            if (Vector3.Distance(transform.position, path[currentPathNode]) < 1.5f)
+            {
+                if (currentPathNode < path.Count - 1)
+                    currentPathNode++;
+
+            }
         }
+        else
+        {
+            
+            TransformerScript transformer = transformerGameObject.GetComponent<TransformerScript>();
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            {
+                if (alive == true)
+                {
+                    transformer.interact(transform.gameObject);
+                    setRagdollState(true);
 
-        //collision.contacts[0];
+                    setHandLocked(true);
+                    pinned = true;
+                    alive = false;
+                }
+            }
+            //transformer.interact(transform.gameObject);
+            //setRagdollState(true);
+
+            //setHandLocked(true);
+        }
 
 
     }
@@ -114,7 +137,6 @@ public class SquirrelScript:MonoBehaviour, Interactable
             Debug.DrawRay(rayP, rayR);
             if (Physics.Raycast(r, out hit, maxInteractionDistance))
             {
-                Debug.Log("collided");
                 velocity = Vector3.zero;
                 velocity.y += climbingSpeed * Time.deltaTime;
                 rigidBody.useGravity = false;
@@ -151,64 +173,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
 
     }
 
-
-    /*
-
-    public void move(Vector3 velocity)
-    {
-        //get all registered collisions
-        List<Collision> collisions = new List<Collision>();
-        collisions.AddRange(collisionDictionary.Values);
-
-        List<Plane> velocityIntersectsPlane = new List<Plane>();
-        bool intersected = false;
-        foreach( Collision c in collisions)
-        {
-            //for simplicity, and speed we'll only check the first registered collision point per collision,
-            //since for complex objects this 
-            Plane collisionPlane = new Plane(c.contacts[0].normal, c.contacts[0].point);
-            Ray velocityRay = new Ray(transform.position, velocity.normalized);
-            float distance = 0;
-            if (collisionPlane.Raycast(velocityRay, out distance))
-            {
-                if (distance >= .8f)
-                    continue;
-                //velocity = Vector3.zero;
-                velocity.y += climbingSpeed*Time.deltaTime;
-                Vector3 vQ = transform.position + velocity;
-                Vector3 vPQ =vQ- c.contacts[0].point;
-                float dot = Vector3.Dot(vPQ, collisionPlane.normal.normalized);
-                Vector3 vQN = collisionPlane.normal.normalized * dot;
-
-                Vector3 vAnswer = vQ - vQN;
-                velocity = vAnswer - transform.position;
-                
-                intersected = true;
-                break;
-            }
-        }
-        
-
-
-        Vector3 newPosition = transform.position + velocity;
-       // rigidBody.position = newPosition;
-        rigidBody.MovePosition(newPosition);
-
-        float turnSpeed = 30;
-        velocity.y = 0;
-        Quaternion dirQ = Quaternion.LookRotation(velocity);
-        Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, velocity.magnitude * turnSpeed * Time.deltaTime);
-        rigidBody.MoveRotation(slerp);
-        
-       // rigidBody.MovePosition(newPosition);
-
-
-    }
-
-
-*/
-
-
+    
 
     void OnCollisionEnter(Collision collision)
     {
@@ -253,14 +218,16 @@ public class SquirrelScript:MonoBehaviour, Interactable
 
     void OnTriggerEnter(Collider other)
     {
-        if (alive)
+        
+       if (other.tag == "Transformer")
         {
-            alive = false;
-            setRagdollState(true);
-            setHandLocked(true);
-            pinned = true;
+            Debug.Log("found transformer");
+            transformerGameObject = other.gameObject;
+            animator.SetBool("Walking", false);
+            animator.SetBool("Climbing", false);
+            animator.SetBool("Dead", false);
+            animator.SetBool("Grabbing", true);
         }
-       
 
 
     }
@@ -350,6 +317,14 @@ public class SquirrelScript:MonoBehaviour, Interactable
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "get the scrapper, press e to remove");
         }
+    }
+
+
+
+
+    public bool isPinned()
+    {
+        return pinned;
     }
 }
 

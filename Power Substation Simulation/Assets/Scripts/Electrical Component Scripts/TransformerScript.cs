@@ -13,6 +13,7 @@ class TransformerScript : ElectricalComponentScript
     public float step = 3.6315f;
     public bool damaged = false;
     AudioSource explosion;
+    protected SquirrelScript squirrel = null;
 
 
     public override void uniqueStart()
@@ -63,34 +64,7 @@ class TransformerScript : ElectricalComponentScript
     }
 
 
-    void OnTriggerEnter(Collider  other)
-    {
-        if (other.gameObject.tag == "squirrel")
-        {
-            if (damaged == false)
-            {
-                damaged = true;
-                if (explosion == null)
-                {
-                    explosion = GetComponent<AudioSource>();
-                    explosion.Play();
-                }
-                if (electricalExplosionParticles != null)
-                {
-                    electricalExplosionParticles.Play();
-                }
-                Debug.Log("transformer damaged");
-            }
-        }
-    }
-    void OnTriggerStay(Collider other)
-    {
-
-    }
-    void OnTriggerExit(Collider other)
-    {
-
-    }
+   
 
 
     public bool isDestroyed()
@@ -104,7 +78,14 @@ class TransformerScript : ElectricalComponentScript
     public override void onInteract(GameObject interactor)
     {
         Debug.Log("interacting with transformer");
-        damaged = false;
+        if (interactor.tag == "squirrel")
+        {
+            triggerElectricalDamage();
+            squirrel = interactor.GetComponent<SquirrelScript>();
+        }
+        else
+            if (squirrel.isPinned() == false)
+                 damaged = false;
 
     }
     public override void onDisplayInteractionMessage(GameObject interactor)
