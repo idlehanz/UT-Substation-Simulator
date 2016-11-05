@@ -36,6 +36,7 @@ public class SquirrelIncidentEvent : SimulationEvent
             {
                 Destroy(squirrelObject);
                 squirrelScript = null;
+                eventTriggered = false;
             }
             
         }
