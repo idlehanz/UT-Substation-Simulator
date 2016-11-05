@@ -77,7 +77,10 @@ public class ToolScript : MonoBehaviour, Interactable {
 
 
 
-        transform.Rotate(cameraTransform.rotation.eulerAngles + hudRotation);
+        //transform.Rotate(cameraTransform.rotation.eulerAngles + hudRotation);
+        //transform.rotation.SetEulerAngles(cameraTransform.rotation.eulerAngles + hudRotation);
+        transform.rotation = cameraTransform.rotation;
+        transform.Rotate(hudRotation);
         transform.parent = cameraTransform;
 
 
