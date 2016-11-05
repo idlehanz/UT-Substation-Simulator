@@ -45,12 +45,20 @@ class TransformerScript : ElectricalComponentScript
 
     public void triggerElectricalDamage()
     {
-        if (explosion == null)
+        if (damaged == false)
         {
-            explosion = GetComponent<AudioSource>();
-            explosion.Play();
+            damaged = true;
+            if (explosion == null)
+            {
+                explosion = GetComponent<AudioSource>();
+                explosion.Play();
+            }
+            if (electricalExplosionParticles != null)
+            {
+                electricalExplosionParticles.Play();
+            }
+            Debug.Log("transformer damaged");
         }
-        damaged = true;
 
     }
 

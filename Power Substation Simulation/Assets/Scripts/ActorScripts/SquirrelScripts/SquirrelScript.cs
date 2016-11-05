@@ -55,6 +55,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         animator.SetBool("Grabbing", false);
 
 
+        
 
         setRagdollState(ragdollState);
     }
@@ -84,6 +85,74 @@ public class SquirrelScript:MonoBehaviour, Interactable
 
     }
 
+
+    public void move(Vector3 velocity)
+    {
+        transform.rotation = Quaternion.LookRotation(velocity);
+
+        Vector3 rayR = transform.forward;
+        Vector3 rayP = transform.position;
+
+
+        
+        float maxInteractionDistance = 1;
+        RaycastHit hit; // Variable reading information about the collider hit.
+
+        // Cast a ray from the center of screen towards where the player is looking.
+
+        rigidBody.useGravity = true;
+
+       
+        bool climbing = false;
+        animator.SetBool("Walking", true);
+        animator.SetBool("Climbing", false);
+        animator.SetBool("Dead", false);
+        animator.SetBool("Grabbing", false);
+        for (int i =0; i<3; i++)
+        {
+            Ray r = new Ray(rayP, rayR);
+            Debug.DrawRay(rayP, rayR);
+            if (Physics.Raycast(r, out hit, maxInteractionDistance))
+            {
+                Debug.Log("collided");
+                velocity = Vector3.zero;
+                velocity.y += climbingSpeed * Time.deltaTime;
+                rigidBody.useGravity = false;
+                if (i>1)
+                {
+
+                    animator.SetBool("Walking", false);
+                    animator.SetBool("Climbing", true);
+                    animator.SetBool("Dead", false);
+                    animator.SetBool("Grabbing", false);
+                }
+
+            }
+        }
+        
+
+        
+        
+        
+
+
+        Vector3 newPosition = transform.position + velocity;
+        rigidBody.position = newPosition;
+       // rigidBody.MovePosition(newPosition);
+
+        float turnSpeed = 30;
+        velocity.y = 0;
+        Quaternion dirQ = Quaternion.LookRotation(velocity);
+        Quaternion slerp = Quaternion.Slerp(transform.rotation, dirQ, velocity.magnitude * turnSpeed * Time.deltaTime);
+        rigidBody.MoveRotation(slerp);
+        
+       // rigidBody.MovePosition(newPosition);
+
+
+    }
+
+
+    /*
 
     public void move(Vector3 velocity)
     {
@@ -122,7 +191,8 @@ public class SquirrelScript:MonoBehaviour, Interactable
 
 
         Vector3 newPosition = transform.position + velocity;
-        rigidBody.position = newPosition;
+       // rigidBody.position = newPosition;
+        rigidBody.MovePosition(newPosition);
 
         float turnSpeed = 30;
         velocity.y = 0;
@@ -136,7 +206,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
     }
 
 
-
+*/
 
 
 
