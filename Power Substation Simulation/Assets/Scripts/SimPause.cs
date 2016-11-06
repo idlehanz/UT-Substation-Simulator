@@ -47,7 +47,7 @@ public class SimPause : MonoBehaviour{
 				canvas.gameObject.SetActive(true);
 				Time.timeScale = 0;
 				//the power to stop time
-				GetComponent<MouseLook>().enabled = false;
+				GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
 				//failure of a command
 
 			}
@@ -245,14 +245,20 @@ public class SimPause : MonoBehaviour{
 		FOV = Convert.ToInt32 (ChangeFOV.text);
 		Debug.Log ("FOV = " + FOV);
 
+		Camera tmpcam = GameObject.Find ("Camera").GetComponent<Camera>();
+
 		if (FOV > 360) {
-			GetComponent<Camera> ().fieldOfView = 360;////////////////////////////
+			/////this may need to be changed
+			//GetComponent<Camera> ().fieldOfView = 360;////////////////////////////
+			tmpcam.fieldOfView = 360;
 		}
 
 		if (FOV < 1) {
-			GetComponent<Camera> ().fieldOfView = 1;//////////////////////
+			//GetComponent<Camera> ().fieldOfView = 1;//////////////////////
+			tmpcam.fieldOfView = 1;
 		}
-		GetComponent<Camera> ().fieldOfView = FOV;
+		tmpcam.fieldOfView = FOV;
+		//GetComponent<Camera> ().fieldOfView = FOV;
 	}
 
 	public void SetMouseInvert(){
