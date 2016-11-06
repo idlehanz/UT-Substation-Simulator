@@ -97,7 +97,7 @@ class TransformerScript : ElectricalComponentScript
         }
         else
             if (squirrel.isPinned() == false)
-            damaged = false;
+				damaged = false;
 
     }
     public override void onDisplayInteractionMessage(GameObject interactor)
