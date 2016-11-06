@@ -253,11 +253,11 @@ public class SimPause : MonoBehaviour{
 			tmpcam.fieldOfView = 360;
 		}
 
-		if (FOV < 1) {
+		else if (FOV < 1) {
 			//GetComponent<Camera> ().fieldOfView = 1;//////////////////////
 			tmpcam.fieldOfView = 1;
 		}
-		tmpcam.fieldOfView = FOV;
+		else tmpcam.fieldOfView = FOV;
 		//GetComponent<Camera> ().fieldOfView = FOV;
 	}
 
