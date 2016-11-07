@@ -254,7 +254,7 @@ public class SimPause : MonoBehaviour{
 	}
 
 	public void SetMouseInvert(){
-		/*
+		
 		GameObject player = GameObject.Find ("Camera");
 		MouseLook InvertFieldOBJ = player.GetComponent<MouseLook>() as MouseLook;
 		bool InvertBool = GameObject.Find ("InvertMouse").GetComponent<Toggle>().isOn;
@@ -277,7 +277,7 @@ public class SimPause : MonoBehaviour{
 		{
 			InvertFieldOBJ.UninvertMouse ();
 		}
-*/
+
 
 		/*
 		var inputY = Input.GetAxis("Vertical") * (iflipY ? -1 : 1);
