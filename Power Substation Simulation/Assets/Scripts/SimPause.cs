@@ -27,7 +27,7 @@ public class SimPause : MonoBehaviour{
 
 	public int FPS=60;
 	public int FOV;
-	public bool InvertBool;
+	public Toggle InvertTogg;
 
 	public void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
@@ -35,8 +35,9 @@ public class SimPause : MonoBehaviour{
 			Debug.Log (FPS);
 
 			//ensure that the other menus are turned off
-			canvasresolution.gameObject.SetActive (false);
-			canvasaudio.gameObject.SetActive (false);
+			//canvasresolution.gameObject.SetActive (false);
+			//canvasaudio.gameObject.SetActive (false);
+
 			//if the pause menu isn't activated
 			if(canvas.gameObject.activeInHierarchy==false)
 			{
@@ -46,7 +47,6 @@ public class SimPause : MonoBehaviour{
 				//the power to stop time
 				GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
 				//failure of a command
-
 			}
 			else{
 				canvas.gameObject.SetActive (false);
@@ -255,6 +255,9 @@ public class SimPause : MonoBehaviour{
 	public void SetMouseInvert(){
 		GameObject player = GameObject.Find ("Camera");
 		MouseLook InvertFieldOBJ = player.GetComponent<MouseLook>() as MouseLook;
+		bool InvertBool = InvertTogg.isOn;
+
+
 		//bool InvertBool = GameObject.Find ("InvertMouse").GetComponent<Toggle>().isOn;
 
 		//MouseLook InvertFieldOBJ = gameObject.GetComponent(typeof(MouseLook)) as MouseLook;
@@ -262,7 +265,7 @@ public class SimPause : MonoBehaviour{
 		//MouseLook go = InvertFieldOBJ.GetComponent<MouseLook> ();
 
 
-		//bool InvertBool = InvertFieldOBJ.GetComponent<Toggle> ().isOn;
+		//InvertBool = InvertFieldOBJ.GetComponent<Toggle> ().isOn;
 		//Debug.Log ("Invert mouse = " + InvertBool);
 
 
