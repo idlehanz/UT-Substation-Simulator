@@ -4,7 +4,7 @@
 ////////////////////////////////////
 
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.Collections;
 using System;
 
@@ -106,8 +106,8 @@ public class DoorOpening : MonoBehaviour, Interactable
         //USER ERROR CODES
         if (Angle == 180 || Angle < 0)
         {
-            UnityEditor.EditorUtility.DisplayDialog("Error 001", "Angle value can't exceed 180 degrees or be negative", "Ok", "no");
-            UnityEditor.EditorApplication.isPlaying = false;
+//            UnityEditor.EditorUtility.DisplayDialog("Error 001", "Angle value can't exceed 180 degrees or be negative", "Ok", "no");
+//            UnityEditor.EditorApplication.isPlaying = false;
         }
 
 

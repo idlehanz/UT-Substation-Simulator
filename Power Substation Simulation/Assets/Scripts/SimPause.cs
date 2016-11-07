@@ -41,8 +41,6 @@ public class SimPause : MonoBehaviour{
 			//if the pause menu isn't activated
 			if(canvas.gameObject.activeInHierarchy==false)
 			{
-
-
 				//activate the pause menu
 				canvas.gameObject.SetActive(true);
 				Time.timeScale = 0;
@@ -62,10 +60,7 @@ public class SimPause : MonoBehaviour{
 			//still having some issues turning off the canvas resolution with escape
 		}
 	}
-
-
-
-
+		
 	public void continueSim(){
 		Debug.Log ("Continue");
 		canvas.gameObject.SetActive (false);
@@ -81,12 +76,12 @@ public class SimPause : MonoBehaviour{
 		//reload the level. this command is out of date and doesn't quite load right
 		//any suggestions would be amazing
 	}
-
-
+		
 	public void quitSim(){
 		Debug.Log ("Quit");
 		Application.Quit ();
 	}
+
 	public void backButton(){
 
 		canvasresolution.gameObject.SetActive (false);
@@ -94,9 +89,6 @@ public class SimPause : MonoBehaviour{
 		canvas.gameObject.SetActive (true);
 		//used 
 	}
-
-
-
 
 	public void videoSettingsMenu (){
 		Debug.Log ("Video Settings");
