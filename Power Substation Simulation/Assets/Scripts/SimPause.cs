@@ -29,7 +29,6 @@ public class SimPause : MonoBehaviour{
 	public int FOV;
 	public InputField ChangeInvert;
 
-
 	public void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
