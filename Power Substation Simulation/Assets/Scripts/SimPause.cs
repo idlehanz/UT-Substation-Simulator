@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class SimPause : MonoBehaviour{
 
 	public Transform canvas;
@@ -29,48 +28,62 @@ public class SimPause : MonoBehaviour{
 	public int FOV;
 	public Toggle InvertTogg;
 
+	public void Start()
+	{
+		#if !UNITY_EDITOR
+		Cursor.lockState = CursorLockMode.Locked;
+		#endif
+	}
+
 	public void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
-			Debug.Log (FPS);
-
-			//ensure that the other menus are turned off
-			//canvasresolution.gameObject.SetActive (false);
-			//canvasaudio.gameObject.SetActive (false);
-
+			
 			//if the pause menu isn't activated
-			if(canvas.gameObject.activeInHierarchy==false)
+			Debug.Log(canvas.gameObject.activeInHierarchy);
+			if (canvas.gameObject.activeInHierarchy == false)
 			{
-				//activate the pause menu
-				canvas.gameObject.SetActive(true);
-				Time.timeScale = 0;
-				//the power to stop time
-				GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
-				//failure of a command
+				pauseSim ();
 			}
-			else{
-				canvas.gameObject.SetActive (false);
-				Time.timeScale = 1;
-				GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
-				//unpause everything
+			else
+			{
+				continueSim ();
 			}
 			canvasresolution.gameObject.SetActive (false);
 			canvasaudio.gameObject.SetActive (false);
 			//still having some issues turning off the canvas resolution with escape
 		}
 	}
-		
+
+	public void pauseSim(){
+		//activate the pause menu
+		canvas.gameObject.SetActive(true);
+		Time.timeScale = 0;
+		//the power to stop time
+		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
+		//failure of a command
+
+		#if !UNITY_EDITOR
+		Cursor.lockState = CursorLockMode.None;
+		#endif
+	}
+
 	public void continueSim(){
 		Debug.Log ("Continue");
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
 		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
+
+		#if !UNITY_EDITOR
+		Cursor.lockState = CursorLockMode.Locked;
+		#endif
 	}
 
 	public void reloadSim(){
 		Debug.Log (SceneManager.GetActiveScene ().name);
 		//SceneManager.UnloadScene (0);
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		Time.timeScale = 1;
 		//reload the level. this command is out of date and doesn't quite load right
 		//any suggestions would be amazing
 	}

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
     protected Rigidbody rigidBody;//easy access to the rigid body in our player.
-    public bool lockMouseCursor = false;//if we want to lock the mouse we can change it in the editor, but for now it's set to false by default.
+    //public bool lockMouseCursor = true;//if we want to lock the mouse we can change it in the editor, but for now it's set to false by default.
     public Transform LookTransform;
 
     public string noClipKey = "n";//this is the key we will bind the no clip to,
@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour {
             rigidBody.detectCollisions = true;
         }
 
+		/*
         //set the cursor lock state
         if (lockMouseCursor)
         {
@@ -65,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             Cursor.lockState = CursorLockMode.None;
         }
-
+		*/
 
 	}
 	
