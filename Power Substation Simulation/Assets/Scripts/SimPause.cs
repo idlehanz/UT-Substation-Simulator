@@ -65,8 +65,7 @@ public class SimPause : MonoBehaviour{
 		Debug.Log ("Continue");
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
-	
-
+		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
 	}
 
 	public void reloadSim(){
