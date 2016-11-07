@@ -65,18 +65,18 @@ public class SimPause : MonoBehaviour{
 
 
 
-	//unpause the game with a button rather than escape
+
 	public void continueSim(){
 		Debug.Log ("Continue");
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
-		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
+	
 
 	}
 
 	public void reloadSim(){
-		Debug.Log ("Reload");
-
+		Debug.Log (SceneManager.GetActiveScene ().name);
+		//SceneManager.UnloadScene (0);
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		//reload the level. this command is out of date and doesn't quite load right
 		//any suggestions would be amazing
@@ -212,11 +212,10 @@ public class SimPause : MonoBehaviour{
 		if (Vcount<0){
 			QualitySettings.vSyncCount = 0;
 		}
-		if (Vcount > 3) {
+		else if (Vcount > 3) {
 			QualitySettings.vSyncCount = 3;
 		}
-
-		QualitySettings.vSyncCount = Vcount;
+		else QualitySettings.vSyncCount = Vcount;
 	}
 
 
@@ -264,6 +263,7 @@ public class SimPause : MonoBehaviour{
 	}
 
 	public void SetMouseInvert(){
+		/*
 		GameObject player = GameObject.Find ("Camera");
 		MouseLook InvertFieldOBJ = player.GetComponent<MouseLook>() as MouseLook;
 		bool InvertBool = GameObject.Find ("InvertMouse").GetComponent<Toggle>().isOn;
@@ -286,7 +286,7 @@ public class SimPause : MonoBehaviour{
 		{
 			InvertFieldOBJ.UninvertMouse ();
 		}
-
+*/
 
 		/*
 		var inputY = Input.GetAxis("Vertical") * (iflipY ? -1 : 1);
