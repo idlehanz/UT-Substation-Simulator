@@ -65,13 +65,15 @@ public class SimPause : MonoBehaviour{
 
 
 
-
+	//unpause the game with a button rather than escape
 	public void continueSim(){
 		Debug.Log ("Continue");
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
-		//unpause the game with a button rather than escape
+		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
+
 	}
+
 	public void reloadSim(){
 		Debug.Log ("Reload");
 
