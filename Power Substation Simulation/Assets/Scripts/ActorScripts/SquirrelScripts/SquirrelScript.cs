@@ -77,6 +77,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("rig|Grab"))
             {
+                
                 Debug.Log("squirrel grabbing");
                 grabbing = true;
             }
@@ -96,7 +97,8 @@ public class SquirrelScript:MonoBehaviour, Interactable
         }
         else
         {
-            
+
+            transform.rotation = Quaternion.LookRotation(transformerGameObject.transform.position - transform.position);
             TransformerScript transformer = transformerGameObject.GetComponent<TransformerScript>();
             if (grabbing == true && animator.GetCurrentAnimatorStateInfo(0).IsName("rig|Grab") == false)
             {
@@ -122,7 +124,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
     public void move(Vector3 velocity)
     {
         //transform.rotation = Quaternion.LookRotation(velocity);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(velocity), .05f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(velocity), 1*Time.deltaTime);
         velocity =transform.forward *speed * Time.deltaTime;
         velocity.y = 0;
         Vector3 rayR = transform.forward;
