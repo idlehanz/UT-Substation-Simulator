@@ -5,7 +5,8 @@ public class MoveablePhysicObjectScript : MonoBehaviour,Interactable {
 
     GameObject heldBy = null;
     bool held = false;
-    public float vel = 5.0f;
+    public float horizontalDistance = .5f;
+    public float verticalDistance = 1;
     Rigidbody rigidBody;
 	// Use this for initialization
 	void Start () {
@@ -15,22 +16,35 @@ public class MoveablePhysicObjectScript : MonoBehaviour,Interactable {
 	// Update is called once per frame
 	void Update () {
 	    if (held ==true)
-        {
+        {//bad bad bad, but for some reason if I search for the camera in the player it returns null.
+            Transform cameraTransform = Camera.main.transform;
+
+
+
+            rigidBody.detectCollisions = false;
             rigidBody.useGravity = false;
             rigidBody.isKinematic = true;
+
+
+
+            Vector3 horizontalVelocity = Vector3.Cross(cameraTransform.up, cameraTransform.transform.forward).normalized * horizontalDistance;
+            Vector3 verticalVelocity = Vector3.Cross(cameraTransform.up, -cameraTransform.transform.right).normalized * verticalDistance;
+            Vector3 velocity = verticalVelocity + horizontalVelocity;
+
+            Vector3 hudPosition = cameraTransform.position + velocity;
+            transform.position = hudPosition;
+
+
+
+
+
+            //transform.Rotate(cameraTransform.rotation.eulerAngles + hudRotation);
+            //transform.rotation.SetEulerAngles(cameraTransform.rotation.eulerAngles + hudRotation);
+            transform.rotation = cameraTransform.rotation;
             
+            transform.parent = cameraTransform;
 
-            float horizontalComponent = Input.GetAxisRaw("Horizontal");//should we move forward?
-            float verticleComponent = Input.GetAxisRaw("Vertical");//how about strafing?
 
-            Vector3 horizontalVelocity = Vector3.Cross(transform.up, heldBy.transform.forward).normalized  *vel;
-            Vector3 verticalVelocity = Vector3.Cross(transform.up, -heldBy.transform.right).normalized  * vel;
-            Vector3 velocity = verticalVelocity;// + horizontalVelocity;
-
-            //rigidBody.MovePosition(heldBy.transform.position+ velocity);
-            transform.position = heldBy.transform.position + velocity;
-            transform.rotation = heldBy.transform.rotation;
-            
         }
         else
         {
