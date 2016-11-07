@@ -203,8 +203,8 @@ public class SimPause : MonoBehaviour{
 		if (Vcount<0){
 			QualitySettings.vSyncCount = 0;
 		}
-		else if (Vcount > 3) {
-			QualitySettings.vSyncCount = 3;
+		else if (Vcount > 2) {
+			QualitySettings.vSyncCount = 2;
 		}
 		else QualitySettings.vSyncCount = Vcount;
 	}
