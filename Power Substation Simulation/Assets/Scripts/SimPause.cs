@@ -47,14 +47,14 @@ public class SimPause : MonoBehaviour{
 				canvas.gameObject.SetActive(true);
 				Time.timeScale = 0;
 				//the power to stop time
-				GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
+				GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
 				//failure of a command
 
 			}
 			else{
 				canvas.gameObject.SetActive (false);
 				Time.timeScale = 1;
-				GetComponent<MouseLook>().enabled = true;
+				GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
 				//unpause everything
 			}
 			canvasresolution.gameObject.SetActive (false);
