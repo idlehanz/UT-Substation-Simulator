@@ -34,12 +34,14 @@ class TransformerScript : ElectricalComponentScript
         if(damaged == false)
         {
             GameObject tmpasadf = GameObject.Find("LightColorShift");
-            lt = tmpasadf.GetComponent<Light>();
+            if (tmpasadf !=null)
+                lt = tmpasadf.GetComponent<Light>();
             c = 1;
             output.current = input.current;
             output.voltage = input.voltage / step;
             output.frequency = input.frequency;
-            lt.color = Color.red;
+            if (lt !=null)
+                lt.color = Color.red;
 
 
         }
@@ -50,7 +52,8 @@ class TransformerScript : ElectricalComponentScript
             output.voltage = 0;
             output.frequency = 0;
             c = output.voltage;
-            lt.color = Color.green;
+            if (lt != null)
+                lt.color = Color.green;
         }
     }
 
