@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class SquirrelScript:MonoBehaviour, Interactable
 {
     public Animator animator;
+    public float rotationSpeed = .01f;
 
     Rigidbody[] bodies;
     public float speed = 1.0f;
@@ -34,6 +35,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
     
     protected bool pinned = false;
     public bool alive = true;
+    protected bool grabbing = false;
 
     protected GameObject transformerGameObject=null;
 
@@ -71,6 +73,15 @@ public class SquirrelScript:MonoBehaviour, Interactable
         Vector3 direction = path[currentPathNode] - transform.position;
         Vector3 velocity = direction.normalized * speed * Time.deltaTime;
         velocity.y = 0;
+        if (grabbing == false)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("rig|Grab"))
+            {
+                Debug.Log("squirrel grabbing");
+                grabbing = true;
+            }
+        }
+        
         if (transformerGameObject == null)
         {
             
@@ -87,8 +98,9 @@ public class SquirrelScript:MonoBehaviour, Interactable
         {
             
             TransformerScript transformer = transformerGameObject.GetComponent<TransformerScript>();
-            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !animator.IsInTransition(0))
+            if (grabbing == true && animator.GetCurrentAnimatorStateInfo(0).IsName("rig|Grab") == false)
             {
+               
                 if (alive == true)
                 {
                     transformer.interact(transform.gameObject);
@@ -99,10 +111,8 @@ public class SquirrelScript:MonoBehaviour, Interactable
                     alive = false;
                 }
             }
-            //transformer.interact(transform.gameObject);
-            //setRagdollState(true);
-
-            //setHandLocked(true);
+           
+            
         }
 
 
@@ -111,8 +121,10 @@ public class SquirrelScript:MonoBehaviour, Interactable
 
     public void move(Vector3 velocity)
     {
-        transform.rotation = Quaternion.LookRotation(velocity);
-
+        //transform.rotation = Quaternion.LookRotation(velocity);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(velocity), .05f);
+        velocity =transform.forward *speed * Time.deltaTime;
+        velocity.y = 0;
         Vector3 rayR = transform.forward;
         Vector3 rayP = transform.position;
 
@@ -131,8 +143,9 @@ public class SquirrelScript:MonoBehaviour, Interactable
         animator.SetBool("Climbing", false);
         animator.SetBool("Dead", false);
         animator.SetBool("Grabbing", false);
-        for (int i =0; i<3; i++)
+        for (int i =1; i<3; i++)
         {
+            rayP.y += i * .5f;
             Ray r = new Ray(rayP, rayR);
             Debug.DrawRay(rayP, rayR);
             if (Physics.Raycast(r, out hit, maxInteractionDistance))
@@ -180,10 +193,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         
         ContactPoint cp = collision.contacts[0];
         collisionDictionary.Add(collision.collider, collision);
-        if (collision.gameObject.tag == "Transformer")
-        {
-            
-        }
+       
 
 
 
@@ -227,6 +237,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
             animator.SetBool("Climbing", false);
             animator.SetBool("Dead", false);
             animator.SetBool("Grabbing", true);
+
         }
 
 
@@ -298,7 +309,8 @@ public class SquirrelScript:MonoBehaviour, Interactable
     {
         pathContainer = newPathContainer;
         extractPathVectors();
-        currentPathNode = 0;
+        currentPathNode = 1;
+        transform.position = path[0];
     }
 
     public void interact(GameObject interactor)
