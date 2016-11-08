@@ -1,0 +1,111 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960M  (ID=0x139b)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.173 seconds
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\goget\Desktop\UT-Substation-Simulator-master\Power Substation Simulation\simulation_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI.Hid> Failed to create device file:
+ 2 The system cannot find the file specified.
+
+ 
+(Filename:  Line: 54)
+
+<RI> Input initialized.
+<RI> Initialized touch support.
+The referenced script on this Behaviour (Game Object 'Right/bottom wire') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'Left/top wire') is missing!
+ 
+(Filename:  Line: 1656)
+
+UnloadTime: 1.979652 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 49d0 -> priority: 1 
+  Thread -> id: 1325c -> priority: 1 
+Setting ragdoll to: False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+squirrel grabbing
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+transformer damaged
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Setting ragdoll to: True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Setting ragdoll to: False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+squirrel grabbing
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+transformer damaged
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Setting ragdoll to: True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Video Settings
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Audio Settings
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Substation
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour (Game Object 'Right/bottom wire') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'Left/top wire') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 19.956133 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 4284.
+Total: 5.190316 ms (FindLiveObjects: 0.485135 ms CreateObjectMapping: 0.293135 ms MarkObjects: 2.045232 ms  DeleteObjects: 2.364442 ms)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Quit
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
