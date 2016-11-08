@@ -42,10 +42,20 @@ public class InputManager
     }
 
     //this function takes in a string id and checks to see if the key it is bound to is pressed
-    public bool isKeyEntryActive(string id)
+    //returns true on the frame it's pressed, does not return true if held down
+    public bool isKeyEntryPressed(string id)
     {
-        return instance.isKeyEntryActive(id);
+        return instance.isKeyEntryPressed(id);
     }
+
+    //returns true if the key is pressed, returns true if held
+    public bool isKeyEntryDown(string id)
+    {
+
+        return instance.isKeyEntryDown(id);
+    }
+
+    
 
     //this takes in a id and string for the key and updates the entry in the table in our InputParameters.
     public void updateKeyEntry(string id, string entry)
@@ -96,23 +106,36 @@ public class InputManager
         //this function takes in a id and returns if the key bound to the id is true
         //since unity's Input does error checking for bad inputs we don't have to worry about a bad key
         //being sent to Input.GetKeyDown.
-        public bool isKeyEntryActive(string id)
+       public bool isKeyEntryPressed(string id)
         {
             bool isActive = false;
-            string entry = (string) keyTable[id];
+            string entry = (string)keyTable[id];
 
             if (entry != null)
             {
-                
+
+                if (Input.GetKeyDown(entry))
+                {
+                    isActive = true;
+                }
+            }
+            return isActive;
+        }
+
+        //function for telling is a key is held down.
+        public bool isKeyEntryDown(string id)
+        {
+            bool isActive = false;
+            string entry = (string)keyTable[id];
+
+            if (entry != null)
+            {
+
                 if (Input.GetKey(entry))
                 {
                     isActive = true;
                 }
             }
-
-           
-
-
             return isActive;
         }
 

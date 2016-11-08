@@ -56,17 +56,7 @@ public class PlayerMovement : MonoBehaviour {
             rigidBody.detectCollisions = true;
         }
 
-		/*
-        //set the cursor lock state
-        if (lockMouseCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-		*/
+		
 
 	}
 	
@@ -87,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         
         //check if the key we bound the no clip to was pressed
-        if (inputManager.isKeyEntryActive("Player Noclip"))
+        if (inputManager.isKeyEntryPressed("Player Noclip"))
         {
             //make sure we only change the state once per press
             if (clipChanged == false)
@@ -123,20 +113,20 @@ public class PlayerMovement : MonoBehaviour {
         float horizontalComponent = 0;//should we move forward?
         float verticleComponent = 0;//how about strafing?
         
-        if (inputManager.isKeyEntryActive("Player Forward"))
+        if (inputManager.isKeyEntryDown("Player Forward"))
         {
             verticleComponent = 1;
         }
-        else if (inputManager.isKeyEntryActive("Player Backward"))
+        else if (inputManager.isKeyEntryDown("Player Backward"))
         {
             verticleComponent = -1;
         }
 
-        if (inputManager.isKeyEntryActive("Player Left"))
+        if (inputManager.isKeyEntryDown("Player Left"))
         {
             horizontalComponent = -1;
         }
-        else if (inputManager.isKeyEntryActive("Player Right"))
+        else if (inputManager.isKeyEntryDown("Player Right"))
         {
             horizontalComponent  = 1;
         }
@@ -155,6 +145,14 @@ public class PlayerMovement : MonoBehaviour {
             verticalVelocity *= Velocity;
         }
         return horizontalVelocity + verticalVelocity;//return the velocity
+    }
+
+
+
+    public void addForce (Vector3 direction)
+    {
+        Debug.Log("adding force: " + direction);
+        GetComponent<Rigidbody>().AddForce(direction);
     }
     
 }

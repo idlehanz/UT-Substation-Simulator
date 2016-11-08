@@ -33,7 +33,7 @@ class PlayerInteractionScript : MonoBehaviour
         
         if (closestInteractable != null)
         {
-            if (inputManager.isKeyEntryActive("Player Interact"))
+            if (inputManager.isKeyEntryPressed("Player Interact"))
             {
                 closestInteractable.interact(transform.gameObject);
             }

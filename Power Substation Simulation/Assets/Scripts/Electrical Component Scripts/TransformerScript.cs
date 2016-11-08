@@ -15,6 +15,7 @@ class TransformerScript : ElectricalComponentScript
 	AudioSource explosion;
 	public Light lt;
 	public float c;
+    public float pushBackForce = 150;
 
 
     protected SquirrelScript squirrel = null;
@@ -98,9 +99,20 @@ class TransformerScript : ElectricalComponentScript
             triggerElectricalDamage();
             squirrel = interactor.GetComponent<SquirrelScript>();
         }
-        else
-            if (squirrel.isPinned() == false)
-				damaged = false;
+        else if (interactor.tag == "Player")
+        {
+            if (squirrel != null && squirrel.isPinned() == false)
+                damaged = false;
+            else if (output.voltage != 0)
+            {
+                Vector3 velocity = interactor.transform.position - transform.position;
+
+                velocity.y += 1.5f;
+                velocity *= pushBackForce;
+                PlayerMovement pm = interactor.GetComponent<PlayerMovement>();
+                pm.addForce(velocity);
+            }
+        }
 
     }
     public override void onDisplayInteractionMessage(GameObject interactor)
