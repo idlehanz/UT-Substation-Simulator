@@ -9,8 +9,14 @@ public class SquirrelIncidentEvent : SimulationEvent
 {
     //a reference to our squirrel prefab game object
     public GameObject squirrelPrefab;
-    public GameObject squirrelPath;
+    
+
+    public List<GameObject> squirrelPaths;
+    protected int currentPath = 0;
+    protected int maxPath = 0;
+
     protected GameObject squirrelObject;
+
     protected SquirrelScript squirrelScript;
     LeverScript lever;
 
@@ -21,8 +27,10 @@ public class SquirrelIncidentEvent : SimulationEvent
             Debug.Log("did not find lever");
         if (squirrelPrefab == null)
             Debug.Log("ERROR: squirrel prefab not found for squirrel incident event");
-        if (squirrelPath == null)
+        if (squirrelPaths == null)
             Debug.Log("ERROR: squirrel path not found for squirrel incident event");
+        maxPath = squirrelPaths.Count();
+        currentPath = maxPath-1;
     }
     public void Update()
     {
@@ -53,11 +61,12 @@ public class SquirrelIncidentEvent : SimulationEvent
 
     public override void beginEvent()
     {
-        if (eventTriggered == false&&squirrelPrefab !=null && squirrelPath!=null)
+        if (eventTriggered == false&&squirrelPrefab !=null && squirrelPaths != null)
         {
             eventTriggered = true;
             squirrelObject = Instantiate(squirrelPrefab);
-            squirrelObject.GetComponent<SquirrelScript>().setNewPath(squirrelPath);
+            squirrelObject.GetComponent<SquirrelScript>().setNewPath(squirrelPaths[currentPath]);
+            currentPath = (currentPath + 1) % maxPath;
             squirrelScript = squirrelObject.GetComponent<SquirrelScript>();
         }
 

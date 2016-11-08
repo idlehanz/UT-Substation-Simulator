@@ -145,7 +145,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         animator.SetBool("Climbing", false);
         animator.SetBool("Dead", false);
         animator.SetBool("Grabbing", false);
-        for (int i =1; i<3; i++)
+        for (int i =0; i<3; i++)
         {
             rayP.y += i * .5f;
             Ray r = new Ray(rayP, rayR);
@@ -155,7 +155,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
                 velocity = Vector3.zero;
                 velocity.y += climbingSpeed * Time.deltaTime;
                 rigidBody.useGravity = false;
-                if (i>1)
+                if (i>0)
                 {
 
                     animator.SetBool("Walking", false);
