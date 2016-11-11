@@ -334,10 +334,10 @@ public class SquirrelScript:MonoBehaviour, Interactable
     }
 
 
-    public bool isTransformeredDestroyed()
+    public bool isTransformeredRepaired()
     {
         TransformerScript transformerScript = transformerGameObject.GetComponent<TransformerScript>();
-        return transformerScript.isDestroyed();
+        return (!transformerScript.isDestroyed()&&transformerScript.isDisabled==false);
     }
 
     public bool isPinned()

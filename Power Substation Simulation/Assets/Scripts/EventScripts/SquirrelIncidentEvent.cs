@@ -41,7 +41,7 @@ public class SquirrelIncidentEvent : SimulationEvent
             {
                 eventTriggered = false;
             }
-            if (squirrelScript != null && squirrelScript.isAlive()==false && squirrelScript.isPinned() ==false && squirrelScript.isTransformeredDestroyed()==false)
+            if (squirrelScript != null && squirrelScript.isAlive()==false && squirrelScript.isPinned() ==false && squirrelScript.isTransformeredRepaired()==true)
             {
                 Destroy(squirrelObject);
                 squirrelScript = null;
@@ -73,11 +73,7 @@ public class SquirrelIncidentEvent : SimulationEvent
         }
 
     }
-
-    public override void cancelEvent()
-    {
-        throw new NotImplementedException();
-    }
+    
 
 
     public override void endEvent()

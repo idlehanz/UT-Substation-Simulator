@@ -28,6 +28,8 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
 
     public ElectricalComponentScript inputComponent;
 
+    public bool isDisabled = false;
+
     protected ParticleSystem electricalExplosionParticles;
 
     void Start()
@@ -54,8 +56,24 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     void Update()
     {
         getInput();
-        updateOutput();
+        if (isDisabled == false)
+        {
+            updateOutput();
+        }
+        else
+        {
+            zeroOuput();
+        }
         uniqueUpdate();
+    }
+
+    public void toggleDisabled()
+    {
+        isDisabled = !isDisabled;
+    }
+    public void setIsDisabled(bool newIsDisabled)
+    {
+        isDisabled = newIsDisabled;
     }
 
     //used to draw the gui objects, 

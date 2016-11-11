@@ -26,15 +26,20 @@ class TransformerScript : ElectricalComponentScript
 	}
 	public override void uniqueUpdate()
 	{
-
+        if (damaged)
+            isDisabled = true;
 	}
 
 	//update the output.
 	public override void updateOutput()
 	{
-        if(damaged == false)
+
+        output.current = input.current;
+        output.voltage = input.voltage / step;
+        output.frequency = input.frequency;
+        if (damaged == false)
         {
-            GameObject tmpasadf = GameObject.Find("LightColorShift");
+           /* GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf !=null)
                 lt = tmpasadf.GetComponent<Light>();
             c = 1;
@@ -42,7 +47,7 @@ class TransformerScript : ElectricalComponentScript
             output.voltage = input.voltage / step;
             output.frequency = input.frequency;
             if (lt !=null)
-                lt.color = Color.red;
+                lt.color = Color.red;*/
 
 
         }

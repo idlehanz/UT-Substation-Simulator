@@ -93,7 +93,7 @@ public class LeverScript : MonoBehaviour, Interactable
             }
             else if (leverEvent.canCancelEvent()==true)
             {
-                leverEvent.cancelEvent();
+                leverEvent.endEvent();
                 leverUp = true;
             }
         }
