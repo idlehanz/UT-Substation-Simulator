@@ -71,6 +71,13 @@ public class SquirrelIncidentEvent : SimulationEvent
         }
 
     }
+
+    public override void cancelEvent()
+    {
+        throw new NotImplementedException();
+    }
+
+
     public override void endEvent()
     {
         

@@ -19,36 +19,33 @@ public class LeverScript : MonoBehaviour, Interactable
     protected float x = 0;
 
     protected bool leverUp = true;
-    
+
+    protected Vector3 upArmRotation = new Vector3(0, 0, 0);
+    protected Vector3 downArmRotation = new Vector3(73.434f, 2.9074f, -176.9f);
+    protected Vector3 targetRotation;
+    public float armSwitchSpeed = 5f;
 
     void Start()
     {
+        upArmRotation = transform.forward*2 ;
+        downArmRotation = transform.forward * 2 + transform.up * 2;
         if (leverEvent == null)
         {
             leverEvent = GetComponent<SimulationEvent>();
         }
+        targetRotation = upArmRotation;
     }
     void Update()
     {
-        //up 332.9
-        //down 
-        if (!leverEvent.isEventTriggered())
+        armTransform.localRotation=Quaternion.Lerp(armTransform.localRotation, Quaternion.LookRotation(targetRotation), armSwitchSpeed* Time.deltaTime);
+        
+        if (leverEvent.isEventTriggered())
         {
-            if (armTransform.rotation.eulerAngles.x <25)
-            {
-                x = 1f;
-                armTransform.Rotate(new Vector3(x, 0, 0));
-
-            }
+            targetRotation = downArmRotation;
         }
         else
         {
-            if (armTransform.rotation.eulerAngles.x >30)
-            {
-                x = -1f;
-                armTransform.Rotate(new Vector3(x, 0, 0));
-
-            }
+            targetRotation = upArmRotation;
         }
 
     }
@@ -64,6 +61,11 @@ public class LeverScript : MonoBehaviour, Interactable
             {
                 leverEvent.beginEvent();
                 leverUp = false;
+            }
+            else if (leverEvent.canCancelEvent()==true)
+            {
+                leverEvent.cancelEvent();
+                leverUp = true;
             }
         }
         
