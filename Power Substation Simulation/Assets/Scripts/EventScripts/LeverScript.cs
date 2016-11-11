@@ -16,6 +16,14 @@ public class LeverScript : MonoBehaviour, Interactable
 
     
     public Transform armTransform;
+
+    public Light greenLight;
+    public Light redLight;
+    public float lightIntensity = 8;
+
+
+    public bool greenOnActive = true;
+
     protected float x = 0;
 
     protected bool leverUp = true;
@@ -27,6 +35,8 @@ public class LeverScript : MonoBehaviour, Interactable
 
     void Start()
     {
+        redLight.intensity = 0;
+        greenLight.intensity = lightIntensity;
         upArmRotation = transform.forward*2 ;
         downArmRotation = transform.forward * 2 + transform.up * 2;
         if (leverEvent == null)
@@ -42,14 +52,32 @@ public class LeverScript : MonoBehaviour, Interactable
         if (leverEvent.isEventTriggered())
         {
             targetRotation = downArmRotation;
+            if (greenOnActive)
+                activateGreenLight();
+            else
+                activateRedLight();
+
         }
         else
         {
             targetRotation = upArmRotation;
+            if (!greenOnActive)
+                activateGreenLight();
+            else
+                activateRedLight();
         }
 
     }
-
+    void activateGreenLight()
+    {
+        greenLight.intensity = lightIntensity;
+        redLight.intensity = 0;
+    }
+    void activateRedLight()
+    {
+        redLight.intensity = lightIntensity;
+        greenLight.intensity = 0;
+    }
     
     
 
@@ -61,6 +89,7 @@ public class LeverScript : MonoBehaviour, Interactable
             {
                 leverEvent.beginEvent();
                 leverUp = false;
+                
             }
             else if (leverEvent.canCancelEvent()==true)
             {
