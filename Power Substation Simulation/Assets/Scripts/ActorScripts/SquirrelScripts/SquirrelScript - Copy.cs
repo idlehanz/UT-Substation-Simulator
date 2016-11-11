@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class SquirrelScript:MonoBehaviour, Interactable
+public class SquirrelScript_copy:MonoBehaviour, Interactable
 {
     public Animator animator;
     public float rotationSpeed = .01f;
@@ -140,6 +140,7 @@ public class SquirrelScript:MonoBehaviour, Interactable
         rigidBody.useGravity = true;
 
        
+        bool climbing = false;
         animator.SetBool("Walking", true);
         animator.SetBool("Climbing", false);
         animator.SetBool("Dead", false);
