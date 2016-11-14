@@ -87,6 +87,8 @@ class BreakerScript : ElectricalComponentScript
         Debug.Log("interacting with breaker");
         if (breakerTripped)
             resetBreaker();
+        else
+            tripBreaker();
     }
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
