@@ -42,6 +42,9 @@ class WireNode : MonoBehaviour
     //this is how far down the line will droop
     public float slack = 2;
 
+
+    protected bool initialized = false;
+
     // Use this for initialization
     void Start()
     {
@@ -59,11 +62,19 @@ class WireNode : MonoBehaviour
 
     public void setNewNextNode(WireNode newNext)
     {
-        nextNode = newNext;
-        createWire();
-        //create a line render object
-        createLineRenderer();
-        updateLinePositions();
+        if (!initialized)
+        {
+            initialized = true;
+            nextNode = newNext;
+            createWire();
+            //create a line render object
+            createLineRenderer();
+            updateLinePositions();
+        }
+        else
+        {
+            Debug.Log("ignoring reassignment of wire node");
+        }
 
     }
 
