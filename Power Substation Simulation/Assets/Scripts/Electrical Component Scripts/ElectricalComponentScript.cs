@@ -32,10 +32,19 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
 
     protected ParticleSystem electricalExplosionParticles;
 
+
+    public WireNode inputNode;
+    public WireNode outputNode;
+
+
+
     void Start()
     {
         
-
+        if (inputComponent!=null && inputNode!=null && inputComponent.outputNode!=null)
+        {
+            inputNode.setNewNextNode(inputComponent.outputNode);
+        }
         //set some default values for the voltage. 
         input.voltage = 69;
         input.frequency = 60;

@@ -52,17 +52,25 @@ class WireNode : MonoBehaviour
         //so long as we have a next node. create the wire, create the line renderer and update the line positions.
         if (nextNode != null)
         {
-            createWire();
-            //create a line render object
-            createLineRenderer();
-            updateLinePositions();
+            setNewNextNode(nextNode);
         }
+
+    }
+
+    public void setNewNextNode(WireNode newNext)
+    {
+        nextNode = newNext;
+        createWire();
+        //create a line render object
+        createLineRenderer();
+        updateLinePositions();
 
     }
 
     //a function to create the wire,
     protected void createWire()
     {
+        joints = new List<GameObject>();
         float distanceBetweenNodes = Vector3.Distance(transform.position, nextNode.transform.position);
         //numVerticies =(int)( (distanceBetweenNodes / vertexDistance) * vertexDensity);
         numVerticies = (int)(distanceBetweenNodes / vertexDistance);
@@ -80,6 +88,10 @@ class WireNode : MonoBehaviour
 
             //add a rigid body to the new joint and set up some default values.
             Rigidbody rigid = joints[i].AddComponent<Rigidbody>();
+            if (rigid == null)
+            {
+                rigid = GetComponent<Rigidbody>();
+            }
             rigid.mass = wireMass;
             rigid.drag = wireDrag;
 
@@ -127,11 +139,15 @@ class WireNode : MonoBehaviour
     protected void createLineRenderer()
     {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
+        if (lineRenderer==null)
+        {
+            lineRenderer = GetComponent<LineRenderer>();
+        }
         lineRenderer.useWorldSpace = true;
         lineRenderer.material = wireMaterial;
         lineRenderer.SetColors(wireColor, wireColor);
         lineRenderer.SetWidth(wireWidth, wireWidth);
-        lineRenderer.SetVertexCount(numVerticies + 1);
+        lineRenderer.SetVertexCount(joints.Count);
     }
 
     //this function will udpate the line positions.
