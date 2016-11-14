@@ -106,13 +106,14 @@ class WireNode : MonoBehaviour
         //now that the objects are created we will assign spring joints to the objects
         for (int i = 1; i < numVerticies; i++)
         {
-            SpringJoint prevAnchor = joints[i].AddComponent<SpringJoint>();
-            prevAnchor.enableCollision = true;
-            SpringJoint nextAnchor = joints[i].AddComponent<SpringJoint>();
-            nextAnchor.enableCollision = true;
-
+            HingeJoint prevAnchor = joints[i].AddComponent<HingeJoint>();
+            //HingeJoint
+            prevAnchor.enableCollision = false;
+            HingeJoint nextAnchor = joints[i].AddComponent<HingeJoint>();
+            nextAnchor.enableCollision = false;
+            
             //hook the ancors to the adjacent joints.
-            prevAnchor.connectedBody = joints[i - 1].GetComponent<Rigidbody>();
+            nextAnchor.connectedBody = joints[i - 1].GetComponent<Rigidbody>();
             prevAnchor.connectedBody = joints[i + 1].GetComponent<Rigidbody>();
 
 
