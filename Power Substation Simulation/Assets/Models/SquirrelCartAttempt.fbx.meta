@@ -72,6 +72,9 @@ ModelImporter:
     100128: toe.R_end
     100130: upper_arm.L
     100132: upper_arm.R
+    100134: Camera
+    100136: Hemi
+    100138: Lamp
     400000: chest
     400002: f_index.01.L
     400004: f_index.01.R
@@ -139,6 +142,9 @@ ModelImporter:
     400128: toe.R_end
     400130: upper_arm.L
     400132: upper_arm.R
+    400134: Camera
+    400136: Hemi
+    400138: Lamp
     4300000: Sphere.004
     7400000: rig|climb
     7400002: rig|Grab
