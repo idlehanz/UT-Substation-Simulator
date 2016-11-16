@@ -372,7 +372,7 @@
 	fixed4 _Color;
 	float _Amount;
 	void vert(inout appdata_full v) {
-		v.vertex.xyz += v.normal*.0001;
+		//v.vertex.xyz += v.normal*.0001;
 	}
 	sampler2D _MainTex;
 	void surf(Input IN, inout SurfaceOutput o) {
