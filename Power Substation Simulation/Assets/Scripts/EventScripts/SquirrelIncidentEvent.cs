@@ -31,7 +31,7 @@ public class SquirrelIncidentEvent : SimulationEvent
         if (squirrelPaths == null)
             Debug.Log("ERROR: squirrel path not found for squirrel incident event");
         maxPath = squirrelPaths.Count();
-        currentPath = maxPath-1;
+        currentPath = 0;
     }
     public void Update()
     {
