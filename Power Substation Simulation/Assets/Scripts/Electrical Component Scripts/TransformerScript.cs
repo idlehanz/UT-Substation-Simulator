@@ -18,6 +18,10 @@ class TransformerScript : ElectricalComponentScript
     public float pushBackForce = 150;
 
 
+    public GameObject positiveLead;
+    public GameObject negativeLead;
+
+
     protected SquirrelScript squirrel = null;
 
     public override void uniqueStart()
@@ -95,6 +99,8 @@ class TransformerScript : ElectricalComponentScript
     }
 
 
+    public GameObject getPositiveLead() { return positiveLead;}
+    public GameObject getNegativeLead() { return negativeLead; }
 
 
     public override void onInteract(GameObject interactor)
