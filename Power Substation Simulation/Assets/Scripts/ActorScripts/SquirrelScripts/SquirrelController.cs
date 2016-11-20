@@ -8,7 +8,9 @@ using UnityEngine.Events;
 
 public class SquirrelController:MonoBehaviour, Interactable
 {
-    
+    public Renderer rend;
+
+
     public Animator animator;
 
 
@@ -46,6 +48,8 @@ public class SquirrelController:MonoBehaviour, Interactable
     //status variables,
     protected bool atTransformer = false;
     protected bool atLead = false;
+    protected bool grabbedLead = false;
+
     
 
 
@@ -54,6 +58,7 @@ public class SquirrelController:MonoBehaviour, Interactable
 
     public void Start()
     {
+
         extractPathVectors();
         rigidBody = GetComponent<Rigidbody>();//get the rigid body for the character
         bodies = GetComponentsInChildren<Rigidbody>();
@@ -76,14 +81,28 @@ public class SquirrelController:MonoBehaviour, Interactable
 
     public void Update()
     {
+        
+        //Debug.Log(rend.material.GetFloat("Charred Amount"));
         if (!atTransformer)
             followPath();
         else if (!atLead)
             findLead();
-        else
+        else if (!grabbedLead)
         {
             grabbingLead();
         }
+        else 
+        {
+            TransformerScript ts = transformerGameObject.GetComponent<TransformerScript>();
+            if (ts.getOutput().voltage!=0)
+            {
+                float charAmount = rend.material.GetFloat("_CharAmount");
+                charAmount += .0005f * Time.deltaTime;
+                rend.material.SetFloat("_CharAmount", charAmount);
+            }
+        }
+
+
 
 
     }
@@ -131,9 +150,17 @@ public class SquirrelController:MonoBehaviour, Interactable
                 setHandLocked(true);
                 pinned = true;
                 alive = false;
+                grabbedLead = true;
             }
         }
     }
+
+
+    public void electrocuting()
+    {
+
+    }
+
 
     public void moveTo(Vector3 target)
     {
@@ -201,7 +228,13 @@ public class SquirrelController:MonoBehaviour, Interactable
         rigidBody.MoveRotation(slerp);
     }
 
-
+    public void setCharAmount(float newCharAmount)
+    {
+        if (rend !=null)
+        {
+            rend.material.SetFloat("_CharAmount", newCharAmount);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
