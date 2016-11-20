@@ -13,7 +13,7 @@ public class SquirrelIncidentEvent : SimulationEvent
 
     public List<GameObject> squirrelPaths;
     
-    protected int currentPath = 0;
+    protected int currentPath = 2;
     protected int maxPath = 0;
 
     protected GameObject squirrelObject;
@@ -31,7 +31,7 @@ public class SquirrelIncidentEvent : SimulationEvent
         if (squirrelPaths == null)
             Debug.Log("ERROR: squirrel path not found for squirrel incident event");
         maxPath = squirrelPaths.Count();
-        currentPath = 0;
+        
     }
     public void Update()
     {

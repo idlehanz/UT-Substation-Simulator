@@ -84,6 +84,10 @@ class TransformerScript : ElectricalComponentScript
             {
                 electricalExplosionParticles.Play();
             }
+            if (smokeParticles !=null)
+            {
+                smokeParticles.Play();
+            }
             Debug.Log("transformer damaged");
         }
 

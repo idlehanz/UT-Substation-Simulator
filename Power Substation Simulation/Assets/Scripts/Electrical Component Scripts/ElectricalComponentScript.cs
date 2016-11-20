@@ -30,7 +30,8 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
 
     public bool isDisabled = false;
 
-    protected ParticleSystem electricalExplosionParticles;
+    public ParticleSystem electricalExplosionParticles;
+    public ParticleSystem smokeParticles;
 
 
     public WireNode inputNode;
@@ -52,8 +53,15 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
         output.voltage = input.voltage;
         output.frequency = input.frequency;
         output.current = input.current;
-        electricalExplosionParticles = GetComponentInChildren<ParticleSystem>();
         uniqueStart();
+        if (smokeParticles!=null)
+        {
+            smokeParticles.Stop();
+        }
+        if (electricalExplosionParticles!=null)
+        {
+            electricalExplosionParticles.Stop();
+        }
     }
 
 
