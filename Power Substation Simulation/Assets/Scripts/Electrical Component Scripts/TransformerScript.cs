@@ -12,6 +12,9 @@ class TransformerScript : ElectricalComponentScript
 {
 	public float step = 3.6315f;
 	public bool damaged = false;
+    public bool shorting = false;
+    public float shortTime = 60;
+    protected float startShortTime = -1;
 	AudioSource explosion;
 	public Light lt;
 	public float c;
@@ -21,6 +24,7 @@ class TransformerScript : ElectricalComponentScript
     public GameObject positiveLead;
     public GameObject negativeLead;
 
+    
 
     protected SquirrelController squirrel = null;
 
@@ -41,7 +45,29 @@ class TransformerScript : ElectricalComponentScript
         output.current = input.current;
         output.voltage = input.voltage / step;
         output.frequency = input.frequency;
-        if (damaged == false)
+        if (shorting == true)
+        {
+            if (startShortTime < 0)
+            {
+                startShortTime = Time.realtimeSinceStartup;
+
+            }
+            
+            output.voltage += UnityEngine.Random.value * 8;
+           
+            if (Time.realtimeSinceStartup > startShortTime + shortTime)
+            {
+                shorting = false;
+
+                triggerElectricalDamage();
+                Debug.Log("electrical damage");
+            }
+
+
+
+
+        }
+        else if (damaged == false)
         {
             GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf !=null)
@@ -54,16 +80,6 @@ class TransformerScript : ElectricalComponentScript
                 lt.color = Color.red;
 
 
-        }
-        else
-        {
-
-            output.current = 0;
-            output.voltage = 0;
-            output.frequency = 0;
-            c = output.voltage;
-            if (lt != null)
-                lt.color = Color.green;
         }
     }
 
@@ -84,13 +100,17 @@ class TransformerScript : ElectricalComponentScript
             {
                 electricalExplosionParticles.Play();
             }
-            if (smokeParticles !=null)
-            {
-                smokeParticles.Play();
-            }
+            
             Debug.Log("transformer damaged");
         }
 
+    }
+    public void startSmoking()
+    {
+        if (smokeParticles != null)
+        {
+            smokeParticles.Play();
+        }
     }
 
 
@@ -111,7 +131,8 @@ class TransformerScript : ElectricalComponentScript
     {
         if (interactor.tag == "squirrel")
         {
-            triggerElectricalDamage();
+            startSmoking();
+            shorting = true;
             squirrel = interactor.GetComponent<SquirrelController>();
         }
         else if (interactor.tag == "Player")

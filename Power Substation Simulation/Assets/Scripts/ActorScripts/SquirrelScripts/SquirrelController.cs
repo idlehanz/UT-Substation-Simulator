@@ -96,8 +96,9 @@ public class SquirrelController:MonoBehaviour, Interactable
             TransformerScript ts = transformerGameObject.GetComponent<TransformerScript>();
             if (ts.getOutput().voltage!=0)
             {
+                Debug.Log("squirrel frying");
                 float charAmount = rend.material.GetFloat("_CharAmount");
-                charAmount += .0005f * Time.deltaTime;
+                charAmount += .05f * Time.deltaTime;
                 rend.material.SetFloat("_CharAmount", charAmount);
             }
         }
