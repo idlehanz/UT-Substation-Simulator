@@ -8,6 +8,8 @@ public class ToolScript : MonoBehaviour, Interactable {
     public float horizontalDistance = .5f;
     public float verticalDistance = 1;
 
+    public Vector3 hudPosition = new Vector3(.5f, 1, 1);
+
     public Vector3 hudRotation;
     public GameObject parentObject;
     protected Rigidbody rigidBody;
@@ -66,12 +68,13 @@ public class ToolScript : MonoBehaviour, Interactable {
 
         
 
-        Vector3 horizontalVelocity = Vector3.Cross(cameraTransform.up, cameraTransform.transform.forward).normalized * horizontalDistance;
-        Vector3 verticalVelocity = Vector3.Cross(cameraTransform.up, -cameraTransform.transform.right).normalized * verticalDistance;
+        Vector3 horizontalVelocity = Vector3.Cross(cameraTransform.up, cameraTransform.transform.forward).normalized * hudPosition.x;
+        Vector3 verticalVelocity = Vector3.Cross(cameraTransform.up, -cameraTransform.transform.right).normalized * hudPosition.y;
         Vector3 velocity = verticalVelocity+ horizontalVelocity;
+        Debug.Log(velocity);
 
-        Vector3 hudPosition = cameraTransform.position+velocity;
-        transform.position = hudPosition;
+        Vector3 hp = cameraTransform.position+velocity;
+        transform.position = hp;
 
 
 

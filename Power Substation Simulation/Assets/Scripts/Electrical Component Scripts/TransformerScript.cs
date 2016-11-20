@@ -22,7 +22,7 @@ class TransformerScript : ElectricalComponentScript
     public GameObject negativeLead;
 
 
-    protected SquirrelScript squirrel = null;
+    protected SquirrelController squirrel = null;
 
     public override void uniqueStart()
 	{
@@ -108,7 +108,7 @@ class TransformerScript : ElectricalComponentScript
         if (interactor.tag == "squirrel")
         {
             triggerElectricalDamage();
-            squirrel = interactor.GetComponent<SquirrelScript>();
+            squirrel = interactor.GetComponent<SquirrelController>();
         }
         else if (interactor.tag == "Player")
         {

@@ -18,7 +18,7 @@ public class SquirrelIncidentEvent : SimulationEvent
 
     protected GameObject squirrelObject;
 
-    protected SquirrelScript squirrelScript;
+    protected SquirrelController squirrelScript;
     LeverScript lever;
 
     public void Start()
@@ -67,9 +67,11 @@ public class SquirrelIncidentEvent : SimulationEvent
         {
             eventTriggered = true;
             squirrelObject = Instantiate(squirrelPrefab);
-            squirrelObject.GetComponent<SquirrelScript>().setNewPath(squirrelPaths[currentPath]);
+            
+
+            squirrelObject.GetComponent<SquirrelController>().setNewPath(squirrelPaths[currentPath]);
             currentPath = (currentPath + 1) % maxPath;
-            squirrelScript = squirrelObject.GetComponent<SquirrelScript>();
+            squirrelScript = squirrelObject.GetComponent<SquirrelController>();
         }
 
     }
