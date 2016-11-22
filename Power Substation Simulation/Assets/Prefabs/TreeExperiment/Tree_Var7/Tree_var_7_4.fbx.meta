@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: c27c5f3f90d5d244ea37187b0ba217df
+timeCreated: 1479776307
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Broadleaf_Low
+    100002: Broadleaf_Low_Bone_0_End
+    100004: Broadleaf_Low_Bone_0_Start
+    100006: Broadleaf_Low_Bone_10_End
+    100008: Broadleaf_Low_Bone_11_End
+    100010: Broadleaf_Low_Bone_11_Start
+    100012: Broadleaf_Low_Bone_12_End
+    100014: Broadleaf_Low_Bone_13_End
+    100016: Broadleaf_Low_Bone_13_Start
+    100018: Broadleaf_Low_Bone_14_End
+    100020: Broadleaf_Low_Bone_15_End
+    100022: Broadleaf_Low_Bone_15_Start
+    100024: Broadleaf_Low_Bone_16_End
+    100026: Broadleaf_Low_Bone_17_End
+    100028: Broadleaf_Low_Bone_17_Start
+    100030: Broadleaf_Low_Bone_18_End
+    100032: Broadleaf_Low_Bone_19_End
+    100034: Broadleaf_Low_Bone_19_Start
+    100036: Broadleaf_Low_Bone_1_End
+    100038: Broadleaf_Low_Bone_20_End
+    100040: Broadleaf_Low_Bone_21_End
+    100042: Broadleaf_Low_Bone_21_Start
+    100044: Broadleaf_Low_Bone_22_End
+    100046: Broadleaf_Low_Bone_23_End
+    100048: Broadleaf_Low_Bone_23_Start
+    100050: Broadleaf_Low_Bone_24_End
+    100052: Broadleaf_Low_Bone_25_End
+    100054: Broadleaf_Low_Bone_25_Start
+    100056: Broadleaf_Low_Bone_26_End
+    100058: Broadleaf_Low_Bone_27_End
+    100060: Broadleaf_Low_Bone_27_Start
+    100062: Broadleaf_Low_Bone_28_End
+    100064: Broadleaf_Low_Bone_29_End
+    100066: Broadleaf_Low_Bone_29_Start
+    100068: Broadleaf_Low_Bone_2_End
+    100070: Broadleaf_Low_Bone_30_End
+    100072: Broadleaf_Low_Bone_31_End
+    100074: Broadleaf_Low_Bone_31_Start
+    100076: Broadleaf_Low_Bone_32_End
+    100078: Broadleaf_Low_Bone_33_End
+    100080: Broadleaf_Low_Bone_33_Start
+    100082: Broadleaf_Low_Bone_34_End
+    100084: Broadleaf_Low_Bone_35_End
+    100086: Broadleaf_Low_Bone_35_Start
+    100088: Broadleaf_Low_Bone_36_End
+    100090: Broadleaf_Low_Bone_37_End
+    100092: Broadleaf_Low_Bone_37_Start
+    100094: Broadleaf_Low_Bone_38_End
+    100096: Broadleaf_Low_Bone_39_End
+    100098: Broadleaf_Low_Bone_39_Start
+    100100: Broadleaf_Low_Bone_3_End
+    100102: Broadleaf_Low_Bone_40_End
+    100104: Broadleaf_Low_Bone_41_End
+    100106: Broadleaf_Low_Bone_41_Start
+    100108: Broadleaf_Low_Bone_42_End
+    100110: Broadleaf_Low_Bone_43_End
+    100112: Broadleaf_Low_Bone_43_Start
+    100114: Broadleaf_Low_Bone_44_End
+    100116: Broadleaf_Low_Bone_4_End
+    100118: Broadleaf_Low_Bone_5_End
+    100120: Broadleaf_Low_Bone_5_Start
+    100122: Broadleaf_Low_Bone_6_End
+    100124: Broadleaf_Low_Bone_7_End
+    100126: Broadleaf_Low_Bone_7_Start
+    100128: Broadleaf_Low_Bone_8_End
+    100130: Broadleaf_Low_Bone_9_End
+    100132: Broadleaf_Low_Bone_9_Start
+    100134: Broadleaf_Low_Root
+    100136: //RootNode
+    400000: Broadleaf_Low
+    400002: Broadleaf_Low_Bone_0_End
+    400004: Broadleaf_Low_Bone_0_Start
+    400006: Broadleaf_Low_Bone_10_End
+    400008: Broadleaf_Low_Bone_11_End
+    400010: Broadleaf_Low_Bone_11_Start
+    400012: Broadleaf_Low_Bone_12_End
+    400014: Broadleaf_Low_Bone_13_End
+    400016: Broadleaf_Low_Bone_13_Start
+    400018: Broadleaf_Low_Bone_14_End
+    400020: Broadleaf_Low_Bone_15_End
+    400022: Broadleaf_Low_Bone_15_Start
+    400024: Broadleaf_Low_Bone_16_End
+    400026: Broadleaf_Low_Bone_17_End
+    400028: Broadleaf_Low_Bone_17_Start
+    400030: Broadleaf_Low_Bone_18_End
+    400032: Broadleaf_Low_Bone_19_End
+    400034: Broadleaf_Low_Bone_19_Start
+    400036: Broadleaf_Low_Bone_1_End
+    400038: Broadleaf_Low_Bone_20_End
+    400040: Broadleaf_Low_Bone_21_End
+    400042: Broadleaf_Low_Bone_21_Start
+    400044: Broadleaf_Low_Bone_22_End
+    400046: Broadleaf_Low_Bone_23_End
+    400048: Broadleaf_Low_Bone_23_Start
+    400050: Broadleaf_Low_Bone_24_End
+    400052: Broadleaf_Low_Bone_25_End
+    400054: Broadleaf_Low_Bone_25_Start
+    400056: Broadleaf_Low_Bone_26_End
+    400058: Broadleaf_Low_Bone_27_End
+    400060: Broadleaf_Low_Bone_27_Start
+    400062: Broadleaf_Low_Bone_28_End
+    400064: Broadleaf_Low_Bone_29_End
+    400066: Broadleaf_Low_Bone_29_Start
+    400068: Broadleaf_Low_Bone_2_End
+    400070: Broadleaf_Low_Bone_30_End
+    400072: Broadleaf_Low_Bone_31_End
+    400074: Broadleaf_Low_Bone_31_Start
+    400076: Broadleaf_Low_Bone_32_End
+    400078: Broadleaf_Low_Bone_33_End
+    400080: Broadleaf_Low_Bone_33_Start
+    400082: Broadleaf_Low_Bone_34_End
+    400084: Broadleaf_Low_Bone_35_End
+    400086: Broadleaf_Low_Bone_35_Start
+    400088: Broadleaf_Low_Bone_36_End
+    400090: Broadleaf_Low_Bone_37_End
+    400092: Broadleaf_Low_Bone_37_Start
+    400094: Broadleaf_Low_Bone_38_End
+    400096: Broadleaf_Low_Bone_39_End
+    400098: Broadleaf_Low_Bone_39_Start
+    400100: Broadleaf_Low_Bone_3_End
+    400102: Broadleaf_Low_Bone_40_End
+    400104: Broadleaf_Low_Bone_41_End
+    400106: Broadleaf_Low_Bone_41_Start
+    400108: Broadleaf_Low_Bone_42_End
+    400110: Broadleaf_Low_Bone_43_End
+    400112: Broadleaf_Low_Bone_43_Start
+    400114: Broadleaf_Low_Bone_44_End
+    400116: Broadleaf_Low_Bone_4_End
+    400118: Broadleaf_Low_Bone_5_End
+    400120: Broadleaf_Low_Bone_5_Start
+    400122: Broadleaf_Low_Bone_6_End
+    400124: Broadleaf_Low_Bone_7_End
+    400126: Broadleaf_Low_Bone_7_Start
+    400128: Broadleaf_Low_Bone_8_End
+    400130: Broadleaf_Low_Bone_9_End
+    400132: Broadleaf_Low_Bone_9_Start
+    400134: Broadleaf_Low_Root
+    400136: //RootNode
+    4300000: Broadleaf_Low
+    9500000: //RootNode
+    13700000: Broadleaf_Low
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
