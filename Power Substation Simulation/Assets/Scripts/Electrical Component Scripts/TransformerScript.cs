@@ -138,7 +138,10 @@ class TransformerScript : ElectricalComponentScript
         else if (interactor.tag == "Player")
         {
             if (squirrel != null && squirrel.isPinned() == false)
+            {
                 damaged = false;
+                smokeParticles.Stop();
+            }
             else if (output.voltage != 0)
             {
                 Vector3 velocity = interactor.transform.position - transform.position;

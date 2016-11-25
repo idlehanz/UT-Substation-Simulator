@@ -75,6 +75,7 @@ public class SquirrelController:MonoBehaviour, Interactable
         
 
         setRagdollState(ragdollState);
+        
     }
 
 

@@ -37,8 +37,8 @@ public class LeverScript : MonoBehaviour, Interactable
     {
         redLight.intensity = 0;
         greenLight.intensity = lightIntensity;
-        upArmRotation = transform.forward*2 ;
-        downArmRotation = transform.forward * 2 + transform.up * 2;
+        upArmRotation = -transform.forward*2 ;
+        downArmRotation = -transform.forward * 2 + transform.up * 2;
         if (leverEvent == null)
         {
             leverEvent = GetComponent<SimulationEvent>();
@@ -47,7 +47,7 @@ public class LeverScript : MonoBehaviour, Interactable
     }
     void Update()
     {
-        armTransform.localRotation=Quaternion.Lerp(armTransform.localRotation, Quaternion.LookRotation(targetRotation), armSwitchSpeed* Time.deltaTime);
+        armTransform.rotation = Quaternion.Lerp(armTransform.rotation, Quaternion.LookRotation(targetRotation), armSwitchSpeed* Time.deltaTime);
         
         if (leverEvent.isEventTriggered())
         {
