@@ -143,6 +143,12 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     {
         if (inputComponent != null)
              input =  inputComponent.getOutput();
+        else
+        {
+            input.voltage = 0;
+            input.frequency = 0;
+            input.current = 0;
+        }
         
     }
 }
