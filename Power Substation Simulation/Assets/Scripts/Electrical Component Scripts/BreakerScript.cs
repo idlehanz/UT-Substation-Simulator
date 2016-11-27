@@ -69,6 +69,7 @@ class BreakerScript : ElectricalComponentScript
         Debug.Log("Breaker Tripped");
         //set the breaker to trip so we always send out zero output in future updates, then zero the ouput
         breakerTripped = true;
+		GetComponentInChildren<AudioSource> ().Pause();
         zeroOuput();
     }
    

@@ -13,6 +13,8 @@ public class SimPause : MonoBehaviour{
 	public Transform canvasresolution;
 	//this has the screen resolution menu information
 	public Transform canvasaudio;
+	//Credits page 
+	public Transform canvascredits;
 	//Audio menu information
 	public Dropdown ResDropDown;
 	//resolution drop down switch case
@@ -94,9 +96,9 @@ public class SimPause : MonoBehaviour{
 	}
 
 	public void backButton(){
-
 		canvasresolution.gameObject.SetActive (false);
 		canvasaudio.gameObject.SetActive (false);
+		canvascredits.gameObject.SetActive (false);
 		canvas.gameObject.SetActive (true);
 		//used 
 	}
@@ -120,6 +122,16 @@ public class SimPause : MonoBehaviour{
 		Time.timeScale = 0;
 		canvasaudio.gameObject.SetActive (true);
 		//when the audio menu is activated, shut off main, activate audio
+	}
+	public void creditsSettingsMenu ()
+	{
+		Debug.Log ("Credits Settings");
+		canvas.gameObject.SetActive (false);
+		canvasresolution.gameObject.SetActive (false);
+		canvasaudio.gameObject.SetActive (false);
+		Time.timeScale = 0;
+		canvascredits.gameObject.SetActive (true);
+		//when the canvas menu is activated, shut off main, activate audio
 	}
 
 

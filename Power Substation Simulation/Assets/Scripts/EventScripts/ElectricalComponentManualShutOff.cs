@@ -14,8 +14,9 @@ class ElectricalComponentManualShutOff : SimulationEvent
     }
     public void Update()
     {
-        if (eventTriggered != component.isDisabled)
-            eventTriggered = component.isDisabled;
+		if (eventTriggered != component.isDisabled) {
+			eventTriggered = component.isDisabled;
+		}
     }
     public override void beginEvent()
     {

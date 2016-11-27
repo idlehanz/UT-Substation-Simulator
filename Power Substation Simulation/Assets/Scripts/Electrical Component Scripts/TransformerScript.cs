@@ -16,6 +16,7 @@ class TransformerScript : ElectricalComponentScript
     public float shortTime = 60;
     protected float startShortTime = -1;
 	AudioSource explosion;
+	AudioSource buzz;
 	public Light lt;
 	public float c;
     public float pushBackForce = 150;
@@ -52,7 +53,7 @@ class TransformerScript : ElectricalComponentScript
                 startShortTime = Time.realtimeSinceStartup;
 
             }
-            
+
             output.voltage += UnityEngine.Random.value * 8;
            
             if (Time.realtimeSinceStartup > startShortTime + shortTime)
@@ -78,8 +79,6 @@ class TransformerScript : ElectricalComponentScript
             output.frequency = input.frequency;
             if (lt !=null)
                 lt.color = Color.red;
-
-
         }
     }
 
@@ -99,6 +98,7 @@ class TransformerScript : ElectricalComponentScript
             if (electricalExplosionParticles != null)
             {
                 electricalExplosionParticles.Play();
+				GameObject.Find ("TransformerBuzz").GetComponent<AudioSource>().Pause();
             }
             
             Debug.Log("transformer damaged");

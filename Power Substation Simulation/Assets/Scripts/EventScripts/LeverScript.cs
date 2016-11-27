@@ -52,8 +52,8 @@ public class LeverScript : MonoBehaviour, Interactable
         if (leverEvent.isEventTriggered())
         {
             targetRotation = downArmRotation;
-            if (greenOnActive)
-                activateGreenLight();
+			if (greenOnActive) 
+				activateGreenLight ();
             else
                 activateRedLight();
 
@@ -70,6 +70,7 @@ public class LeverScript : MonoBehaviour, Interactable
     }
     void activateGreenLight()
     {
+		
         greenLight.intensity = lightIntensity;
         redLight.intensity = 0;
     }
