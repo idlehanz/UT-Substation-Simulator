@@ -75,6 +75,13 @@ ModelImporter:
     100134: Camera
     100136: Hemi
     100138: Lamp
+    100140: tail
+    100142: tail.001
+    100144: tail.002
+    100146: tail.003
+    100148: tail.004
+    100150: tail.005
+    100152: tail.005_end
     400000: chest
     400002: f_index.01.L
     400004: f_index.01.R
@@ -145,6 +152,13 @@ ModelImporter:
     400134: Camera
     400136: Hemi
     400138: Lamp
+    400140: tail
+    400142: tail.001
+    400144: tail.002
+    400146: tail.003
+    400148: tail.004
+    400150: tail.005
+    400152: tail.005_end
     4300000: Sphere.004
     7400000: rig|climb
     7400002: rig|Grab
@@ -154,6 +168,7 @@ ModelImporter:
     7400010: rig|walk
     7400012: Sphere.004|climb
     7400014: Sphere.004|rigAction
+    7400016: Sphere.004|walk
     9500000: //RootNode
     13700000: Sphere.004
   materials:
@@ -163,7 +178,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
