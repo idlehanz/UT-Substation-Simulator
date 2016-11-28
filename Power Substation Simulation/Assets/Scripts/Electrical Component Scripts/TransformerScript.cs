@@ -37,12 +37,46 @@ class TransformerScript : ElectricalComponentScript
 	{
         if (damaged)
             isDisabled = true;
-	}
+
+         TransformerScript []scripts  = GetComponents<TransformerScript>();
+        bool badTransformer = false;
+        foreach (TransformerScript s in scripts)
+        {
+            if (s.output.voltage ==0)
+            {
+                badTransformer = true;
+                break;
+            }
+        }
+        if (badTransformer)
+        {       
+            Debug.Log("voltage not 0");
+            GameObject tmpasadf = GameObject.Find("LightColorShift");
+            if (tmpasadf != null)
+                lt = tmpasadf.GetComponent<Light>();
+            else
+                Debug.Log("could not find light object");
+            if (lt != null)
+                lt.color = Color.green;
+            lt.color = new Color(0, 1, 0);
+        }
+        if (output.voltage != 0)
+        {
+            Debug.Log("voltage  0");
+            GameObject tmpasadf = GameObject.Find("LightColorShift");
+            if (tmpasadf != null)
+                lt = tmpasadf.GetComponent<Light>();
+            else
+                Debug.Log("could not find light object");
+
+            lt.color = new Color(1, 0, 0);
+        }
+    }
 
 	//update the output.
 	public override void updateOutput()
 	{
-
+       
         output.current = input.current;
         output.voltage = input.voltage / step;
         output.frequency = input.frequency;
@@ -70,16 +104,17 @@ class TransformerScript : ElectricalComponentScript
         }
         else if (damaged == false)
         {
-            GameObject tmpasadf = GameObject.Find("LightColorShift");
-            if (tmpasadf !=null)
-                lt = tmpasadf.GetComponent<Light>();
+           
             c = 1;
             output.current = input.current;
             output.voltage = input.voltage / step;
             output.frequency = input.frequency;
-            if (lt !=null)
-                lt.color = Color.red;
+            
         }
+        
+        
+        /*
+        */
     }
 
 
