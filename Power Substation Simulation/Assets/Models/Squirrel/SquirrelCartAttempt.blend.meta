@@ -57,6 +57,12 @@ ModelImporter:
     100098: toe_R
     100100: upper_arm_L
     100102: upper_arm_R
+    100104: tail
+    100106: tail_001
+    100108: tail_002
+    100110: tail_003
+    100112: tail_004
+    100114: tail_005
     400000: chest
     400002: f_index_01_L
     400004: f_index_01_R
@@ -109,6 +115,12 @@ ModelImporter:
     400098: toe_R
     400100: upper_arm_L
     400102: upper_arm_R
+    400104: tail
+    400106: tail_001
+    400108: tail_002
+    400110: tail_003
+    400112: tail_004
+    400114: tail_005
     4300000: Sphere_004
     7400000: Default Take
     7400002: rigAction_002
@@ -127,7 +139,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 

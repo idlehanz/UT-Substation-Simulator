@@ -98,7 +98,7 @@ class TransformerScript : ElectricalComponentScript
             if (electricalExplosionParticles != null)
             {
                 electricalExplosionParticles.Play();
-				GameObject.Find ("TransformerBuzz").GetComponent<AudioSource>().Pause();
+				//GameObject.Find ("TransformerBuzz").GetComponent<AudioSource>().Pause();
             }
             
             Debug.Log("transformer damaged");
