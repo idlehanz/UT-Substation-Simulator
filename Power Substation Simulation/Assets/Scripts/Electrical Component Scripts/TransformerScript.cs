@@ -13,7 +13,7 @@ class TransformerScript : ElectricalComponentScript
 	public float step = 3.6315f;
 	public bool damaged = false;
     public bool shorting = false;
-    public float shortTime = 60;
+    public float shortTime = 10;
     protected float startShortTime = -1;
 	AudioSource explosion;
 	AudioSource buzz;

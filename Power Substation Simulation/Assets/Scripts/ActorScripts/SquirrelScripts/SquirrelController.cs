@@ -131,6 +131,9 @@ public class SquirrelController:MonoBehaviour, Interactable
 
     public void grabbingLead()
     {
+		Vector3 lookat = transformerLead.transform.position - transform.position;
+		lookat.y = 0;
+		transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookat), 1 * Time.deltaTime);
         if (grabbing == false)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("rig|Grab"))

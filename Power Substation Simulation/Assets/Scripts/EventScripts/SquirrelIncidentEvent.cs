@@ -13,7 +13,7 @@ public class SquirrelIncidentEvent : SimulationEvent
 
     public List<GameObject> squirrelPaths;
     
-    protected int currentPath = 0;
+    protected int currentPath = 1;
     protected int maxPath = 0;
 
     protected GameObject squirrelObject;

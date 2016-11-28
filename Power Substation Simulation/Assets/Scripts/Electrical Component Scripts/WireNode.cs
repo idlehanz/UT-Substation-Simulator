@@ -27,7 +27,7 @@ class WireNode : MonoBehaviour
 
     //right now the wireNodes are represented in the editor as white blocks,
     //this controls whether those blocks show up at run time.
-    public static bool renderMesh = true;
+    public static bool renderMesh = false;
 
     protected List<GameObject> joints = new List<GameObject>();
 
