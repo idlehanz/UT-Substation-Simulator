@@ -50,7 +50,6 @@ class TransformerScript : ElectricalComponentScript
         }
         if (badTransformer)
         {       
-            Debug.Log("voltage not 0");
             GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf != null)
                 lt = tmpasadf.GetComponent<Light>();
@@ -62,7 +61,6 @@ class TransformerScript : ElectricalComponentScript
         }
         if (output.voltage != 0)
         {
-            Debug.Log("voltage  0");
             GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf != null)
                 lt = tmpasadf.GetComponent<Light>();

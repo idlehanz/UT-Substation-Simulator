@@ -114,7 +114,7 @@ class WireNode : MonoBehaviour
             //set up the joint position.
             Vector3 jointPosition = transform.position + (positionStep * (i));
             //we want the wire to curve downward, so I cooked up this formula to do just that.
-            float y = jointPosition.y - (Mathf.Sin(Mathf.PI * (i - 1) / numVerticies) * slack);
+            float y = jointPosition.y + (Mathf.Sin(Mathf.PI * (i - 1) / numVerticies) * slack);
             jointPosition.y = y;
             joints[i].transform.position = jointPosition;
 
