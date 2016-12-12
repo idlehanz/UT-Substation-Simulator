@@ -26,9 +26,18 @@ class ElectricalComponentManualShutOff : SimulationEvent
 
     public override void displayMessage()
     {
+        if (eventTriggered)
+        {
 
-        GUI.color = Color.white;
-        GUI.Box(new Rect(20, 20, 200, 55), "Press e to disable "+component.tag);
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "Press e to enable " + component.tag);
+        }
+        else
+        {
+
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "Press e to disable " + component.tag);
+        }
     }
 
     public override void endEvent()

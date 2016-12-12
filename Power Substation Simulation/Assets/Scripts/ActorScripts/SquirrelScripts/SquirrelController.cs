@@ -395,9 +395,24 @@ public class SquirrelController:MonoBehaviour, Interactable
     {
         if (pinned == true)
         {
-            GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "get the scrapper, press e to remove");
+            // GUI.color = Color.white;
+            //GUI.Box(new Rect(20, 20, 200, 55), "get the scrapper, press e to remove");
+            if (interactor.tag == "Player")
+            {
+                PlayerInventoryScript inv = interactor.GetComponent<PlayerInventoryScript>();
+                if (inv.currentTool != null && inv.currentTool.toolName == "scraper tool")
+                {
+                    GUI.color = Color.white;
+                    GUI.Box(new Rect(20, 20, 200, 55), "Left click to remove");
+                }
+                else
+                {
+                    GUI.color = Color.white;
+                    GUI.Box(new Rect(20, 20, 200, 55), "get the scrapper tool");
+                }
+            }
         }
+        
     }
 
 

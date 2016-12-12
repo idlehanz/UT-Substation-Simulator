@@ -13,9 +13,9 @@ public class SimPause : MonoBehaviour{
 	public Transform canvasresolution;
 	//this has the screen resolution menu information
 	public Transform canvasaudio;
-	//Credits page 
-	public Transform canvascredits;
 	//Audio menu information
+	public Transform canvascredits;
+	//Credits page 
 	public Dropdown ResDropDown;
 	//resolution drop down switch case
 	public Resolution[] resolutions;
@@ -41,7 +41,7 @@ public class SimPause : MonoBehaviour{
 		if(Input.GetKeyDown(KeyCode.Escape))
 		{
 			
-			//if the pause menu isn't activated
+			//if the pause menu isn't activated, activate it
 			Debug.Log(canvas.gameObject.activeInHierarchy);
 			if (canvas.gameObject.activeInHierarchy == false)
 			{
@@ -53,25 +53,24 @@ public class SimPause : MonoBehaviour{
 			}
 			canvasresolution.gameObject.SetActive (false);
 			canvasaudio.gameObject.SetActive (false);
-			//still having some issues turning off the canvas resolution with escape
+			canvascredits.gameObject.SetActive (false);
 		}
 	}
 
 	public void pauseSim(){
 		//activate the pause menu
 		canvas.gameObject.SetActive(true);
-		Time.timeScale = 0;
 		//the power to stop time
-		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; // can be done by changing sensitivity to 0.
-		//failure of a command
-
+		Time.timeScale = 0;
+		//this command doesn't work, using lockState. this will stop the camera from moving during menu operations
+		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = false; 
 		#if !UNITY_EDITOR
 		Cursor.lockState = CursorLockMode.None;
 		#endif
 	}
 
 	public void continueSim(){
-		Debug.Log ("Continue");
+		//drops the menu canvas, turns on time, and unlocks the camera
 		canvas.gameObject.SetActive (false);
 		Time.timeScale = 1;
 		GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
@@ -83,11 +82,9 @@ public class SimPause : MonoBehaviour{
 
 	public void reloadSim(){
 		Debug.Log (SceneManager.GetActiveScene ().name);
-		//SceneManager.UnloadScene (0);
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		Time.timeScale = 1;
-		//reload the level. this command is out of date and doesn't quite load right
-		//any suggestions would be amazing
+		//reload the level. 
 	}
 		
 	public void quitSim(){
@@ -100,7 +97,7 @@ public class SimPause : MonoBehaviour{
 		canvasaudio.gameObject.SetActive (false);
 		canvascredits.gameObject.SetActive (false);
 		canvas.gameObject.SetActive (true);
-		//used 
+		//removes all canvases and turns on the main menu canvas
 	}
 
 	public void videoSettingsMenu (){
@@ -137,7 +134,7 @@ public class SimPause : MonoBehaviour{
 
 	public void ResChangeDrop() {
 		resolutions = Screen.resolutions;
-
+		//creates a listener for the screen resolutions, allowing for the drop down to work
 		ResDropDown.onValueChanged.AddListener (delegate {
 			ProcessResDrop(ResDropDown);
 		});
@@ -161,15 +158,12 @@ public class SimPause : MonoBehaviour{
 
 
 		switch (ResDropTemp.value) {
-		//switch case is not currently attached to anything
+		//each case is a different resolution
 		case 0:
 			Screen.SetResolution (800, 600, x);
-			//full screen
-			Debug.Log ("800,600");
 			break;
 		case 1:
 			Screen.SetResolution (1024, 768, x);
-			Debug.Log ("1026x768");
 			break;
 		case 2:
 			Screen.SetResolution (1152, 864, x);
@@ -217,7 +211,10 @@ public class SimPause : MonoBehaviour{
 
 		}
 	}
-	//SetVsyncCount not enabled
+
+	//setting vsync will control the ability to change FOV and FPS
+	//Vsync can only be set between 0-2
+	//if statement ensures input field stays within acceptable bounds
 	public void SetVsyncCount() {
 		int Vcount=0;
 		GameObject inputFieldVsyncFind = GameObject.Find("ChangeVsync");
@@ -233,8 +230,8 @@ public class SimPause : MonoBehaviour{
 		else QualitySettings.vSyncCount = Vcount;
 	}
 
-
-	//SetFPS not entirely enabled either. 
+	//set the FPS
+	//if statement ensures input field stays within acceptable bounds
 	public void SetFPS () {
 		Debug.Log(FPS);
 
@@ -255,6 +252,8 @@ public class SimPause : MonoBehaviour{
 
 	}
 
+	//sets the FOV
+	//if statement ensures input field stays within acceptable bounds
 	public void SetFOV(){
 		GameObject inputfieldFOVFind = GameObject.Find ("ChangeFOV");
 		ChangeFOV = inputfieldFOVFind.GetComponent<InputField> ();
@@ -264,35 +263,19 @@ public class SimPause : MonoBehaviour{
 		Camera tmpcam = GameObject.Find ("Camera").GetComponent<Camera>();
 
 		if (FOV > 360) {
-			/////this may need to be changed
-			//GetComponent<Camera> ().fieldOfView = 360;////////////////////////////
 			tmpcam.fieldOfView = 360;
 		}
 
 		else if (FOV < 1) {
-			//GetComponent<Camera> ().fieldOfView = 1;//////////////////////
 			tmpcam.fieldOfView = 1;
 		}
 		else tmpcam.fieldOfView = FOV;
-		//GetComponent<Camera> ().fieldOfView = FOV;
 	}
 
 	public void SetMouseInvert(){
 		GameObject player = GameObject.Find ("Camera");
 		MouseLook InvertFieldOBJ = player.GetComponent<MouseLook>() as MouseLook;
 		bool InvertBool = InvertTogg.isOn;
-
-
-		//bool InvertBool = GameObject.Find ("InvertMouse").GetComponent<Toggle>().isOn;
-
-		//MouseLook InvertFieldOBJ = gameObject.GetComponent(typeof(MouseLook)) as MouseLook;
-		//InvertFieldOBJ.InvertMouse ();
-		//MouseLook go = InvertFieldOBJ.GetComponent<MouseLook> ();
-
-
-		//InvertBool = InvertFieldOBJ.GetComponent<Toggle> ().isOn;
-		//Debug.Log ("Invert mouse = " + InvertBool);
-
 
 		if (InvertBool == true) 
 		{
@@ -305,18 +288,8 @@ public class SimPause : MonoBehaviour{
 		}
 
 
-		/*
-		var inputY = Input.GetAxis("Vertical") * (iflipY ? -1 : 1);
-		Debug.Log ("Invert mouse = " + flipY);
-		*/
+
 	}
-
-
-
-
-	//800x600, 1024x768, 1152x864, 1600x1200, 1280x720, 1360x768, 
-	//1366x768, 1536x864, 1600x900, 1920x1080, 2560x1440, 1280x800, 
-	//1440x900, 1680x1050, 1920x1200, and 2560x1600
 
 
 

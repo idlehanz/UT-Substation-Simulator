@@ -190,9 +190,24 @@ class TransformerScript : ElectricalComponentScript
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
         //draw a box containing relevant information about the transformer.
-        GUI.color = Color.white;
-        GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + output.voltage.ToString() + "\n" +
-                "Transformer Frequency: " + output.frequency.ToString() + "\nTransformer Current: " + output.current.ToString());
+        if (squirrel.isPinned())
+        {
+
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
+        }
+        else if (damaged)
+        {
+
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "Press 'e' to repair");
+        }
+        else
+        {
+            GUI.color = Color.white;
+            GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + output.voltage.ToString() + "\n" +
+                    "Transformer Frequency: " + output.frequency.ToString() + "\nTransformer Current: " + output.current.ToString());
+        }
 
 
 
