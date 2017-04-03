@@ -1,10 +1,17 @@
 fileFormatVersion: 2
 guid: 2ac6cd7e8adf0af4aa842f18cee780b3
-timeCreated: 1469904497
+timeCreated: 1491245616
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inputComponent: {instanceID: 0}
+  - lightningScript: {instanceID: 0}
+  - lightningObj: {fileID: 106988, guid: 15dec7b07032b2f4aa6f855bfbe120f7, type: 2}
+  - electricalExplosionParticles: {instanceID: 0}
+  - smokeParticles: {instanceID: 0}
+  - inputNode: {instanceID: 0}
+  - outputNode: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

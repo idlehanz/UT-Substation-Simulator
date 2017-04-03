@@ -10,6 +10,7 @@ using UnityEngine;
 
 class TransformerScript : ElectricalComponentScript
 {
+
 	public float step = 3.6315f;
 	public bool damaged = false;
     public bool shorting = false;
@@ -21,18 +22,16 @@ class TransformerScript : ElectricalComponentScript
 	public float c;
     public float pushBackForce = 150;
 
-
     public GameObject positiveLead;
     public GameObject negativeLead;
-
     
 
     protected SquirrelController squirrel = null;
 
     public override void uniqueStart()
 	{
-
 	}
+
 	public override void uniqueUpdate()
 	{
 		if (damaged) {
@@ -52,7 +51,7 @@ class TransformerScript : ElectricalComponentScript
         }
 
         if (badTransformer)
-        {       
+        {
             GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf != null)
                 lt = tmpasadf.GetComponent<Light>();
@@ -85,11 +84,9 @@ class TransformerScript : ElectricalComponentScript
 		if (shorting == true) {
 			if (startShortTime < 0) {
 				startShortTime = Time.realtimeSinceStartup;
-
 			}
-
 			output.voltage += UnityEngine.Random.value * 8;
-           
+
 			if (Time.realtimeSinceStartup > startShortTime + shortTime) {
 				shorting = false;
 
@@ -154,11 +151,10 @@ class TransformerScript : ElectricalComponentScript
         }
         else if (interactor.tag == "Player")
         {
-            if (squirrel != null && squirrel.isPinned() == false)
-            {
-                damaged = false;
-                smokeParticles.Stop();
-            }
+			if (squirrel != null && squirrel.isPinned () == false || damaged == true ) {
+				damaged = false;
+				smokeParticles.Stop ();
+			}
             else if (output.voltage != 0)
             {
                 Vector3 velocity = interactor.transform.position - transform.position;
@@ -174,7 +170,7 @@ class TransformerScript : ElectricalComponentScript
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
         //draw a box containing relevant information about the transformer.
-        if (squirrel.isPinned())
+        if (squirrel != null && squirrel.isPinned())
         {
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
