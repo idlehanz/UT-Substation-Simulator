@@ -25,7 +25,6 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     protected electricalFlow output;
     protected electricalFlow input;
 
-
     public ElectricalComponentScript inputComponent;
 
     public bool isDisabled = false;
@@ -33,15 +32,11 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     public ParticleSystem electricalExplosionParticles;
     public ParticleSystem smokeParticles;
 
-
     public WireNode inputNode;
     public WireNode outputNode;
 
-
-
     void Start()
     {
-        
         if (inputComponent!=null && inputNode!=null && inputComponent.outputNode!=null)
         {
             inputNode.setNewNextNode(inputComponent.outputNode);
@@ -64,11 +59,8 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
         }
     }
 
-
     public abstract void uniqueStart();
     public abstract void uniqueUpdate();
-
-
 
     void Update()
     {

@@ -35,19 +35,22 @@ class TransformerScript : ElectricalComponentScript
 	}
 	public override void uniqueUpdate()
 	{
-        if (damaged)
-            isDisabled = true;
+		if (damaged) {
+			isDisabled = true;
+		}
 
-         TransformerScript []scripts  = GetComponents<TransformerScript>();
+        TransformerScript []scripts  = GetComponents<TransformerScript>();
         bool badTransformer = false;
+
         foreach (TransformerScript s in scripts)
         {
-            if (s.output.voltage ==0)
+            if (s.output.voltage == 0)
             {
                 badTransformer = true;
                 break;
             }
         }
+
         if (badTransformer)
         {       
             GameObject tmpasadf = GameObject.Find("LightColorShift");
@@ -59,6 +62,7 @@ class TransformerScript : ElectricalComponentScript
                 lt.color = Color.green;
             lt.color = new Color(0, 1, 0);
         }
+
         if (output.voltage != 0)
         {
             GameObject tmpasadf = GameObject.Find("LightColorShift");
@@ -78,44 +82,27 @@ class TransformerScript : ElectricalComponentScript
         output.current = input.current;
         output.voltage = input.voltage / step;
         output.frequency = input.frequency;
-        if (shorting == true)
-        {
-            if (startShortTime < 0)
-            {
-                startShortTime = Time.realtimeSinceStartup;
+		if (shorting == true) {
+			if (startShortTime < 0) {
+				startShortTime = Time.realtimeSinceStartup;
 
-            }
+			}
 
-            output.voltage += UnityEngine.Random.value * 8;
+			output.voltage += UnityEngine.Random.value * 8;
            
-            if (Time.realtimeSinceStartup > startShortTime + shortTime)
-            {
-                shorting = false;
+			if (Time.realtimeSinceStartup > startShortTime + shortTime) {
+				shorting = false;
 
-                triggerElectricalDamage();
-                Debug.Log("electrical damage");
-            }
-
-
-
-
-        }
-        else if (damaged == false)
-        {
-           
-            c = 1;
-            output.current = input.current;
-            output.voltage = input.voltage / step;
-            output.frequency = input.frequency;
-            
-        }
-        
-        
-        /*
-        */
+				triggerElectricalDamage ();
+				Debug.Log ("electrical damage");
+			}
+		} else if (damaged == false) {
+			c = 1;
+			output.current = input.current;
+			output.voltage = input.voltage / step;
+			output.frequency = input.frequency;   
+		}
     }
-
-
 
     public void triggerElectricalDamage()
     {
@@ -138,6 +125,7 @@ class TransformerScript : ElectricalComponentScript
         }
 
     }
+
     public void startSmoking()
     {
         if (smokeParticles != null)
@@ -145,10 +133,6 @@ class TransformerScript : ElectricalComponentScript
             smokeParticles.Play();
         }
     }
-
-
-
-
 
     public bool isDestroyed()
     {
@@ -185,14 +169,13 @@ class TransformerScript : ElectricalComponentScript
                 pm.addForce(velocity);
             }
         }
-
     }
+
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
         //draw a box containing relevant information about the transformer.
         if (squirrel.isPinned())
         {
-
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
         }
@@ -208,8 +191,5 @@ class TransformerScript : ElectricalComponentScript
             GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + output.voltage.ToString() + "\n" +
                     "Transformer Frequency: " + output.frequency.ToString() + "\nTransformer Current: " + output.current.ToString());
         }
-
-
-
     }
 }
