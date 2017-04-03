@@ -86,6 +86,7 @@ class WireNode : MonoBehaviour
         //numVerticies =(int)( (distanceBetweenNodes / vertexDistance) * vertexDensity);
         numVerticies = (int)(distanceBetweenNodes / vertexDistance);
         Vector3 positionStep = (nextNode.transform.position - transform.position) / numVerticies;
+
         /*First, create the gameObjects for the joints in the wire,
          we can't assign the spring joints yet because we need to reference the
          nodes before and after each node, and since each node will have 2
@@ -93,6 +94,7 @@ class WireNode : MonoBehaviour
          one of the instances, so we will add and then assign these joints after
          we create all of our objects*/
         joints.Add(gameObject);
+
         for (int i = 1; i < numVerticies; i++)
         {
             joints.Add(new GameObject());//create the object
@@ -112,9 +114,9 @@ class WireNode : MonoBehaviour
 
 
             //set up the joint position.
-            Vector3 jointPosition = transform.position + (positionStep * (i));
+			Vector3 jointPosition = transform.position + (positionStep * (i));
             //we want the wire to curve downward, so I cooked up this formula to do just that.
-            float y = jointPosition.y + (Mathf.Sin(Mathf.PI * (i - 1) / numVerticies) * slack);
+            float y = jointPosition.y - (Mathf.Sin(Mathf.PI * (i - 1) / numVerticies) * slack);
             jointPosition.y = y;
             joints[i].transform.position = jointPosition;
 
@@ -123,27 +125,23 @@ class WireNode : MonoBehaviour
             joints[i].transform.parent = transform;
 
         }
+
         joints.Add(nextNode.gameObject);
 
 
-        //now that the objects are created we will assign spring joints to the objects
-        for (int i = 1; i < numVerticies; i++)
-        {
-            HingeJoint prevAnchor = joints[i].AddComponent<HingeJoint>();
-            //HingeJoint
-            prevAnchor.enableCollision = false;
-            HingeJoint nextAnchor = joints[i].AddComponent<HingeJoint>();
-            nextAnchor.enableCollision = false;
+//        now that the objects are created we will assign spring joints to the objects
+//        for (int i = 1; i < numVerticies; i++)
+//        {
+//            HingeJoint prevAnchor = joints[i].AddComponent<HingeJoint>();
+//            HingeJoint
+//            prevAnchor.enableCollision = false;
+//            HingeJoint nextAnchor = joints[i].AddComponent<HingeJoint>();
+//            nextAnchor.enableCollision = false;
             
             //hook the ancors to the adjacent joints.
-            nextAnchor.connectedBody = joints[i - 1].GetComponent<Rigidbody>();
-            prevAnchor.connectedBody = joints[i + 1].GetComponent<Rigidbody>();
-
-
-
-        }
-
-
+//            nextAnchor.connectedBody = joints[i - 1].GetComponent<Rigidbody>();
+//            prevAnchor.connectedBody = joints[i + 1].GetComponent<Rigidbody>();
+//        }
     }
 
     //this function creates the line renderer object 
@@ -183,6 +181,6 @@ class WireNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateLinePositions();
+//        updateLinePositions();
     }
 }

@@ -10,7 +10,6 @@ class LightningIncidentEvent : SimulationEvent
 	public GameObject SimpleLightningBoltPrefab;
 
 	protected GameObject lightningContainer;
-
 	LeverScript lever;
 
 	public void Start()
@@ -21,9 +20,8 @@ class LightningIncidentEvent : SimulationEvent
 			Debug.Log("did not find lever");
 		if (SimpleLightningBoltPrefab == null)
 			Debug.Log("ERROR: could not find lightning :-(");
-
-
 	}
+
 	public void Update()
 	{
 		if (eventTriggered == true)
@@ -32,8 +30,6 @@ class LightningIncidentEvent : SimulationEvent
 			{
 				eventTriggered = false;
 			}
-
-
 		}
 	}
 
