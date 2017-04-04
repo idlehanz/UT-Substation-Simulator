@@ -23,9 +23,6 @@ class CityControllerScript : MonoBehaviour
         inputs = GetComponents<CityInputScript>();
         lights = GetComponentsInChildren<Light>();
         renderors = GetComponentsInChildren<Renderer>();
-        
-
-
 
         if (inputs.Length ==0)
         {
@@ -34,24 +31,23 @@ class CityControllerScript : MonoBehaviour
 
     }
 
-
-
-
-
     public void Update()
     {
         bool hasPower = true;
-        foreach (CityInputScript cs in inputs)
-        {
-            if (cs.getOutput().voltage==0)
-            {
-                hasPower = false;
+        foreach (CityInputScript cs in inputs) {
+            if (cs.getOutput().voltage == 0) {
+				hasPower = false;
+				break;
             }
-        }
-        if (hasPower == true)
-            lightsOn();
-        else
-            lightsOff();
+		}
+
+		if (powered == false && hasPower == true) {
+			lightsOn ();
+			powered = true;
+		} else if (powered == true && hasPower == false) {
+			lightsOff ();
+			powered = false;
+		}
     }
 
 
@@ -60,7 +56,6 @@ class CityControllerScript : MonoBehaviour
         foreach (Renderer r in renderors)
         {
             r.material.color = Color.black;
-
         }
         foreach (Light l in lights)
         {
@@ -72,10 +67,7 @@ class CityControllerScript : MonoBehaviour
     {
         foreach (Renderer r in renderors)
         {
-
             r.material.color = Color.white;
-
-
         }
         foreach (Light l in lights)
         {

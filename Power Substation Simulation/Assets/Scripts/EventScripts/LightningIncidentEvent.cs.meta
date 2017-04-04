@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: d24139a62cdfe4710875c0c0718da323
-timeCreated: 1488080048
+timeCreated: 1491243589
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SimpleLightningBoltPrefab: {instanceID: 0}
+  - transformer: {fileID: 104168, guid: 0fab4b7c73854304c9bc6e0436647845, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -5,10 +5,10 @@ using System.Text;
 using UnityEngine;
 
 
-class LightningIncidentEvent : SimulationEvent
+public class LightningIncidentEvent : SimulationEvent
 {
 	public GameObject SimpleLightningBoltPrefab;
-
+	public GameObject transformerObject;
 	protected GameObject lightningContainer;
 	LeverScript lever;
 
@@ -33,15 +33,10 @@ class LightningIncidentEvent : SimulationEvent
 		}
 	}
 
-
-
 	public void OnGUI()
 	{
 
 	}
-
-
-
 
 	public override void beginEvent()
 	{
@@ -54,20 +49,21 @@ class LightningIncidentEvent : SimulationEvent
 
 	}
 
-	IEnumerator processTask(){
+	IEnumerator processTask() {
 		yield return new WaitForSeconds (1);
 		lightningContainer = Instantiate(SimpleLightningBoltPrefab);
-		Destroy(lightningContainer, 3);
-		yield return new WaitForSeconds (3);
-		//Debug.Log("Lightning BOOM");
+		TransformerScript tScript = transformerObject.GetComponent<TransformerScript> ();
+
+		tScript.triggerElectricalDamage ();
+		tScript.startSmoking ();
+		Destroy(lightningContainer, 2);
+		yield return new WaitForSeconds (2);
 		eventTriggered = false;
 	}
 
-
 	public override void endEvent()
 	{
-		if (lightningContainer!=null)
-		{
+		if (lightningContainer!=null) {
 			Destroy(lightningContainer);
 		}
 		eventTriggered = false;

@@ -94,17 +94,14 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     }
 
     public abstract void onInteract(GameObject interactor);
+
     public abstract void onDisplayInteractionMessage(GameObject interactor);
 
-
     public void interact(GameObject interactor) { onInteract(interactor); }
+
     public void displayInteractionMessage(GameObject interactor) {
         onDisplayInteractionMessage(interactor);
     }
-
-
-
-
 
     //an easy function to zero the output
     public void zeroOuput()
@@ -118,11 +115,6 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     //as the component gets input it will change the input in a certain manner,
     public abstract void updateOutput();
 
-
-    
-
-    
-    
     //this function will return the output for this component, 
     //to be used by the next component that uses this component as input.
     public  electricalFlow getOutput()
