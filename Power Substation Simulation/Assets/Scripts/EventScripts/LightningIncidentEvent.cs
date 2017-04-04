@@ -56,8 +56,8 @@ public class LightningIncidentEvent : SimulationEvent
 
 		tScript.triggerElectricalDamage ();
 		tScript.startSmoking ();
-		Destroy(lightningContainer, 3);
-		yield return new WaitForSeconds (3);
+		Destroy(lightningContainer, 2);
+		yield return new WaitForSeconds (2);
 		eventTriggered = false;
 	}
 
