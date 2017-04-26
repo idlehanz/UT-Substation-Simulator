@@ -151,6 +151,8 @@ class TransformerScript : ElectricalComponentScript
         }
         else if (interactor.tag == "Player")
         {
+            //get the currrent held item
+            PlayerInventoryScript inventory = interactor.GetComponent<PlayerInventoryScript>();
 			if (squirrel != null && squirrel.isPinned () == false || damaged == true ) {
 				damaged = false;
 				smokeParticles.Stop ();
@@ -164,22 +166,47 @@ class TransformerScript : ElectricalComponentScript
                 PlayerMovement pm = interactor.GetComponent<PlayerMovement>();
                 pm.addForce(velocity);
             }
+            //if user is holding the bucket
+            else if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
+            {
+                //change bucket color to black
+                Renderer r = inventory.currentTool.rigidBody.GetComponent<Renderer>();
+                r.material.color = Color.black;
+
+            }
+
         }
     }
 
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
+        PlayerInventoryScript inventory = interactor.GetComponent<PlayerInventoryScript>();
         //draw a box containing relevant information about the transformer.
         if (squirrel != null && squirrel.isPinned())
         {
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
         }
+
         else if (damaged)
         {
-
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "Press 'e' to repair");
+        }
+//        else if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
+        else if (inventory.currentTool != null)
+        {
+            if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
+            {
+                GUI.color = Color.white;
+                GUI.Box(new Rect(20, 20, 200, 55), "Press e to extract oil");
+            }
+            else
+            {
+                GUI.color = Color.white;
+                GUI.Box(new Rect(20, 20, 200, 55), "Transformer Voltage: " + output.voltage.ToString() + "\n" +
+                        "Transformer Frequency: " + output.frequency.ToString() + "\nTransformer Current: " + output.current.ToString());
+            }
         }
         else
         {

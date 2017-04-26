@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 
@@ -7,19 +8,19 @@ public class ToolScript : MonoBehaviour, Interactable {
     public string toolName="tool";
     public float horizontalDistance = .5f;
     public float verticalDistance = 1;
-
     public Vector3 hudPosition = new Vector3(.5f, 1, 1);
 
     public Vector3 hudRotation;
     public GameObject parentObject;
-    protected Rigidbody rigidBody;
+    public Rigidbody rigidBody;
+    //protected Rigidbody rigidBody;
 
     // Use this for initialization
     void Start () {
         rigidBody = GetComponent<Rigidbody>();
         if (parentObject != null)
         {
-            PlayerInteractionScript inventory = parentObject.GetComponent<PlayerInteractionScript>(); ;
+            PlayerInteractionScript inventory = parentObject.GetComponent<PlayerInteractionScript>();
             if (inventory != null)
             {
                 pickUpTool(parentObject);
@@ -53,6 +54,11 @@ public class ToolScript : MonoBehaviour, Interactable {
         rigidBody.useGravity = true;
         rigidBody.detectCollisions = true;
         rigidBody.isKinematic = false;
+        //determines if the object needs to be removed (sent to the lab)
+        if (rigidBody.GetComponent<Renderer>().material.color == Color.black)
+        {
+            rigidBody.gameObject.SetActive(false);//delvier it to lab
+        }
     }
     public void pickUpTool(GameObject interactor)
     {
@@ -77,21 +83,12 @@ public class ToolScript : MonoBehaviour, Interactable {
         transform.position = hp;
 
 
-
-
-
         //transform.Rotate(cameraTransform.rotation.eulerAngles + hudRotation);
         //transform.rotation.SetEulerAngles(cameraTransform.rotation.eulerAngles + hudRotation);
         transform.rotation = cameraTransform.rotation;
         transform.Rotate(hudRotation);
         transform.parent = cameraTransform;
-
-
-
-
     }
-
-
 
     public void displayInteractionMessage(GameObject interactor)
     {
