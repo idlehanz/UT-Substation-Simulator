@@ -172,7 +172,6 @@ class TransformerScript : ElectricalComponentScript
                 //change bucket color to black
                 Renderer r = inventory.currentTool.rigidBody.GetComponent<Renderer>();
                 r.material.color = Color.black;
-
             }
 
         }
@@ -187,13 +186,11 @@ class TransformerScript : ElectricalComponentScript
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
         }
-
         else if (damaged)
         {
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "Press 'e' to repair");
         }
-//        else if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
         else if (inventory.currentTool != null)
         {
             if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
