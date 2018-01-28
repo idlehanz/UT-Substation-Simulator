@@ -13,7 +13,6 @@ public class LeverScript : MonoBehaviour, Interactable
 {
 
     public SimulationEvent leverEvent;
-
     
     public Transform armTransform;
 

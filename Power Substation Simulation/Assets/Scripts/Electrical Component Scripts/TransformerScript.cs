@@ -19,13 +19,13 @@ class TransformerScript : ElectricalComponentScript
 	AudioSource explosion;
 	AudioSource buzz;
 	public Light lt;
+	//is this the speed of light? 
 	public float c;
     public float pushBackForce = 150;
 
     public GameObject positiveLead;
     public GameObject negativeLead;
     
-
     protected SquirrelController squirrel = null;
 
     public override void uniqueStart()
@@ -38,7 +38,7 @@ class TransformerScript : ElectricalComponentScript
 			isDisabled = true;
 		}
 
-        TransformerScript []scripts  = GetComponents<TransformerScript>();
+		TransformerScript []scripts  = GetComponents<TransformerScript>();
         bool badTransformer = false;
 
         foreach (TransformerScript s in scripts)
@@ -52,6 +52,8 @@ class TransformerScript : ElectricalComponentScript
 
         if (badTransformer)
         {
+			//....what is tmpasadf???
+			//LightColorShift is the light inside the building.
             GameObject tmpasadf = GameObject.Find("LightColorShift");
             if (tmpasadf != null)
                 lt = tmpasadf.GetComponent<Light>();
@@ -81,10 +83,13 @@ class TransformerScript : ElectricalComponentScript
         output.current = input.current;
         output.voltage = input.voltage / step;
         output.frequency = input.frequency;
+
 		if (shorting == true) {
+			//get time of short since sim start
 			if (startShortTime < 0) {
 				startShortTime = Time.realtimeSinceStartup;
 			}
+			//maybe change this to something like * 10^8 instead
 			output.voltage += UnityEngine.Random.value * 8;
 
 			if (Time.realtimeSinceStartup > startShortTime + shortTime) {
@@ -93,7 +98,8 @@ class TransformerScript : ElectricalComponentScript
 				triggerElectricalDamage ();
 				Debug.Log ("electrical damage");
 			}
-		} else if (damaged == false) {
+		} else if (damaged == false) { //this is what happens when everything's fine
+			//what is c?
 			c = 1;
 			output.current = input.current;
 			output.voltage = input.voltage / step;
@@ -137,8 +143,12 @@ class TransformerScript : ElectricalComponentScript
     }
 
 
-    public GameObject getPositiveLead() { return positiveLead;}
-    public GameObject getNegativeLead() { return negativeLead; }
+    public GameObject getPositiveLead() { 
+		return positiveLead; 
+	}
+    public GameObject getNegativeLead() { 
+		return negativeLead; 
+	}
 
 
     public override void onInteract(GameObject interactor)
