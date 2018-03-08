@@ -26,7 +26,6 @@ public class LightningIncidentEvent : SimulationEvent
 	{
 		if (eventTriggered == true)
 		{
-			//what does this mean? don't do anything if no lightning?
 			if (SimpleLightningBoltPrefab == null)
 			{
 				eventTriggered = false;
@@ -64,7 +63,6 @@ public class LightningIncidentEvent : SimulationEvent
 
 	public override void endEvent()
 	{
-		//redundancy
 		if (lightningContainer!=null) {
 			Destroy(lightningContainer);
 		}

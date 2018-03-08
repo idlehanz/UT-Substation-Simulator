@@ -37,23 +37,17 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
 
     void Start()
     {
-		//A link list type structure - check that we have input from another electrical componenet, and check that our
-		//input is linked to us
         if (inputComponent!=null && inputNode!=null && inputComponent.outputNode!=null)
         {
             inputNode.setNewNextNode(inputComponent.outputNode);
         }
-		//set some (bad) default values for the voltage. 
-       	//Why do we have these separate input/output components with their own voltage/freq/currents?
-		input.voltage = 69;
+        //set some default values for the voltage. 
+        input.voltage = 69;
         input.frequency = 60;
         input.current = 60;
-
         output.voltage = input.voltage;
         output.frequency = input.frequency;
         output.current = input.current;
-
-		//Implemented by subclasses
         uniqueStart();
         if (smokeParticles!=null)
         {
@@ -129,15 +123,12 @@ abstract class ElectricalComponentScript : MonoBehaviour, Interactable
     }
 
     //gets the input from the input component, so long as it's not null
-	//this is called per frame; why not just make it part of update loop? Doesn't do anything that crazy
     public void getInput()
     {
-		//link up input from prev node if not done already
         if (inputComponent != null)
              input =  inputComponent.getOutput();
         else
         {
-			//else zero out electricity
             input.voltage = 0;
             input.frequency = 0;
             input.current = 0;

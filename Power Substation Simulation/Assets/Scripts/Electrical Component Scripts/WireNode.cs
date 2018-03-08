@@ -10,11 +10,18 @@ class WireNode : MonoBehaviour
     //a list to hold the nodes that this node will render to.
     public WireNode nextNode;
 
+
+
     public Material wireMaterial;
 
     //some values for the wire we will render, they will have default values but we can change them in the editor,
     public Color wireColor = Color.gray;
     public float wireWidth = .2f;
+
+
+
+
+
 
     protected LineRenderer lineRenderer;
 
@@ -23,6 +30,7 @@ class WireNode : MonoBehaviour
     public static bool renderMesh = false;
 
     protected List<GameObject> joints = new List<GameObject>();
+
 
     public float wireDrag = .1f;
     public float wireMass = .5f;
@@ -92,8 +100,7 @@ class WireNode : MonoBehaviour
             joints.Add(new GameObject());//create the object
 
             //add a rigid body to the new joint and set up some default values.
-            /*
-			Rigidbody rigid = joints[i].AddComponent<Rigidbody>();
+            Rigidbody rigid = joints[i].AddComponent<Rigidbody>();
             if (rigid == null)
             {
                 rigid = GetComponent<Rigidbody>();
@@ -104,7 +111,7 @@ class WireNode : MonoBehaviour
             //add a collider so that the wire will react when affected by forces.
             SphereCollider col = joints[i].AddComponent<SphereCollider>();
             col.radius = wireWidth;
-			*/
+
 
             //set up the joint position.
 			Vector3 jointPosition = transform.position + (positionStep * (i));
@@ -152,7 +159,8 @@ class WireNode : MonoBehaviour
         lineRenderer.SetVertexCount(joints.Count);
     }
 
-    //this function will update the line positions.
+    //this function will udpate the line positions.
+    //this will be called once per update,
     public void updateLinePositions()
     {
         //make sure we have a next node.
