@@ -24,6 +24,10 @@ class CityControllerScript : MonoBehaviour
         lights = GetComponentsInChildren<Light>();
         renderors = GetComponentsInChildren<Renderer>();
 
+        if (inputs.Length ==0)
+        {
+            
+        }
 
     }
 
