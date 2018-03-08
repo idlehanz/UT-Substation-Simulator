@@ -14,8 +14,6 @@ public class ToolScript : MonoBehaviour, Interactable {
     public GameObject parentObject;
     public Rigidbody rigidBody;
 
-	public bool isOilDelivered = false;
-
     // Use this for initialization
     void Start () {
         rigidBody = GetComponent<Rigidbody>();
@@ -32,9 +30,10 @@ public class ToolScript : MonoBehaviour, Interactable {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("u")) {
-			dropTool();
-		}
+	   if (Input.GetKeyDown("u"))
+        {
+            dropTool();
+        }
 	}
 
     void LateUpdate()
@@ -59,23 +58,9 @@ public class ToolScript : MonoBehaviour, Interactable {
         //determines if the object needs to be removed (sent to the lab)
 		if (rigidBody.GetComponent<Renderer>().material.color == Color.black)
         {
-			isOilDelivered = true;
-			Invoke ("displayMsg", 3);
+            rigidBody.gameObject.SetActive(false); //deliver it to the lab
         }
     }
-
-	public void displayMsg() {
-		isOilDelivered = false;
-		rigidBody.gameObject.SetActive (false); // remove bucket of oil from scene
-	}
-
-	public void OnGUI() {
-		if (isOilDelivered == true) {
-			GUI.color = Color.white;
-			GUI.Box (new Rect (20, 20, 360, 30), "You have successfully delivered the oil sample to the lab!");
-		}
-	}
-
     public void pickUpTool(GameObject interactor)
     {
         //bad bad bad, but for some reason if I search for the camera in the player it returns null.
@@ -112,7 +97,7 @@ public class ToolScript : MonoBehaviour, Interactable {
         {
             GUI.color = Color.white;
             GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up " + toolName);
-		} 
+		}
     }
 
     public void interact(GameObject interactor)
