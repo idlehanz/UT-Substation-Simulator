@@ -18,7 +18,7 @@ class FloodLightScript: ElectricalComponentScript
     }
     public override void uniqueUpdate()
     {
-        light.intensity = 2.0f * input.voltage / 19;
+        light.intensity = 2.0f* input.voltage / 19;
     }
     //this function will be overridden by subclasses.
     //as the component gets input it will change the input in a certain manner,
