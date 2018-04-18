@@ -93,12 +93,12 @@ public class SimPause : MonoBehaviour{
 	}
 
 	public void backButton(){
-		canvasresolution.gameObject.SetActive (false);
-		canvasaudio.gameObject.SetActive (false);
-		canvascredits.gameObject.SetActive (false);
-		canvas.gameObject.SetActive (true);
-		//removes all canvases and turns on the main menu canvas
-	}
+        Debug.Log(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
+        GameObject.Find("Camera").GetComponent<MouseLook>().enabled = true;
+        SceneManager.LoadScene("Menu");
+        //removes all canvases and turns on the main menu canvas
+    }
 
 	public void videoSettingsMenu (){
 		Debug.Log ("Video Settings");

@@ -28,4 +28,3 @@ class CityInputScript : ElectricalComponentScript
         output = input;
     }
 }
-

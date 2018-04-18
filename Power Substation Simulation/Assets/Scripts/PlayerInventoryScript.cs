@@ -33,8 +33,7 @@ public class PlayerInventoryScript : MonoBehaviour {
             currentTool = tool;
         else
         {
-            currentTool.dropTool();
-            currentTool = tool;
+            currentTool = null;
         }
     }
 }
