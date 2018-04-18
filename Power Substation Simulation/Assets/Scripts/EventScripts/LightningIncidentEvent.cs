@@ -5,75 +5,92 @@ using System.Text;
 using UnityEngine;
 
 
-public class LightningIncidentEvent : SimulationEvent
+public class LightningIncidentEvent : MonoBehaviour
 {
-	public GameObject SimpleLightningBoltPrefab;
-	public GameObject transformerObject;
-	protected GameObject lightningContainer;
-	LeverScript lever;
+    public GameObject SimpleLightningBoltPrefab;
+    public GameObject transformerObject;
+    protected GameObject lightningContainer;
+    LeverScript lever;
+    public int m_Score;
+    bool eventTriggered;
 
-	public void Start()
-	{
-		canCancel = true;
-		lever = GetComponent<LeverScript>();
-		if (lever == null)
-			Debug.Log("did not find lever");
-		if (SimpleLightningBoltPrefab == null)
-			Debug.Log("ERROR: could not find lightning :-(");
-	}
 
-	public void Update()
-	{
-		if (eventTriggered == true)
-		{
-			if (SimpleLightningBoltPrefab == null)
-			{
-				eventTriggered = false;
-			}
-		}
-	}
+    void SetText()
+    {
+        //Fetch the score from the PlayerPrefs (set these Playerprefs in another script). If no Int of this name exists, the default is 0.
+        m_Score = PlayerPrefs.GetInt("Event", 0);
+    }
 
-	public void OnGUI()
-	{
 
-	}
 
-	public override void beginEvent()
-	{
-		if (eventTriggered == false && SimpleLightningBoltPrefab != null)
-		{
-			eventTriggered = true;
-			StartCoroutine (processTask ());
+    public void Start()
+    {
 
-		}
+        //canCancel = true;
+        eventTriggered = false;
+        lever = GetComponent<LeverScript>();
+        SetText();
 
-	}
+        if (m_Score == 1)
+        {
 
-	IEnumerator processTask() {
-		yield return new WaitForSeconds (1);
-		lightningContainer = Instantiate(SimpleLightningBoltPrefab);
-		TransformerScript tScript = transformerObject.GetComponent<TransformerScript> ();
+            eventTriggered = true;
+            beginEvent();
 
-		tScript.triggerElectricalDamage ();
-		tScript.startSmoking ();
-		Destroy(lightningContainer, 2);
-		yield return new WaitForSeconds (2);
-		eventTriggered = false;
-	}
+        }
+        if (SimpleLightningBoltPrefab == null)
+            Debug.Log("ERROR: could not find lightning :(");
+    }
 
-	public override void endEvent()
-	{
-		if (lightningContainer!=null) {
-			Destroy(lightningContainer);
-		}
-		eventTriggered = false;
-	}
+    public void Update()
+    {
+        if (eventTriggered == true)
+        {
+            if (SimpleLightningBoltPrefab == null)
+            {
+                eventTriggered = false;
+            }
+        }
+    }
 
-	public override void displayMessage()
-	{
-		GUI.color = Color.white;
-		if (!eventTriggered)
-			GUI.Box(new Rect(20, 20, 200, 55), "Press e for lightning.");
-	}
+    public void OnGUI()
+    {
+
+    }
+
+    public void beginEvent()
+    {
+        if (eventTriggered == true && SimpleLightningBoltPrefab != null)
+        {
+            eventTriggered = true;
+            StartCoroutine(processTask());
+
+        }
+
+    }
+
+    IEnumerator processTask()
+    {
+        yield return new WaitForSeconds(1);
+        lightningContainer = Instantiate(SimpleLightningBoltPrefab);
+        TransformerScript tScript = transformerObject.GetComponent<TransformerScript>();
+
+        tScript.triggerElectricalDamage();
+        tScript.startSmoking();
+        Destroy(lightningContainer, 2);
+        yield return new WaitForSeconds(2);
+        eventTriggered = false;
+    }
+
+    public void endEvent()
+    {
+        if (lightningContainer != null)
+        {
+            Destroy(lightningContainer);
+        }
+        eventTriggered = false;
+    }
+
+
 }
 
