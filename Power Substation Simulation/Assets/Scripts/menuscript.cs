@@ -18,7 +18,7 @@ public class menuscript : MonoBehaviour {
     public void selectOilEvent()
     {
         SceneManager.LoadScene("Substation");
-        PlayerPrefs.SetInt("Event", 3);
+        PlayerPrefs.SetInt("Event", 0);
     }
     public void selectUAVEvent()
     {

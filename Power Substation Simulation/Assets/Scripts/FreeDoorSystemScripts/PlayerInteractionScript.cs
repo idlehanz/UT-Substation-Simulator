@@ -56,7 +56,7 @@ class PlayerInteractionScript : MonoBehaviour
         {
 
             GameObject go = hit.transform.gameObject;
-            closestInteractable = getInteractableScriptFromGameObject(go, ray);
+			closestInteractable = getInteractableScriptFromGameObject(go, ray);
 
             
 
@@ -84,7 +84,7 @@ class PlayerInteractionScript : MonoBehaviour
             }
         }
         go.GetComponentInChildren<Interactable>();
-
+		//Debug.Log(interactableScript);
         return interactableScript;
     }
 

@@ -11,10 +11,12 @@ public class ToolScript : MonoBehaviour, Interactable {
     public Vector3 hudPosition = new Vector3(.5f, 1, 1);
 
     public Vector3 hudRotation;
+	//public Vector3 defaultRot = new Vector3(0f, 0f, 0f);
     public GameObject parentObject;
     public Rigidbody rigidBody;
 
 	public bool isOilDelivered = false;
+	public bool syringefull = false;
 
     // Use this for initialization
     void Start () {
@@ -50,6 +52,8 @@ public class ToolScript : MonoBehaviour, Interactable {
 
     public void dropTool()
     {
+		PlayerInventoryScript inventory = parentObject.GetComponent<PlayerInventoryScript>();
+		inventory.currentTool = null;
         parentObject = null;
         transform.parent = null;
         rigidBody.useGravity = true;
@@ -80,14 +84,13 @@ public class ToolScript : MonoBehaviour, Interactable {
     {
         //bad bad bad, but for some reason if I search for the camera in the player it returns null.
         Transform cameraTransform = Camera.main.transform;
-
+		Debug.Log("pickup");
 
 
         rigidBody.detectCollisions = false;
         rigidBody.useGravity = false;
         rigidBody.isKinematic = true;
         parentObject = interactor;
-
         
 
         Vector3 horizontalVelocity = Vector3.Cross(cameraTransform.up, cameraTransform.transform.forward).normalized * hudPosition.x;

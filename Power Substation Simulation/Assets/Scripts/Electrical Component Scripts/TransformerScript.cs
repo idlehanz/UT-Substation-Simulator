@@ -143,6 +143,15 @@ class TransformerScript : ElectricalComponentScript
 
     public override void onInteract(GameObject interactor)
     {
+		if (interactor.tag == "drone" ) {
+			UAVScript uav = interactor.GetComponent<UAVScript>();
+			foreach ( GameObject propellor in uav.propellers ) {
+				RotateProppelers rp = propellor.GetComponent<RotateProppelers>();
+				rp.rotate = false;
+			}
+			startSmoking();
+			shorting = true;
+		}
         if (interactor.tag == "squirrel")
         {
             startSmoking();
@@ -180,7 +189,6 @@ class TransformerScript : ElectricalComponentScript
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
         PlayerInventoryScript inventory = interactor.GetComponent<PlayerInventoryScript>();
-        //draw a box containing relevant information about the transformer.
         if (squirrel != null && squirrel.isPinned())
         {
             GUI.color = Color.white;
