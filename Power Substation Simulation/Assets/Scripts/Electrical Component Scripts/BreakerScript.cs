@@ -36,23 +36,23 @@ class BreakerScript : ElectricalComponentScript
             output.frequency = input.frequency;
 
             //ensure voltage is within 5% of accepted transmissionBus range
-            if ((output.voltage >= 1.05 * transmissionBus) || (output.voltage <= .95 * transmissionBus))
+            if (output.voltage >= 1.05 * transmissionBus)
             {
                 Debug.Log("voltage tripped " + output.voltage);
                 tripBreaker();
             }
 
             //ensure frequency is within .01% of 60 hertz
-            else if ((output.frequency >= 60.0001) || (output.frequency <= 59.9999))
+            else if (output.frequency >= 60.0001)
             {
                 Debug.Log("frequency trip " + output.frequency);
                 tripBreaker();
             }
 
             //ensure current is within threshold
-            else if (output.current > threshhold)
+            else if (output.current > 61)
             {
-                //BreakerTrip ();
+                tripBreaker();
             }
         }
         else
