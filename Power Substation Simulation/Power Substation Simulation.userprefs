@@ -1,16 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OilPortScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TestKit.cs">
     <Files>
-      <File FileName="Assets/OilPortScript.cs" Line="20" Column="54" />
-      <File FileName="Assets/Scripts/UAVScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/OilPortScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UAVScript.cs" Line="40" Column="35" />
       <File FileName="Assets/Scripts/ActorScripts/SquirrelScripts/SquirrelController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Electrical Component Scripts/TransformerScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerInventoryScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TestKit.cs" Line="32" Column="54" />
       <File FileName="Assets/Scripts/ToolScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Interactable.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/FreeDoorSystemScripts/PlayerInteractionScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Electrical Component Scripts/ElectricalComponentScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/UAVCrashMenuTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/menuscript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RotateProppelers.cs" Line="1" Column="1" />
+      <File FileName="../../../../Users/ForrestsMac/trainjamtestbed/Assets/HoverSign.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -119,6 +119,7 @@
      <Compile Include="Assets\Scripts\SimPause.cs" />
      <Compile Include="Assets\Scripts\TestKit.cs" />
      <Compile Include="Assets\Scripts\ToolScript.cs" />
+     <Compile Include="Assets\Scripts\ToolWall.cs" />
      <Compile Include="Assets\Scripts\UAVScript.cs" />
      <Compile Include="Assets\Scripts\WireScript.cs" />
      <Compile Include="Assets\UAVCrashMenuTrigger.cs" />

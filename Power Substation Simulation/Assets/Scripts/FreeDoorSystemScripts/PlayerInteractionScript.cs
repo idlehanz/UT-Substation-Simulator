@@ -54,7 +54,6 @@ class PlayerInteractionScript : MonoBehaviour
         // Cast a ray from the center of screen towards where the player is looking.
         if (Physics.Raycast(ray, out hit, maxInteractionDistance))
         {
-
             GameObject go = hit.transform.gameObject;
 			closestInteractable = getInteractableScriptFromGameObject(go, ray);
 
