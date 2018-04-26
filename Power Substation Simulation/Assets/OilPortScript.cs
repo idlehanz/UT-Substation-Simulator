@@ -29,7 +29,7 @@ public class OilPortScript : MonoBehaviour, Interactable {
 		if ( inventory.currentTool != null ) {
 			if ( inventory.currentTool.toolName == "Syringe" ) {
 				GUI.color = Color.white;
-				GUI.Box(new Rect(20, 20, 200, 55), "Press e to extract oil");
+				GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to extract oil");
 			}
 		}
 	}

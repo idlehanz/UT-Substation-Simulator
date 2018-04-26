@@ -40,12 +40,12 @@ public class TestKit : MonoBehaviour, Interactable {
 		if ( inventory.currentTool != null ) {
 			if ( inventory.currentTool.toolName == "Syringe" && inventory.currentTool.syringefull == true) {
 				GUI.color = Color.white;
-				GUI.Box(new Rect(20, 20, 200, 55), "Press e to send oil to lab.");	
+				GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to send oil to lab.");	
 			}
 		}
 		if ( oilsent ) {
 			GUI.color = Color.white;
-			GUI.Box(new Rect(20, 20, 200, 55), "Oil sent to lab.");	
+			GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Oil sent to lab.");	
 			StartCoroutine(Reset());
 		}
 	}

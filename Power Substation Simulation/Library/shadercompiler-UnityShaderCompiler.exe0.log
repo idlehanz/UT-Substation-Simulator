@@ -1,2 +1,28 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
+Cmd: preprocess
+  error: 1 plat 20 at (366): Unrecognized #pragma directive: Standard
+  insize=7246 outsize=11664 ok=1
+Cmd: preprocess
+  insize=2414 outsize=1077 ok=1
+Cmd: preprocess
+  insize=3433 outsize=2546 ok=1
+Cmd: preprocess
+  insize=10146 outsize=3898 ok=1
+Cmd: preprocess
+  insize=4252 outsize=3549 ok=1
+Cmd: preprocess
+  insize=7128 outsize=2362 ok=1
+Cmd: preprocess
+  insize=8095 outsize=2629 ok=1
+Cmd: preprocess
+  error: 1 plat 20 at (387): Unrecognized #pragma directive: Standard
+  insize=9446 outsize=12427 ok=1
+Cmd: preprocess
+  insize=7161 outsize=2371 ok=1
+Cmd: preprocess
+  insize=3601 outsize=1607 ok=1
+Cmd: preprocess
+  insize=10155 outsize=3907 ok=1
+Cmd: preprocess
+  insize=3642 outsize=1210 ok=1
