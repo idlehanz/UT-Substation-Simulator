@@ -8,6 +8,8 @@ using UnityEngine.Events;
 class ElectricalComponentManualShutOff : SimulationEvent
 {
     public ElectricalComponentScript component;
+    public int transNum;
+
     public void Start()
     {
         canCancel = true;
@@ -30,13 +32,13 @@ class ElectricalComponentManualShutOff : SimulationEvent
         {
 
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press e to enable " + component.tag);
+            GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to enable " + component.tag + " " + transNum);
         }
         else
         {
 
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press e to disable " + component.tag);
+            GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to disable " + component.tag + " " + transNum);
         }
     }
 

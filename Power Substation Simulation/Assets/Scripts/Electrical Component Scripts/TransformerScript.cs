@@ -21,6 +21,7 @@ class TransformerScript : ElectricalComponentScript
 	public Light lt;
 	public float c;
     public float pushBackForce = 150;
+    public bool repair = false;
 
     public GameObject positiveLead;
     public GameObject negativeLead;
@@ -165,7 +166,8 @@ class TransformerScript : ElectricalComponentScript
 			if (squirrel != null && squirrel.isPinned () == false || damaged == true ) {
 				damaged = false;
 				smokeParticles.Stop ();
-			}
+                repair = true;
+            }
             else if (output.voltage != 0)
             {
                 Vector3 velocity = interactor.transform.position - transform.position;
@@ -181,6 +183,9 @@ class TransformerScript : ElectricalComponentScript
                 //change bucket color to black
                 Renderer r = inventory.currentTool.rigidBody.GetComponent<Renderer>();
                 r.material.color = Color.black;
+
+                GUI.color = Color.white;
+                GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Oil has been extracted.");
             }
 
         }
@@ -188,23 +193,28 @@ class TransformerScript : ElectricalComponentScript
 
     public override void onDisplayInteractionMessage(GameObject interactor)
     {
+        if(repair == true)
+        {
+            GUI.color = Color.white;
+            GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Transformer reparied!");
+        }
         PlayerInventoryScript inventory = interactor.GetComponent<PlayerInventoryScript>();
         if (squirrel != null && squirrel.isPinned())
         {
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "remove squirrel");
+            GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "remove squirrel");
         }
         else if (damaged)
         {
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press 'e' to repair");
+            GUI.Box(new Rect((Screen.width/2) -100, 20, 200, 55), "Press 'e' to repair");
         }
         else if (inventory.currentTool != null)
         {
             if (inventory.currentTool.toolName == "bucket" && output.voltage == 0)
             {
                 GUI.color = Color.white;
-                GUI.Box(new Rect(20, 20, 200, 55), "Press e to extract oil");
+                GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to extract oil");
             }
             else
             {

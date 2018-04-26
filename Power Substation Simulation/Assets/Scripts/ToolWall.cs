@@ -32,7 +32,7 @@ public class ToolWall : MonoBehaviour, Interactable {
 		if ( inventory.currentTool != null ) {
 			if ( inventory.currentTool.toolName == "Scraper") {
 				GUI.color = Color.white;
-				GUI.Box(new Rect(20, 20, 200, 55), "Press e to return scraper.");	
+				GUI.Box(new Rect((Screen.width/2) - 100, 20, 200, 55), "Press e to return scraper.");	
 			}
 		}
 	}

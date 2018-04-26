@@ -186,6 +186,6 @@ public class DoorOpening : MonoBehaviour, Interactable
     public void displayInteractionMessage(GameObject interactor)
     {
         GUI.color = Color.white;
-        GUI.Box(new Rect(20, 20, 200, 25), "Press 'E' to open/close");
+        GUI.Box(new Rect((Screen.width/2) - 100, 20, 200, 25), "Press 'E' to open/close");
     }
 }

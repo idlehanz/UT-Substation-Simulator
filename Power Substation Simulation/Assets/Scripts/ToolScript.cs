@@ -76,7 +76,7 @@ public class ToolScript : MonoBehaviour, Interactable {
 	public void OnGUI() {
 		if (isOilDelivered == true) {
 			GUI.color = Color.white;
-			GUI.Box (new Rect (20, 20, 360, 30), "You have successfully delivered the oil sample to the lab!");
+			GUI.Box (new Rect ((Screen.width/2) - 100, 20, 360, 30), "You have successfully delivered the oil sample to the lab!");
 		}
 	}
 
@@ -114,7 +114,7 @@ public class ToolScript : MonoBehaviour, Interactable {
         if (parentObject == null)
         {
             GUI.color = Color.white;
-            GUI.Box(new Rect(20, 20, 200, 55), "Press e to pick up " + toolName);
+            GUI.Box(new Rect((Screen.width / 2) - 100, 20, 200, 55), "Press e to pick up " + toolName);
 		} 
     }
 
